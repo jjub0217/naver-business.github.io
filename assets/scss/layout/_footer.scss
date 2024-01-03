@@ -3,6 +3,7 @@
   background-color: black;
   color: rgb(177, 181, 194);
   padding: 80px 0;
+  min-width: 320px;
 
   @include mobile {
     padding: 24px 0;
@@ -182,7 +183,7 @@
     .link-customer {
       display: flex;
       align-items: center;
-      width: 217px;
+      width: 220px;
       height: 39px;
       padding: 1px 12px 0px 18px;
       margin-top: 10px;
@@ -213,7 +214,7 @@
     cursor: pointer;
 
     @include mobile {
-      width: 113px;
+      width: 115px;
       padding: 1px 12px 0px 12px;
     }
 
@@ -354,6 +355,7 @@
       .link-item {
         ul {
           display: flex;
+          flex-wrap: wrap;
 
           li {
             a {

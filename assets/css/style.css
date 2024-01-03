@@ -802,6 +802,7 @@ fieldset {
   background-color: black;
   color: rgb(177, 181, 194);
   padding: 80px 0;
+  min-width: 320px;
 }
 @media screen and (max-width: 850px) {
   .footer {
@@ -940,7 +941,7 @@ fieldset {
 .footer .top-footer.mo .link-customer {
   display: flex;
   align-items: center;
-  width: 217px;
+  width: 220px;
   height: 39px;
   padding: 1px 12px 0px 18px;
   margin-top: 10px;
@@ -968,7 +969,7 @@ fieldset {
 }
 @media screen and (max-width: 850px) {
   .footer .related {
-    width: 113px;
+    width: 115px;
     padding: 1px 12px 0px 12px;
   }
 }
@@ -1090,6 +1091,7 @@ fieldset {
 }
 .footer .bottom-footer.mo .link-list .link-item ul {
   display: flex;
+  flex-wrap: wrap;
 }
 .footer .bottom-footer.mo .link-list .link-item ul li a {
   font-size: 13px;
@@ -1105,6 +1107,7 @@ fieldset {
 
 .container {
   margin-top: 155px;
+  min-width: 320px;
 }
 @media screen and (max-width: 850px) {
   .container {
@@ -1937,6 +1940,7 @@ fieldset {
 @media screen and (max-width: 850px) {
   .section-banner .image-box.mo {
     display: block;
+    width: 100%;
   }
 }
 .section-banner .image-box.mo img {

@@ -1,5 +1,6 @@
 .container {
   margin-top: 155px;
+  min-width: 320px;
 
   @include mobile {
     margin-top: 90px;
@@ -982,6 +983,7 @@
 
       @include mobile {
         display: block;
+        width: 100%;
       }
 
       img {
