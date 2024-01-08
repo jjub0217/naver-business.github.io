@@ -1,1 +1,1 @@
-# naver-business.github.io
+# naver-business
