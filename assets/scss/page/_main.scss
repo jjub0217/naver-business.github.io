@@ -864,9 +864,7 @@
   }
 
   .swiper {
-    @include mobile {
-      // overflow: initial;
-    }
+    @include mobile {}
 
     .swiper-slide {
       @include mobile {
