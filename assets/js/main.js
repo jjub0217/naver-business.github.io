@@ -293,10 +293,8 @@ function thisWeekList() {
   fetch('./data.json')
   .then(res => res.json())
   .then(json => {
-    data = json.thisWeek
-
+    let data = json.thisWeek
     let htmlPc = ``
-    let htmlMo = ``
     data.forEach(element => {
       htmlPc += 
       `<li class="swiper-slide">
@@ -335,27 +333,10 @@ function thisWeekList() {
         </div>
       </li>`
     })
-    // data.forEach(element => {
-    //   console.log(element);
-    //   htmlMo +=   
-    //   `<li class="swiper-slide">
-    //     <a href="" class="link-slide">
-    //       <span class="blind">링크</span>
-    //     </a>
-    //     <div class="image-box">
-    //       <img src=${element.imageUrl} alt="">
-    //       <p class="save-text">
-    //         나중에 볼 교육으로 저장 되었습니다.
-    //       </p>
-    //     </div>
-    //     <button class="bookmark" aria-label="북마크"></button>
-    //   </li>`
-    // })
     $(".section-thisWeek .pc .swiper-wrapper").html(htmlPc);
     hideLoading()
-    // $(".section-thisWeek .mo .swiper-wrapper").html(htmlMo);
   })
-   .catch(error => {
+  .catch(error => {
     displayError(error)
   })
 }
@@ -401,8 +382,7 @@ function lineUpList() {
   fetch('./data.json')
   .then(res => res.json())
   .then(json => {
-    data = json.lineUp
-
+    let data = json.lineUp
     let html = ``
     data.forEach(element => {
       html += 
@@ -454,9 +434,9 @@ function lineUpList() {
  * 
 */
 $(document).on("click",".more-btn",(function(){
-  console.log('eee');
   $(this).addClass('active').siblings().addClass('active')
 }))
+
 /** 
  *  @lineUp섹션내부툴팁기능
  * 
@@ -508,8 +488,7 @@ function newEducationList() {
   fetch('./data.json')
   .then(res => res.json())
   .then(json => {
-    data = json.newEducation
-
+    let data = json.newEducation
     let htmlPc = ``
     data.forEach(element => {
       htmlPc += 
@@ -550,25 +529,8 @@ function newEducationList() {
         </div>
       </li>`
     })
-    // data.forEach(element => {
-    //   console.log(element);
-    //   htmlMo +=   
-    //   `<li class="swiper-slide">
-    //     <a href="" class="link-slide">
-    //      <span class="blind">링크</span>
-    //     </a>
-    //     <div class="image-box">
-    //       <img src=${element.imageUrl} alt="">
-    //       <p class="save-text">
-    //         나중에 볼 교육으로 저장 되었습니다.
-    //       </p>
-    //     </div>
-    //     <button class="bookmark" aria-label="북마크"></button>
-    //   </li>`
-    // })
     $(".section-newEducation .pc .swiper-wrapper").html(htmlPc);
     hideLoading()
-    // $(".section-thisWeek .mo .swiper-wrapper").html(htmlMo);
   })
   .catch(error => {
     displayError(error)
@@ -588,8 +550,7 @@ function noticeList() {
   fetch('./data.json')
   .then(res => res.json())
   .then(json => {
-    data = json.notice
-
+    let data = json.notice
     let html = ``
     data.forEach(element => {
       html += 
