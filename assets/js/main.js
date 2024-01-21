@@ -1,15 +1,10 @@
 
-/** 
- *  @이게뭐더라
- * 
-*/
-// $(window).trigger('click')
 
 /** 
  *  @로더표시
  * 
 */
-function displayLoading(){
+const displayLoading = () => {
   console.log('로딩중');
   $(".indicator").addClass("display")
   setTimeout(()=> {
@@ -17,33 +12,37 @@ function displayLoading(){
   },2000)
 }
 
+
 /** 
  *  @로더표시해제
  * 
 */
-function hideLoading(){
+const hideLoading  = () => {
   console.log('로딩 끝');
   $(".indicator").removeClass("display")
 }
+
 
 /** 
  *  @애러표시
  * 
 */
-function displayError(error){
+const displayError  = () =>{
   console.log(error);
   console.log('에러발생');
   $(".error").addClass("display")
 }
 
+
 /** 
  *  @애러표시해제
  * 
 */
-function hideError(){
+const hideError = () => {
   console.log('에러 초기화');
   $(".error").removeClass("display")
 }
+
 
 /** 
  *  @floating메뉴내부의swiper기능
@@ -85,17 +84,7 @@ $('.floating-menu .swiper-slide').click(function(){
 
 
 
-/** 
- *  @윈도우가로드되면json데이터fetch해오는함수들실행
- * 
-*/
-$(window).on("load",function(){
-  onlineEducationList()
-  thisWeekList()
-  lineUpList()
-  newEducationList()
-  noticeList()
-})
+
 
 
 /** 
@@ -134,8 +123,8 @@ const onlineEducationSlide = new Swiper('.section-onlineEducation .swiper',{
  *  @onlineEducation섹션내용불러오는fetch함수
  * 
 */
-function onlineEducationList(tabId ="#online1") {
 
+const onlineEducationList = (  tabId ="#online1") => {
   displayLoading()
   hideError()
   fetch('./data.json')
@@ -206,7 +195,12 @@ function onlineEducationList(tabId ="#online1") {
   .catch(error => {
     displayError(error)
   })
+
 }
+// function onlineEducationList(tabId ="#online1") {
+
+ 
+// }
 /** 
  *  @onlineEducation섹션내부의북마크기능
  * 
@@ -242,27 +236,10 @@ const thisWeekSlidePc = new Swiper('.section-thisWeek .swiper.pc',{
     spaceBetween: 24,
 })
 /** 
- *  @thisWeek섹션내부의모바일버전swiper기능
- * 
-*/
-const thisWeekSlideMo = new Swiper('.section-thisWeek .swiper.mo',{
-  slidesPerView: 'auto',
-  centeredSlides: true,
-  loop: true,
-  spaceBetween: 16,
-  initialSlide: 0,
-  clickable: false,
-  on: {
-    transitionEnd: function(){
-      anchor(this)
-    }
-  },
-})
-/** 
  *  @thisWeek섹션내부고정텍스트이동기능
  * 
 */
-function anchor(swipe) {
+const anchor = (swipe)  => {
   const centerIndex = swipe.realIndex
   const section = swipe.el.parentNode.parentNode.className
   switch(centerIndex){
@@ -283,11 +260,29 @@ function anchor(swipe) {
   }
 }
 /** 
+ *  @thisWeek섹션내부의모바일버전swiper기능
+ * 
+*/
+const thisWeekSlideMo = new Swiper('.section-thisWeek .swiper.mo',{
+  slidesPerView: 'auto',
+  centeredSlides: true,
+  loop: true,
+  spaceBetween: 16,
+  initialSlide: 0,
+  clickable: false,
+  on: {
+    transitionEnd: function(){
+      anchor(this)
+    }
+  },
+})
+
+
+/** 
  *  @thisWeek섹션내용불러오는fetch함수(모바일버전fetch못함)
  * 
 */
-function thisWeekList() {
-
+const thisWeekList = () => {
   displayLoading()
   hideError()
   fetch('./data.json')
@@ -343,6 +338,7 @@ function thisWeekList() {
 
 
 
+
 /** 
  *  @lineUp섹션
  * 
@@ -375,8 +371,7 @@ const lineUpSlide = new Swiper('.section-lineUp .swiper',{
  *  @lineUp섹션내용불러오는fetch함수
  * 
 */
-function lineUpList() {
-
+const  lineUpList = () => {
   displayLoading()
   hideError()
   fetch('./data.json')
@@ -428,7 +423,8 @@ function lineUpList() {
   .catch(error => {
     displayError(error)
   })
-}
+} 
+
 /** 
  *  @lineUp섹션내부더보기기능
  * 
@@ -481,8 +477,7 @@ const newEducationSlideMo = new Swiper('.section-newEducation .swiper.mo',{
  *  @newEducation섹션내용불러오는fetch함(모바일버전fetch못함)
  * 
 */
-function newEducationList() {
-
+const newEducationList = () => {
   displayLoading()
   hideError()
   fetch('./data.json')
@@ -543,8 +538,7 @@ function newEducationList() {
  *  @notice섹션내용불러오는fetch함수
  * 
 */
-function noticeList() {
-
+const noticeList = () => {
   displayLoading()
   hideError()
   fetch('./data.json')
@@ -576,6 +570,7 @@ function noticeList() {
     displayError(error)
   })
 }
+
 
 
 
@@ -632,6 +627,15 @@ $(".burgerBtn").click(function(){
   }
 })
 
+/**
+ * 
+ * 
+ */
+$(".profile-image").hover(function(){
+    $(this).attr('aria-haspopup', 'true' )
+},function(){
+ $(this).attr('aria-haspopup', 'false' )
+})
 
 /** 
  *  @모바일버전gnb에서top영역서브리스트나타나는기능
@@ -681,4 +685,16 @@ $('.info').click(function (e){
 $(".scrollTop").click(function(){
   $('html, body').animate({scrollTop: 0}, 800);
   return false;
+})
+
+/** 
+ *  @윈도우가로드되면json데이터fetch해오는함수들실행
+ * 
+*/
+$(window).on("load",function(){
+  onlineEducationList()
+  thisWeekList()
+  lineUpList()
+  newEducationList()
+  noticeList()
 })

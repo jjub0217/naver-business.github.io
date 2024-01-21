@@ -21,21 +21,11 @@
 </head>
 
 <body>
-  <!-- <div id="skip-header">
-    <a href="#main">본문내용</a>
-  </div> -->
+
   <div class="indicator">
     <div class="loader">
-      <!-- <div></div>
-      <div></div>
-      <div></div> -->
     </div>
   </div>
-  <!-- <div class="loader">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div> -->
   <div class="error">
     문제 발생! 다시 시도하거나 관리자에게 문의하세요.
   </div>
@@ -156,9 +146,9 @@
           <a href="">공지사항</a>
           <button class="search-btn" aria-label="검색">
           </button>
-          <button class="profile-image" aria-label="프로필이미지">
+          <button class="profile-image" aria-label="프로필이미지" aria-haspopup="false" aria-controls="floating-profile">
           </button>
-          <div class="floating-profile">
+          <div class="floating-profile" id="floating-profile">
             <div class="information">
               <div class="profile-image">
                 <span class="blind">프로필이미지</span>
@@ -191,8 +181,8 @@
               </p>
             </div>
           </div>
-          <button class="burgerBtn" aria-expanded="false" aria-haspopup="profile-information"
-            aria-label="메뉴열기"></button>
+          <button class="burgerBtn" aria-expanded="false" aria-haspopup="menu" aria-label="메뉴열기"
+            aria-controls="mo_gnb"></button>
         </div>
       </div>
       <div class="floating-menu">
@@ -963,7 +953,7 @@
         </div>
       </div>
     </footer>
-    <div class="mo_gnb_inner">
+    <div class="mo_gnb_inner" id="mo_gnb">
       <ul class="nav-list top">
         <li class="nav-item">
           <a href="#" class="nav-item_title">

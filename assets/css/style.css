@@ -227,6 +227,16 @@ fieldset {
     display: none;
   }
 }
+@keyframes loader-sync {
+  0%, 80%, 100% {
+    box-shadow: 0px 0px;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0px -2em;
+    height: 5em;
+  }
+}
 /* Custom, iPhone Retina : 320px ~ */
 /* Extra Small Devices, Phones : 480px ~ */
 /* Small Devices, Tablets : 768px ~ */
@@ -239,16 +249,6 @@ fieldset {
 /* Small Devices, Tablets : ~ 768px */
 /* Extra Small Devices, Phones : ~ 480px */
 /* Custom, iPhone Retina : ~ 320px */
-@keyframes loader-sync {
-  0%, 80%, 100% {
-    box-shadow: 0px 0px;
-    height: 4em;
-  }
-  40% {
-    box-shadow: 0px -2em;
-    height: 5em;
-  }
-}
 .header {
   position: fixed;
   top: 0px;
