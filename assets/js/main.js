@@ -622,8 +622,10 @@ $(".burgerBtn").click(function(){
   $(".header").toggleClass("mo_gnb-on")
   if ($(".burgerBtn").attr('aria-expanded') === 'false') {
     $('.burgerBtn').attr('aria-expanded', 'true' )
+    $('.burgerBtn').attr('aria-selected', 'true' )
   } else {
     $('.burgerBtn').attr('aria-expanded', 'false' )
+    $('.burgerBtn').attr('aria-selected', 'false' )
   }
 })
 

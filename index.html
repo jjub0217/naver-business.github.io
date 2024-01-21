@@ -181,7 +181,7 @@
               </p>
             </div>
           </div>
-          <button class="burgerBtn" aria-expanded="false" aria-haspopup="menu" aria-label="메뉴열기"
+          <button class="burgerBtn" aria-expanded="false" aria-haspopup="menu" aria-label="메뉴열기" aria-selected="false"
             aria-controls="mo_gnb"></button>
         </div>
       </div>
@@ -214,7 +214,8 @@
                 fill="#7c8296"></path>
             </svg>
             <label for="search" class="blind">검색어입력</label>
-            <input type="text" placeholder="교육명, 강사명, 태그를 입력해주세요." value="" id="search">
+            <input type="text" placeholder="교육명, 강사명, 태그를 입력해주세요." value="" id="search" aria-live="assertive"
+              aria-atomic="false">
           </div>
           <button class="close-btn">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -453,9 +454,11 @@
       <section class="section-lineUp">
         <div class="inner">
           <h2 class="title">스테디셀러 라인업
-            <span class="tooltip">
+            <span class="tooltip" aria-describedby="tooltip">
               <span class="tip">
-                <span class="blind">툴팁내용</span>
+                <span class="blind" id="tooltip">비즈니스 스쿨에서 분야별로 꾸준하게 높은 학습률을 기록하는 교육 코스를 지금 만나보세요. 현재까지 누적된 높은 수강 건수와
+                  만족도를 입증하는 교육
+                  코스를 추천합니다. </span>
               </span>
             </span>
           </h2>
