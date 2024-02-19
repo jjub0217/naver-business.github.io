@@ -18,7 +18,7 @@
 - Open-WAX 결과 : error 0
 <img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/a79365e8-ad75-404b-a02d-a0157718b17a" width=500> <br>
 - WAVE 결과: error 0
-<img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/10c5a0c3-358a-4556-b26c-7401a134d7ee" width=500>
+<img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/482cfff8-9844-40af-bd96-88a07dbf7f13" width=500>
 
 
 ## 기술 스택
@@ -42,6 +42,8 @@
 - 웹접근성을 더욱 지키기 위해 텍스트와 배경간의 명도 대비, 고대비 점수를 높이기
 - section-onlineEducation 영역의 tab item 을 클릭시에, floating-menu의 item의 텍스트 컬러도 바뀌는걸 놓쳐서 해당 디자인을 업데이트 하고 싶었음
 - 어떠한 교육을 북마크 아이콘을 클릭하여 저장하면, 서버에 저장되어있다가, 저장했던 교육은 북마크 다시 클릭했을때는 북마크 저장해제 기능을 구현하고 싶었다.(서버가 없으므로 구현 불가.)
+
+
 ## 연락처
 프로젝트에 관한 문의나 버그 리포트는 아래 이메일로 연락주세요.
 이메일: devel.jjub@gmail.com
