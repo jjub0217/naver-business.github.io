@@ -180,7 +180,9 @@ const onlineEducationList = (  tabId ="#online1") => {
       })
       html1_2 = 
       `<li class="swiper-slide link-more">
-        <a href="" class="link-slide"></a>
+        <a href="" class="link-slide">
+          <span class="blind">링크</span>
+        </a>
         <div class="slide">
           <p>
             <span>${item.course}</span> 코스교육<br>
