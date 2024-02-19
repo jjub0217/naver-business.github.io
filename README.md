@@ -39,7 +39,6 @@
 | GSAP      | Standard License, Club GreenSock | 3.12.2ver 2023 GreenSock LLC              |
 
 ## 개선점
-- 웹접근성을 더욱 지키기 위해 텍스트와 배경간의 명도 대비, 고대비 점수를 높이기
 - section-onlineEducation 영역의 tab item 을 클릭시에, floating-menu의 item의 텍스트 컬러도 바뀌는걸 놓쳐서 해당 디자인을 업데이트 하고 싶었음
 - 어떠한 교육을 북마크 아이콘을 클릭하여 저장하면, 서버에 저장되어있다가, 저장했던 교육은 북마크 다시 클릭했을때는 북마크 저장해제 기능을 구현하고 싶었다.(서버가 없으므로 구현 불가.)
 
