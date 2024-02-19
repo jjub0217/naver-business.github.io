@@ -416,16 +416,14 @@
 
   .close-btn {
     position: absolute;
-    top: 22px;
+    top: 20px;
     right: 0px;
+    font-size: 17px;
+    font-weight: 600;
     cursor: pointer;
 
     @include mobile {
       right: 15px;
-
-      &::before {
-        content: "취소";
-      }
     }
 
     svg {
