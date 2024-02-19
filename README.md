@@ -12,12 +12,11 @@
 
 ## 프로젝트 웹표준(W3C의 Markup Validation Service)
 결과 : 0개 <br>
-<img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/fc0cf56d-1e47-491d-8a9e-6ce37c63588d" width=500> <br>
-
+<img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/cd9b2bd6-faf1-47ac-9faf-2b1154319317" width=500> <br>
 
 ## 프로젝트 웹접근성
 - Open-WAX 결과 : error 0
-<img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/2a1b47af-ad13-431d-8ad4-0a6b4cefb43a" width=500> <br>
+<img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/faf5e081-d53d-4a50-85e5-308e58742b9b" width=500> <br>
 - WAVE 결과: error 0
 <img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/10c5a0c3-358a-4556-b26c-7401a134d7ee" width=500>
 

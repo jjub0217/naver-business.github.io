@@ -710,6 +710,14 @@ fieldset {
   .mo_gnb_inner .nav-list:not(:nth-child(1)) .sub-item a::after {
     display: none;
   }
+  .mo_gnb_inner .nav-list:not(:nth-child(3), :nth-child(4)) .nav-item_title::after {
+    content: "";
+    display: block;
+    background: url("../images/sprite.svg") no-repeat;
+    background-position: 95.5921402018% 86.3527533919%;
+    width: 39px;
+    height: 38px;
+  }
   .mo_gnb_inner .nav-item {
     font-size: 18px;
     line-height: 22px;
@@ -725,14 +733,6 @@ fieldset {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  .mo_gnb_inner .nav-item_title::after {
-    content: "";
-    display: block;
-    background: url("../images/sprite.svg") no-repeat;
-    background-position: 95.5921402018% 86.3527533919%;
-    width: 39px;
-    height: 38px;
   }
   .mo_gnb_inner .nav-item_title.on::after {
     transform: rotate(180deg);
