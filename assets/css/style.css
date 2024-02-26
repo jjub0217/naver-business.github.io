@@ -195,8 +195,7 @@ fieldset {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 2;
-  height: 100px;
+  z-index: 11;
 }
 #skip-header a {
   position: absolute;
@@ -209,6 +208,10 @@ fieldset {
   align-items: center;
   transform: translateY(-100%);
   background: #ccc;
+  color: #000;
+}
+#skip-header a:focus, #skip-header a:active {
+  transform: translateY(0);
 }
 
 .scrollTop {

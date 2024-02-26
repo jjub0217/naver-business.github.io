@@ -92,8 +92,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 2;
-  height: 100px;
+  z-index: 11;
 
   a {
     position: absolute;
@@ -106,6 +105,12 @@
     align-items: center;
     transform: translateY(-100%);
     background: #ccc;
+    color: #000;
+
+    &:focus,
+    &:active {
+      transform: translateY(0);
+    }
   }
 }
 
