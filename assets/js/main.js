@@ -48,7 +48,7 @@ const hideError = () => {
  *  @floating메뉴내부의swiper기능
  * 
 */
-const menuSlide = new Swiper('.floating-menu .swiper',{
+const menuSlide = new Swiper('.floating_menu .swiper',{
   slidesPerView:"auto",
   spaceBetween: 16,
   cssMode: true,
@@ -67,9 +67,9 @@ const menuSlide = new Swiper('.floating-menu .swiper',{
 $(window).scroll(function(){
   let curr = $(this).scrollTop()
   if(curr >= 1){
-    $('.floating-menu').addClass('on')
+    $('.floating_menu').addClass('on')
   }else{
-    $('.floating-menu').removeClass('on')
+    $('.floating_menu').removeClass('on')
     }
   }
 )
@@ -78,7 +78,7 @@ $(window).scroll(function(){
  *  @floating메뉴내부의슬라이드클릭기능
  * 
 */
-$('.floating-menu .swiper-slide').click(function(){
+$('.floating_menu .swiper-slide').click(function(){
   $(this).addClass('on').siblings().removeClass('on')
 })
 
@@ -96,17 +96,17 @@ $('.floating-menu .swiper-slide').click(function(){
  * @onlineEducation섹션내부의swiper기능(클릭커블펄스했는데?)
  * 
 */
-const onlineEducationSlide = new Swiper('.section-onlineEducation .swiper',{
+const onlineEducationSlide = new Swiper('.section_online_education .swiper',{
   slidesPerView:3,
   spaceBetween: 16,
   clickable: false,
   navigation: {
-    nextEl: ".section-onlineEducation .next",
-    prevEl: ".section-onlineEducation .prev",
+    nextEl: ".section_online_education .next",
+    prevEl: ".section_online_education .prev",
   },
   on: {
     activeIndexChange: function(){
-      $(".section-onlineEducation .prev").addClass("on")
+      $(".section_online_education .prev").addClass("on")
     }
   },
   breakpoints: {
@@ -124,63 +124,57 @@ const onlineEducationSlide = new Swiper('.section-onlineEducation .swiper',{
  * 
 */
 
-const onlineEducationList = (  tabId ="#online1") => {
-  displayLoading()
-  hideError()
-  fetch('./data.json')
-  .then(res => res.json())
-  .then(json => {
-    data = json.onlineEducation
-    let html1 = ``
-    let html1_2 = ``
+const onlineEducationList = (tabId = "#online_ai") => {
+  displayLoading();
+  hideError();
+  fetch("./data.json")
+    .then((res) => res.json())
+    .then((json) => {
+      data = json.onlineEducation;
+      let html1 = ``;
+      let html1_2 = ``;
 
-    sortData = data.filter(item => {
-      // item의 id 가 tabId 랑 같으면 1, 안 같으면 0
-      return item.id.indexOf(tabId) >= 0
-    })
-    sortData.forEach(item => {
-      item.contents.forEach(content => {
-        html1+=
-        `<li class="swiper-slide"> 
-          <a href="" class="link-slide">
+      sortData = data.filter((item) => {
+        // item의 id 가 tabId 랑 같으면 1, 안 같으면 0
+        return item.id.indexOf(tabId) >= 0;
+      });
+      sortData.forEach((item) => {
+        item.contents.forEach((content) => {
+          html1 += `<li class="swiper-slide"> 
+          <a href="" class="link_slide">
             <span class="blind">링크</span>
           </a>
           <div class="slide">
-            <div class="image-box">
+            <div class="image_box">
               <img src=${content.imageUrl} alt="">
-              <p class="save-text">
+              <p class="save_text">
                 나중에 볼 교육으로 저장 되었습니다.
               </p>
             </div>
-            <div class="text-box">
+            <div class="text_box">
               <strong>${content.textStrong}</strong>
               <div class="bottom">
-                <ul class="tag-list">`
-                  content.tags.forEach(tag => {
-                  html1 += 
-                  `<li class="tag">${tag}</li>`
-                  })
-                  html1 += 
-                `</ul>
+                <ul class="tag_list">`;
+          content.tags.forEach((tag) => {
+            html1 += `<li class="tag">${tag}</li>`;
+          });
+          html1 += `</ul>
                 <p class="desc">
                   ${content.desc}
                 </p>
-                <p class="short-desc">`
-                  content.shortDesc.forEach(text => {
-                  html1 += 
-                  `<span>${text}</span>`
-                  })
-                  html1 +=
-                `</p>
+                <p class="short_desc">`;
+          content.shortDesc.forEach((text) => {
+            html1 += `<span>${text}</span>`;
+          });
+          html1 += `</p>
               </div>
             </div>
             <button class="bookmark" aria-label="북마크"></button>
           </div>
-        </li>`
-      })
-      html1_2 = 
-      `<li class="swiper-slide link-more">
-         <a href="" class="link-slide">
+        </li>`;
+        });
+        html1_2 = `<li class="swiper-slide link_more">
+         <a href="" class="link_slide">
           <span class="blind">링크</span>
          </a>
         <div class="slide">
@@ -189,33 +183,29 @@ const onlineEducationList = (  tabId ="#online1") => {
             ${item.total}개 전체보기
           </p>
         </div>
-      </li>`
+      </li>`;
+      });
+      $(".section_online_education .swiper-wrapper").html(html1 + html1_2);
+      hideLoading();
     })
-    $(".section-onlineEducation .swiper-wrapper").html(html1+html1_2);
-    hideLoading()
-  })
-  .catch(error => {
-    displayError(error)
-  })
+    .catch((error) => {
+      displayError(error);
+    });
+};
 
-}
-// function onlineEducationList(tabId ="#online1") {
-
- 
-// }
 /** 
  *  @onlineEducation섹션내부의북마크기능
  * 
 */
 $(document).on("click", ".bookmark",(function(){
   $(this).toggleClass("save")
-  $(this).siblings(".image-box").addClass("on")
+  $(this).siblings(".image_box").addClass("on")
 }))
 /** 
  *  @onlineEducation섹션탭이동
  * 
 */
-$('.section-onlineEducation .tab-item').click(function(e){
+$('.section_online_education .tab_item').click(function(e){
   if(e.target.parentNode.id !== "all"){
     e.preventDefault();
   }
@@ -233,7 +223,7 @@ $('.section-onlineEducation .tab-item').click(function(e){
  *  @thisWeek섹션내부의PC버전swiper기능
  * 
 */
-const thisWeekSlidePc = new Swiper('.section-thisWeek .swiper.pc',{
+const thisWeekSlidePc = new Swiper('.section_this_week .swiper.pc',{
     slidesPerView: 4,
     spaceBetween: 24,
 })
@@ -246,16 +236,16 @@ const anchor = (swipe)  => {
   const section = swipe.el.parentNode.parentNode.className
   switch(centerIndex){
     case 0:
-      $(`.${section} .text-box-mo#${section}-1`).addClass("on").siblings().removeClass("on")
+      $(`.${section} .text_box_mo#${section}-1`).addClass("on").siblings().removeClass("on")
       break;
     case 1:
-      $(`.${section} .text-box-mo#${section}-2`).toggleClass("on").siblings().removeClass("on")
+      $(`.${section} .text_box_mo#${section}-2`).toggleClass("on").siblings().removeClass("on")
       break;
     case 2:
-      $(`.${section} .text-box-mo#${section}-3`).toggleClass("on").siblings().removeClass("on")
+      $(`.${section} .text_box_mo#${section}-3`).toggleClass("on").siblings().removeClass("on")
       break;
     case 3:
-      $(`.${section} .text-box-mo#${section}-4`).toggleClass("on").siblings().removeClass("on")
+      $(`.${section} .text_box_mo#${section}-4`).toggleClass("on").siblings().removeClass("on")
       break;
     default:
     return
@@ -265,7 +255,7 @@ const anchor = (swipe)  => {
  *  @thisWeek섹션내부의모바일버전swiper기능
  * 
 */
-const thisWeekSlideMo = new Swiper('.section-thisWeek .swiper.mo',{
+const thisWeekSlideMo = new Swiper('.section_this_week .swiper.mo',{
   slidesPerView: 'auto',
   centeredSlides: true,
   loop: true,
@@ -295,21 +285,21 @@ const thisWeekList = () => {
     data.forEach(element => {
       htmlPc += 
       `<li class="swiper-slide">
-        <a href="" class="link-slide">
+        <a href="" class="link_slide">
           <span class="blind">링크</span>
         </a>
         <div class="slide">
-          <div class="image-box">
+          <div class="image_box">
             <img src=${element.imageUrl} alt="">
-              <p class="save-text">
+              <p class="save_text">
                 나중에 볼 교육으로 저장 되었습니다.
               </p>
           </div>
-          <div class="text-box">
+          <div class="text_box">
             <strong>${element.textStrong}
             </strong>
             <div class="bottom">
-              <ul class="tag-list">`
+              <ul class="tag_list">`
                 element.tags.forEach(tag => {
                 htmlPc += 
                 `<li class="tag">${tag}
@@ -318,7 +308,7 @@ const thisWeekList = () => {
                 htmlPc += 
               `</ul>
               <p class="desc">${element.desc}</p>
-              <p class="short-desc">
+              <p class="short_desc">
                 <span>${element.manager}</span>
                 <span>${element.running}</span>
                 <span>${element.total}개 강의</span>
@@ -330,7 +320,7 @@ const thisWeekList = () => {
         </div>
       </li>`
     })
-    $(".section-thisWeek .pc .swiper-wrapper").html(htmlPc);
+    $(".section_this_week .pc .swiper-wrapper").html(htmlPc);
     hideLoading()
   })
   .catch(error => {
@@ -349,7 +339,7 @@ const thisWeekList = () => {
  *  @lineUp섹션내부의swiper기능
  * 
 */
-const lineUpSlide = new Swiper('.section-lineUp .swiper',{
+const lineUpSlide = new Swiper('.section_line_up .swiper',{
   slidesPerView: 3,
   spaceBetween: 16,
   clickable: false,
@@ -360,12 +350,12 @@ const lineUpSlide = new Swiper('.section-lineUp .swiper',{
     },
   },
     navigation: {
-    nextEl: ".section-lineUp .next",
-    prevEl: ".section-lineUp .prev",
+    nextEl: ".section_line_up .next",
+    prevEl: ".section_line_up .prev",
   },
   on: {
     activeIndexChange: function(){
-      $(".section-lineUp .prev").addClass("on")
+      $(".section_line_up .prev").addClass("on")
     }
   }
 })
@@ -384,30 +374,30 @@ const  lineUpList = () => {
     data.forEach(element => {
       html += 
       `<li class="swiper-slide">
-        <a href="" class="link-slide">
+        <a href="" class="link_slide">
           <span class="blind">링크</span>
         </a>
         <div class="slide">
-          <div class="image-box">
+          <div class="image_box">
             <img src=${element.imageUrl} alt="">
-            <p class="save-text">
+            <p class="save_text">
               나중에 볼 교육으로 저장 되었습니다.
             </p>
           </div>
-          <div class="text-box">
+          <div class="text_box">
             <strong>${element.textStrong}</strong>
-            <p class="short-desc">
+            <p class="short_desc">
               <span>${element.manager}</span>
               <span>${element.running}</span>
               <span>${element.total}개 강의</span>
             </p>
-            <button class="more-btn">더보기</button>
-            <div class="more-area">`
+            <button class="more_btn">더보기</button>
+            <div class="more_area">`
               element.paragraph.forEach(content => {
                 html +=
                 `<div class="paragraph">
-                  <p class="more-title">${content.title}</p>
-                  <p class="more-content">
+                  <p class="more_title">${content.title}</p>
+                  <p class="more_content">
                   ${content.moreContent}
                   </p>
                 </div>`
@@ -419,7 +409,7 @@ const  lineUpList = () => {
         </div>
       </li>`
     })
-    $(".section-lineUp .swiper-wrapper").html(html);
+    $(".section_line_up .swiper-wrapper").html(html);
     hideLoading()
   })
   .catch(error => {
@@ -431,7 +421,7 @@ const  lineUpList = () => {
  *  @lineUp섹션내부더보기기능
  * 
 */
-$(document).on("click",".more-btn",(function(){
+$(document).on("click",".more_btn",(function(){
   $(this).addClass('active').siblings().addClass('active')
 }))
 
@@ -453,7 +443,7 @@ $(".tooltip").click(function(){
  *  @newEducation섹션내부의PC버전swiper기능
  * 
 */
-const newEducationSlidePc = new Swiper('.section-newEducation .swiper.pc',{
+const newEducationSlidePc = new Swiper('.section_new_education .swiper.pc',{
   slidesPerView: 4,
   spaceBetween: 24,
   clickable: false,
@@ -462,7 +452,7 @@ const newEducationSlidePc = new Swiper('.section-newEducation .swiper.pc',{
  *  @newEducation섹션내부의모바일버전swiper기능
  * 
 */
-const newEducationSlideMo = new Swiper('.section-newEducation .swiper.mo',{
+const newEducationSlideMo = new Swiper('.section_new_education .swiper.mo',{
   slidesPerView: 'auto',
   centeredSlides: true,
   loop: true,
@@ -490,21 +480,21 @@ const newEducationList = () => {
     data.forEach(element => {
       htmlPc += 
       `<li class="swiper-slide">
-        <a href="" class="link-slide">
+        <a href="" class="link_slide">
           <span class="blind">링크</span>
         </a>
         <div class="slide">
-          <div class="image-box">
+          <div class="image_box">
             <img src=${element.imageUrl} alt="">
-              <p class="save-text">
+              <p class="save_text">
                 나중에 볼 교육으로 저장 되었습니다.
               </p>
           </div>
-          <div class="text-box">
+          <div class="text_box">
             <strong>${element.textStrong}
             </strong>
             <div class="bottom">
-              <ul class="tag-list">`
+              <ul class="tag_list">`
                 element.tags.forEach(tag => {
                 htmlPc += 
                 `<li class="tag">${tag}
@@ -515,7 +505,7 @@ const newEducationList = () => {
               <p class="desc">
               ${element.desc}
               </p>
-              <p class="short-desc">
+              <p class="short_desc">
                 <span>${element.manager}</span>
                 <span>${element.running}</span>
                 <span>${element.total}개 강의</span>
@@ -526,7 +516,7 @@ const newEducationList = () => {
         </div>
       </li>`
     })
-    $(".section-newEducation .pc .swiper-wrapper").html(htmlPc);
+    $(".section_new_education .pc .swiper-wrapper").html(htmlPc);
     hideLoading()
   })
   .catch(error => {
@@ -550,9 +540,9 @@ const noticeList = () => {
     let html = ``
     data.forEach(element => {
       html += 
-      `<li class="notice-item">
+      `<li class="notice_item">
           <a href="">
-            <ul class="tag-list">`
+            <ul class="tag_list">`
               element.tags.forEach(tag => {
                 html += 
                 `<li class="tag">${tag}
@@ -565,7 +555,7 @@ const noticeList = () => {
           </a>
         </li>`
     })
-    $(".section-notice .notice-list").html(html);
+    $(".section_notice .notice_list").html(html);
     hideLoading()
   })
   .catch(error => {
@@ -582,12 +572,12 @@ const noticeList = () => {
 */
 //네이버비즈니스 gnb 벗어나는게 왜 범위가 좁을까?
 $('.header > .inner .gnb').hover(function(e){
-  $('.sub-list').addClass('on');
-  $(".header").addClass("hov").height($('.sub-list').outerHeight(true)+$(".header .inner").height())
+  $('.sub_list').addClass('on');
+  $(".header").addClass("hov").height($('.sub_list').outerHeight(true)+$(".header .inner").height())
 },function(e){
-  $('.sub-list').removeClass('on');
+  $('.sub_list').removeClass('on');
   $(".header").css('height', 'auto')
-  if($('.onlineEducation-menu').length){
+  if($('.online_education_menu').length){
     $(".header").removeClass("hov")
   }
 })
@@ -597,9 +587,9 @@ $('.header > .inner .gnb').hover(function(e){
  *  @pc버전돋보기버튼클릭기능
  * 
 */
-$(".search-btn").click(function(){
+$(".search_btn").click(function(){
   $('.header').addClass("search")
-  $(".search-area input").focus()
+  $(".search_area input").focus()
 })
 
 
@@ -607,7 +597,7 @@ $(".search-btn").click(function(){
  *  @pc버전돋보기버튼닫기기능
  * 
 */
-$(".close-btn").click(function(){
+$(".close_button").click(function(){
   $('.header').removeClass("search")
 })
 
@@ -616,18 +606,18 @@ $(".close-btn").click(function(){
  *  @모바일버전버거버튼클릭기능
  * 
 */
-$(".burgerBtn").click(function(){
+$(".burger_button").click(function(){
   $('body').toggleClass('scroll-hide');
   $(".mo_gnb_inner").toggleClass("isAct")
-  $(".search-btn").toggleClass("mo_gnb-on")
-  $(".burgerBtn").toggleClass("on")
+  $(".search_btn").toggleClass("mo_gnb-on")
+  $(".burger_button").toggleClass("on")
   $(".header").toggleClass("mo_gnb-on")
-  if ($(".burgerBtn").attr('aria-expanded') === 'false') {
-    $('.burgerBtn').attr('aria-expanded', 'true' )
-    $('.burgerBtn').attr('aria-selected', 'true' )
+  if ($(".burger_button").attr('aria-expanded') === 'false') {
+    $('.burger_button').attr('aria-expanded', 'true' )
+    $('.burger_button').attr('aria-selected', 'true' )
   } else {
-    $('.burgerBtn').attr('aria-expanded', 'false' )
-    $('.burgerBtn').attr('aria-selected', 'false' )
+    $('.burger_button').attr('aria-expanded', 'false' )
+    $('.burger_button').attr('aria-selected', 'false' )
   }
 })
 
@@ -635,7 +625,7 @@ $(".burgerBtn").click(function(){
  * 
  * 
  */
-$(".profile-image").hover(function(){
+$(".profile_image").hover(function(){
     $(this).attr('aria-haspopup', 'true' )
 },function(){
  $(this).attr('aria-haspopup', 'false' )
@@ -645,9 +635,9 @@ $(".profile-image").hover(function(){
  *  @모바일버전gnb에서top영역서브리스트나타나는기능
  * 
 */
-$('.mo_gnb_inner .top .nav-item').click(function(e){
-  $(this).find('.sub-list').toggleClass('on');
-  $(this).find(".nav-item_title").toggleClass("on")
+$('.mo_gnb_inner .top .nav_item').click(function(e){
+  $(this).find('.sub_list').toggleClass('on');
+  $(this).find(".nav_item_title").toggleClass("on")
 })
 
 
@@ -655,11 +645,11 @@ $('.mo_gnb_inner .top .nav-item').click(function(e){
  *  @모바일버전gnb에서middle영역서브리스트나타나는기능
  * 
 */
-$('.mo_gnb_inner .middle .nav-item').click(function(e){
-  $(this).find('.sub-list').toggleClass('on')
-  $(this).siblings().find('.sub-list').removeClass('on')
-  $(this).find(".nav-item_title").toggleClass("on")
-  $(this).siblings().find(".nav-item_title").removeClass("on")
+$('.mo_gnb_inner .middle .nav_item').click(function(e){
+  $(this).find('.sub_list').toggleClass('on')
+  $(this).siblings().find('.sub_list').removeClass('on')
+  $(this).find(".nav_item_title").toggleClass("on")
+  $(this).siblings().find(".nav_item_title").removeClass("on")
 })
 
 
@@ -686,7 +676,7 @@ $('.info').click(function (e){
  *  @스크롤탑기능
  * 
 */
-$(".scrollTop").click(function(){
+$(".scroll_top").click(function(){
   $('html, body').animate({scrollTop: 0}, 800);
   return false;
 })
