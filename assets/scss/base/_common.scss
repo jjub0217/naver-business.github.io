@@ -32,7 +32,7 @@
     left: 0;
     right: 0;
     height: 100%;
-    z-index: 1000;
+    z-index: 4;
 
     .loader {
       animation: 1s ease-in-out -0.16s infinite normal none running loader-sync;
@@ -54,7 +54,7 @@
         height: 4em;
         left: -1.5em;
         position: absolute;
-        top: 0px;
+        top: 0;
         width: 1em;
       }
 
@@ -65,7 +65,7 @@
         height: 4em;
         left: 1.5em;
         position: absolute;
-        top: 0px;
+        top: 0;
         width: 1em;
       }
     }
@@ -92,7 +92,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 11;
+  z-index: 3;
 
   a {
     position: absolute;
@@ -117,6 +117,6 @@
   position: fixed;
   right: 12px;
   bottom: 20px;
-  z-index: 1000;
+  z-index: 1;
   cursor: pointer;
 }

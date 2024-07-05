@@ -1,7 +1,7 @@
 .header {
   position: fixed;
-  top: 0px;
-  z-index: 10;
+  top: 0;
+  z-index: 2;
   color: rgb(255, 255, 255);
   width: 100%;
   background: rgba(25, 26, 31, 0.8);
@@ -47,7 +47,6 @@
       &_item {
         display: flex;
         align-items: center;
-        white-space: nowrap;
         position: relative;
 
         &_title {
@@ -127,22 +126,22 @@
       background-size: cover;
       border-radius: 50%;
 
-      & + .floating_profile {
+      & + .profile {
         position: absolute;
         display: flex;
         flex-direction: column;
         top: 60px;
-        right: 0px;
+        right: 0;
         min-width: 186px;
         height: 342px;
         transition: height 0.1s ease 0s;
-        padding: 22px 0px 22px;
+        padding: 22px 0 22px;
         visibility: hidden;
         background: rgba(25, 26, 31, 0.8);
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
         backdrop-filter: blur(15px);
         border-radius: 8px;
-        z-index: 10;
+        z-index: 2;
 
         .hr {
           border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -240,7 +239,7 @@
         }
       }
 
-      &:hover + .floating_profile {
+      &:hover + .profile {
         visibility: visible;
       }
 
@@ -249,7 +248,7 @@
       }
     }
 
-    .burger_button {
+    .hamburger_icon {
       display: none;
       background-image: url("../images/sp_sprite.svg");
       background-position: 14.118895966% 99.9201915403%;
@@ -270,7 +269,7 @@
 .floating_menu {
   display: none;
   border-top: 1px solid rgb(38, 42, 53);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
 
   &.on {
     display: block;
@@ -294,7 +293,6 @@
 
     .swiper {
       &-wrapper {
-        white-space: nowrap;
         font-size: 0;
         color: rgb(177, 181, 194);
       }
@@ -302,7 +300,7 @@
       &-slide {
         display: inline-block;
         width: auto;
-        padding: 18px 0px 14px;
+        padding: 18px 0 14px;
 
         &.on {
           color: rgb(113, 229, 215);
@@ -330,7 +328,7 @@
 .search_area {
   display: none;
   border-top: 1px solid rgb(38, 42, 53);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
 
   .search & {
     display: block;
@@ -392,7 +390,7 @@
     background-color: transparent;
     color: inherit;
     outline: none;
-    border: 0px;
+    border: 0;
 
     @include mobile {
       height: 20px;
@@ -404,7 +402,7 @@
   .close_button {
     position: absolute;
     top: 20px;
-    right: 0px;
+    right: 0;
     font-size: 17px;
     font-weight: 600;
     cursor: pointer;
@@ -433,8 +431,8 @@
     right: 0;
     width: 100%;
     height: calc(100vh - 60px);
-    z-index: 1000;
-    padding: 11px 0px 80px 0;
+    z-index: 2;
+    padding: 11px 0 80px 0;
     overflow-y: auto;
 
     &.isAct {
@@ -460,7 +458,7 @@
             .sub {
               &_list {
                 gap: 26px;
-                padding: 20px 16px 20px 0px;
+                padding: 20px 16px 20px 0;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
               }
 
@@ -505,14 +503,14 @@
             background-color: rgb(25, 26, 31);
             color: rgb(177, 181, 194);
             height: 40px;
-            padding: 0px 16px;
+            padding: 0 16px;
 
             &:first-child {
-              border-radius: 8px 8px 0px 0px;
+              border-radius: 8px 8px 0 0;
             }
 
             &:last-child {
-              border-radius: 0px 0px 8px 8px;
+              border-radius: 0 0 8px 8px;
             }
 
             a {
@@ -620,7 +618,7 @@
             &.on {
               display: flex;
               flex-direction: column;
-              padding: 5px 16px 0px 16px;
+              padding: 5px 16px 0 16px;
             }
           }
 
@@ -635,7 +633,7 @@
           height: 24px;
           background-color: rgba(255, 255, 255, 0.1);
           border-radius: 4px;
-          margin: 14px 0px 0 0px;
+          margin: 14px 0 0 0;
           display: flex;
           align-items: center;
           justify-content: space-between;

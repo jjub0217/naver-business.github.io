@@ -81,3 +81,14 @@ body {
 fieldset {
   border: 0;
 }
+
+input,
+button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}

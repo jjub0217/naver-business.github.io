@@ -29,33 +29,37 @@
 }
 
 .swiper {
-  &.pc {
-    @include mobile {
-      display: none;
-    }
-  }
+  // &.pc {
+  //   @include mobile {
+  //     display: none;
+  //   }
+  // }
 
-  &.mo {
-    display: none;
+  // &.mo {
+  //   display: none;
 
-    @include mobile {
-      display: block;
+  //   @include mobile {
+  //     display: block;
 
-      .swiper-slide {
-        width: auto !important;
+  //     .swiper-slide {
+  //       width: auto !important;
 
-        .image_box {
-          width: 242px;
-          height: 136px;
-        }
-      }
-    }
-  }
+  //       .image_box {
+  //         width: 242px;
+  //         height: 136px;
+  //       }
+  //     }
+  //   }
+  // }
 
   .swiper-slide {
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+
+    @include mobile {
+      width: auto !important;
+    }
 
     .link_slide {
       position: absolute;
@@ -63,24 +67,27 @@
       left: 0;
       bottom: 0;
       right: 0;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 28px;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
     }
 
     .image_box {
+      position: relative;
+
       .save_text {
         display: none;
       }
 
       &::before {
         content: "";
+        display: none;
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        animation: opacityAni 5s forwards;
+        animation: opacityAni 3s forwards;
         background-color: rgba(0, 0, 0, 0.6);
         width: 100%;
         height: 100%;
@@ -89,20 +96,20 @@
 
       &.on {
         .save_text {
-          animation: opacityAni 5s forwards;
+          animation: opacityAni 3s forwards;
           display: block;
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          white-space: nowrap;
+          text-align: center;
           word-break: keep-all;
           overflow-wrap: break-word;
           border-radius: 38px;
-          padding: 15px 24px;
-          max-width: 100%;
-          font-size: 16px;
-          line-height: 24px;
+          padding: 24px;
+          width: 90%;
+          font-size: 20px;
+          line-height: 20px;
           font-weight: 700;
           background: rgba(255, 255, 255, 0.25);
           backdrop-filter: blur(15px);
@@ -113,6 +120,7 @@
         }
 
         &::before {
+          display: block;
           opacity: 1;
         }
       }
@@ -174,7 +182,6 @@
       span {
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;
         display: inline-block;
         max-width: 128px;
       }
@@ -187,17 +194,21 @@
     }
 
     .bookmark {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 38px;
-      height: 38px;
-      z-index: 1;
-      background-image: url("../images/sp_sprite.svg");
-      background-position: 6.050955414% 99.9201915403%;
-
-      &.save {
-        background-position: 8.067940552% 99.9201915403%;
+      & + label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 38px;
+        height: 38px;
+        z-index: 1;
+        background-image: url("../images/sp_sprite.svg");
+        background-position: 6.050955414% 99.9201915403%;
+        cursor: pointer;
+      }
+      &:checked {
+        & + label {
+          background-position: 8.067940552% 99.9201915403%;
+        }
       }
     }
 
@@ -303,13 +314,13 @@
   border-radius: 4px;
   color: rgb(126, 133, 255);
   height: 22px;
-  padding: 0px 7px;
+  padding: 0 7px;
 
   @include mobile {
     font-size: 11px;
     font-weight: 700;
     line-height: 20px;
-    padding: 0px 5px;
+    padding: 0 5px;
     height: 20px;
   }
 }
@@ -328,8 +339,8 @@
       display: block;
       position: absolute;
       top: 50%;
-      z-index: 2;
-      background: url("../images/ico_arrow.png") 0px 0px / 48px 48px no-repeat;
+      z-index: 1;
+      background: url("../images/ico_arrow.png") 0 0 / 48px 48px no-repeat;
       width: 48px;
       height: 48px;
       transform: translateY(-50%) rotate(-180deg);
@@ -349,8 +360,8 @@
     display: block;
     position: absolute;
     top: 50%;
-    z-index: 2;
-    background: url("../images/ico_arrow.png") 0px 0px / 48px 48px no-repeat;
+    z-index: 1;
+    background: url("../images/ico_arrow.png") 0 0 / 48px 48px no-repeat;
     width: 48px;
     height: 48px;
     right: -24px;
@@ -453,9 +464,8 @@
         border-radius: 6px;
         font-weight: 600;
         text-overflow: ellipsis;
-        white-space: nowrap;
         margin-top: auto;
-        padding: 0px 30px;
+        padding: 0 30px;
         max-width: 180px;
         min-height: 48px;
         font-size: 15px;
@@ -481,7 +491,6 @@
     &_area {
       overflow: scroll;
       -ms-overflow-style: none;
-      justify-content: center;
 
       &::-webkit-scrollbar {
         display: none !important;
@@ -494,53 +503,53 @@
 
     &_list {
       display: flex;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
 
       &::-webkit-scrollbar {
         display: none;
       }
-
-      -ms-overflow-style: none;
-      scrollbar-width: none;
     }
 
     &_item {
-      a {
+      &_title {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 150px;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: rgb(177, 181, 194);
+        text-align: center;
+        height: 100%;
 
-        span {
-          font-size: 16px;
-          line-height: 24px;
-          white-space: normal;
-          text-align: center;
-          color: rgb(177, 181, 194);
+        br {
+          display: none;
+        }
 
-          br {
-            display: none;
-          }
+        &[aria-selected="true"] {
+          border-bottom: 2px solid rgb(113, 229, 215);
+          font-weight: 700;
+          color: rgb(113, 229, 215);
         }
 
         @include mobile {
           width: 56px;
           margin: 0 10px;
+          min-width: 80px;
+          font-size: 12px;
+          line-height: 14px;
+          margin-bottom: 10px;
 
-          span {
-            min-width: 80px;
-            font-size: 12px;
-            line-height: 14px;
-            margin-bottom: 10px;
-
-            br {
-              display: block;
-            }
+          br {
+            display: block;
           }
         }
       }
 
       &[data-tab="#online_ai"] {
-        a {
+        .tab_item_title {
           &:before {
             content: "";
             display: block;
@@ -549,7 +558,7 @@
             height: 72px;
             border-radius: 50%;
             overflow: hidden;
-            background: url("../images/img_online_education_ai.png") 50% 0px /
+            background: url("../images/img_online_education_ai.png") 50% 0 /
               cover;
 
             @include mobile {
@@ -562,7 +571,7 @@
       }
 
       &[data-tab="#online_store"] {
-        a {
+        .tab_item_title {
           &:before {
             content: "";
             display: block;
@@ -571,7 +580,7 @@
             height: 72px;
             border-radius: 50%;
             overflow: hidden;
-            background: url("../images/img_online_education_store.png") 50% 0px /
+            background: url("../images/img_online_education_store.png") 50% 0 /
               cover;
 
             @include mobile {
@@ -584,7 +593,7 @@
       }
 
       &[data-tab="#online_live"] {
-        a {
+        .tab_item_title {
           &:before {
             content: "";
             display: block;
@@ -593,7 +602,7 @@
             height: 72px;
             border-radius: 50%;
             overflow: hidden;
-            background: url("../images/img_online_education_live.png") 50% 0px /
+            background: url("../images/img_online_education_live.png") 50% 0 /
               cover;
 
             @include mobile {
@@ -606,7 +615,7 @@
       }
 
       &[data-tab="#online_ad"] {
-        a {
+        .tab_item_title {
           &:before {
             content: "";
             display: block;
@@ -615,7 +624,7 @@
             height: 72px;
             border-radius: 50%;
             overflow: hidden;
-            background: url("../images/img_online_education_ad.png") 50% 0px /
+            background: url("../images/img_online_education_ad.png") 50% 0 /
               cover;
 
             @include mobile {
@@ -628,7 +637,7 @@
       }
 
       &[data-tab="#online_place"] {
-        a {
+        .tab_item_title {
           &:before {
             content: "";
             display: block;
@@ -637,7 +646,7 @@
             height: 72px;
             border-radius: 50%;
             overflow: hidden;
-            background: url("../images/img_online_education_place.png") 50% 0px /
+            background: url("../images/img_online_education_place.png") 50% 0 /
               cover;
 
             @include mobile {
@@ -650,7 +659,7 @@
       }
 
       &[data-tab="#online_blog"] {
-        a {
+        .tab_item_title {
           &:before {
             content: "";
             display: block;
@@ -659,7 +668,7 @@
             height: 72px;
             border-radius: 50%;
             overflow: hidden;
-            background: url("../images/img_online_education_blog.png") 50% 0px /
+            background: url("../images/img_online_education_blog.png") 50% 0 /
               cover;
 
             @include mobile {
@@ -672,7 +681,7 @@
       }
 
       &[data-tab="#online_expert"] {
-        a {
+        .tab_item_title {
           &:before {
             content: "";
             display: block;
@@ -681,7 +690,7 @@
             height: 72px;
             border-radius: 50%;
             overflow: hidden;
-            background: url("../images/img_online_education_expert.png") 50% 0px /
+            background: url("../images/img_online_education_expert.png") 50% 0 /
               cover;
 
             @include mobile {
@@ -698,7 +707,7 @@
       }
 
       &[data-tab="#online_business"] {
-        a {
+        .tab_item_title {
           &:before {
             content: "";
             display: block;
@@ -707,29 +716,7 @@
             height: 72px;
             border-radius: 50%;
             overflow: hidden;
-            background: url("../images/img_online_education_business.png") 50%
-              0px / cover;
-
-            @include mobile {
-              width: 56px;
-              height: 56px;
-              margin-bottom: 6px;
-            }
-          }
-        }
-      }
-
-      &#all {
-        a {
-          &:before {
-            content: "";
-            display: block;
-            margin-bottom: 16px;
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            overflow: hidden;
-            background: url("../images/img_online_education_all.png") 50% 0px /
+            background: url("../images/img_online_education_business.png") 50% 0 /
               cover;
 
             @include mobile {
@@ -741,19 +728,32 @@
         }
       }
 
-      &.on {
-        border-bottom: 2px solid rgb(113, 229, 215);
+      &#all {
+        .tab_item_title {
+          &:before {
+            content: "";
+            display: block;
+            margin-bottom: 16px;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: url("../images/img_online_education_all.png") 50% 0 /
+              cover;
 
-        a {
-          font-weight: 700;
-          color: rgb(113, 229, 215);
+            @include mobile {
+              width: 56px;
+              height: 56px;
+              margin-bottom: 6px;
+            }
+          }
         }
       }
     }
   }
 
   .content_area {
-    padding: 40px 10px 0px 0px;
+    padding: 40px 10px 0 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 
     @include mobile {
@@ -796,6 +796,19 @@
   }
 }
 
+.section_this_week {
+  .text_box {
+    @include mobile {
+      display: none;
+    }
+  }
+  .image_box {
+    @include mobile {
+      width: 242px;
+      height: 136px;
+    }
+  }
+}
 .section_line_up {
   font-size: 14px;
   font-weight: 400;
@@ -826,7 +839,7 @@
         position: absolute;
         top: 30px;
         left: -100%;
-        z-index: 3;
+        z-index: 2;
         transform: translateX(-34%);
         background-image: url("../images/sp_sprite.svg");
         background-position: 0 96.5209634255%;
@@ -868,12 +881,12 @@
   }
 
   .more {
-    &_btn {
+    &_button {
       position: relative;
       width: 100%;
       text-align: left;
-      z-index: 10;
-      padding: 16px 0px 0px;
+      z-index: 1;
+      padding: 16px 0 0;
       display: flex;
       align-items: center;
       gap: 5px;
@@ -929,13 +942,6 @@
 .section_banner {
   .image_box {
     &.pc {
-      img {
-        width: 100%;
-        height: 160px;
-        max-width: 100%;
-        object-fit: cover;
-      }
-
       @include mobile {
         display: none;
       }
@@ -951,11 +957,6 @@
       @include mobile {
         display: block;
         width: 100%;
-      }
-
-      img {
-        height: 80px;
-        max-width: 100%;
       }
     }
   }
@@ -1085,7 +1086,7 @@
       background: url("../images/img_bg_introduce_mo.png") 50% 50% / cover
         no-repeat;
 
-      &::after {
+      &::before {
         content: "";
         display: block;
         position: absolute;
@@ -1105,8 +1106,6 @@
     line-height: 32px;
 
     @include mobile {
-      position: relative;
-      z-index: 1;
       font-size: 20px;
       font-weight: 700;
       line-height: 28px;
@@ -1129,18 +1128,16 @@
     border-radius: 6px;
     font-weight: 600;
     color: rgb(255, 255, 255);
-    padding: 0px 32px;
+    padding: 0 32px;
     height: 64px;
     min-width: 234px;
     font-size: 18px;
     line-height: 64px;
-    margin: 32px auto 0px;
+    margin: 32px auto 0;
 
     @include mobile {
-      position: relative;
-      z-index: 1;
-      margin: 24px auto 0px;
-      padding: 0px 28px;
+      margin: 24px auto 0;
+      padding: 0 28px;
       height: 40px;
       min-width: 190px;
       font-size: 14px;
