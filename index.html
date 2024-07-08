@@ -14,10 +14,11 @@
 <body>
 
   <div class="indicator">
-    <div class="loader">
+    <div class="loader" role="status" aria-live="polite">
+      <span class="blind">로딩중</span>
     </div>
   </div>
-  <div class="error">
+  <div class="error" role="alert">
     문제 발생! 다시 시도하거나 관리자에게 문의하세요.
   </div>
   <div id="skip">
@@ -26,182 +27,145 @@
   </div>
   <div class="wrapper">
     <header class="header" id="header">
+      <div class="back_dimmed"></div>
       <div class="inner">
         <h1 class="logo">
           <a href="">
-            <span class="blind">네이버 비즈니 스스쿨</span>
+            <span class="blind">네이버 비즈니스 스쿨</span>
           </a>
         </h1>
-        <nav class="gnb">
+        <nav class="gnb_pc">
           <ul class="nav_list">
             <li class="nav_item">
-              <a href="" class="nav_item_title">
-                <span>온라인 교육</span>
-              </a>
+              <a href="" class="nav_item_title">온라인 교육</a>
               <ul class="sub_list">
                 <li class="sub_item">
-                  <a href="">
-                    <span>비즈니스 스쿨 소개</span>
-                  </a>
+                  <a href="">비즈니스 스쿨 소개</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>네이버 AI</span>
-                  </a>
+                  <a href="">네이버 AI</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>스마트스토어</span>
-                  </a>
+                  <a href="">스마트스토어</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>쇼핑라이브</span>
-                  </a>
+                  <a href="">쇼핑라이브</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>광고</span>
-                  </a>
+                  <a href="">광고</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>스마트플레이스</span>
-                  </a>
+                  <a href="">스마트플레이스</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>블로그/인플루언서</span>
-                  </a>
+                  <a href="">블로그/인플루언서</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>엑스퍼트/프리미엄콘텐츠</span>
-                  </a>
+                  <a href="">엑스퍼트/프리미엄콘텐츠</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>비즈니스팁</span>
-                  </a>
+                  <a href="">비즈니스팁</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>전체보기</span>
-                  </a>
+                  <a href="">전체보기</a>
                 </li>
               </ul>
             </li>
             <li class="nav_item">
-              <a href="" class="nav_item_title">
-                <span>스튜디오 예약</span>
-              </a>
+              <a href="" class="nav_item_title">스튜디오 예약</a>
               <ul class="sub_list">
                 <li class="sub_item">
-                  <a href="">
-                    <span>스퀘어 서울</span>
-                  </a>
+                  <a href="">스퀘어 서울</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>스퀘어 부산</span>
-                  </a>
+                  <a href="">스퀘어 부산</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>스퀘어 광주</span>
-                  </a>
+                  <a href="">스퀘어 광주</a>
                 </li>
               </ul>
             </li>
             <li class="nav_item">
-              <a href="" class="nav_item_title">
-                <span>D-커머스 프로그램</span>
-              </a>
+              <a href="" class="nav_item_title">D-커머스 프로그램</a>
               <ul class="sub_list">
                 <li class="sub_item">
-                  <a href="">
-                    <span>소개</span>
-                  </a>
+                  <a href="">소개</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>성장포인트</span>
-                  </a>
+                  <a href="">성장포인트</a>
                 </li>
                 <li class="sub_item">
-                  <a href="">
-                    <span>스타트 제로수수료</span>
-                  </a>
+                  <a href="">스타트 제로수수료</a>
                 </li>
               </ul>
             </li>
           </ul>
         </nav>
-        <div class="group_area">
-          <a href="">공지사항</a>
-          <button class="search_btn" aria-label="검색" aria-pressed="false" type="button">
+        <div class="utility_area">
+          <a href="" class="notice_link">공지사항</a>
+          <button class="search_button" aria-label="검색" aria-pressed="false" type="button">
           </button>
-          <span class="profile_image" aria-label="프로필이미지" aria-haspopup="false" aria-controls="profile" role="img">
-          </span>
-          <div class="profile" id="profile">
-            <div class="information">
-              <div class="profile_image">
-                <span class="blind">프로필이미지</span>
+          <div class="profile_image" aria-label="프로필이미지" aria-haspopup="false" aria-controls="profile" role="img">
+            <div class="my_information_area" id="profile">
+              <div class="information_box">
+                <div class="profile_image" role="img">
+                  <span class="blind">프로필이미지</span>
+                </div>
+                <div class="greetings">
+                  <p class="message">안녕하세요,<br>
+                    <span class="user_name"><strong class="name">강주현</strong>님,</span>
+                  </p>
+                </div>
               </div>
-              <div class="greetings">
-                <p class="message">안녕하세요,<br>
-                  <span class="user_name"><strong>강주현</strong>님,</span>
-                </p>
+              <div class="hr" aria-hidden="true"></div>
+              <div class="information_box">
+                <a href="" class="my_info">
+                  내 정보
+                </a>
+                <a href="" class="my_usage">
+                  교육 이용 현황
+                </a>
+                <a href="" class="my_point">
+                  교육 포인트
+                </a>
+                <a href="" class="my_reservation">
+                  오프라인 예약 이력
+                </a>
               </div>
-            </div>
-            <div class="hr"></div>
-            <div class="information">
-              <p class="my">
-                <span class="title">내 정보</span>
-              </p>
-              <p class="usage">
-                <span class="title">교육 이용 현황</span>
-              </p>
-              <p class="point">
-                <span class="title">교육 포인트</span>
-              </p>
-              <p class="reservation">
-                <span class="title">오프라인 예약 이력</span>
-              </p>
-            </div>
-            <div class="hr"></div>
-            <div class="information">
-              <p class="logout">
-                <span class="title">로그아웃</span>
-              </p>
+              <div class="hr" aria-hidden="true"></div>
+              <div class="information_box">
+                <a href="" class="logout">
+                  로그아웃
+                </a>
+              </div>
             </div>
           </div>
           <button class="hamburger_icon" aria-expanded="false" aria-haspopup="menu" aria-label="메뉴열기" aria-pressed="false" type="button" 
-            aria-controls="mo_gnb">
+            aria-controls="gnb_mobile">
           </button>
         </div>
       </div>
       <div class="floating_menu">
         <div class="inner swiper">
           <ul class="swiper-wrapper">
-            <li class="swiper-slide"><a href="">비즈니스 스쿨 소개</a></li>
-            <li class="swiper-slide on"><a href="">네이버 AI</a></li>
-            <li class="swiper-slide online2"><a href="">스마트스토어</a></li>
-            <li class="swiper-slide online3"><a href="">쇼핑라이브</a></li>
-            <li class="swiper-slide online4"><a href="">광고</a></li>
-            <li class="swiper-slide online5"><a href="">스마트플레이스</a></li>
-            <li class="swiper-slide online6"><a href="">블로그/인플루언서</a></li>
-            <li class="swiper-slide online7"><a href="">엑스퍼트/프리미엄콘텐츠</a></li>
-            <li class="swiper-slide online8"><a href="">비즈니스팁</a></li>
-            <li class="swiper-slide"><a href="">전체보기</a></li>
+            <li class="swiper-slide"><a href="" class="menu_link">비즈니스 스쿨 소개</a></li>
+            <li class="swiper-slide is_active"><a href="" class="menu_link">네이버 AI</a></li>
+            <li class="swiper-slide online2"><a href="" class="menu_link">스마트스토어</a></li>
+            <li class="swiper-slide online3"><a href="" class="menu_link">쇼핑라이브</a></li>
+            <li class="swiper-slide online4"><a href="" class="menu_link">광고</a></li>
+            <li class="swiper-slide online5"><a href="" class="menu_link">스마트플레이스</a></li>
+            <li class="swiper-slide online6"><a href="" class="menu_link">블로그/인플루언서</a></li>
+            <li class="swiper-slide online7"><a href="" class="menu_link">엑스퍼트/프리미엄콘텐츠</a></li>
+            <li class="swiper-slide online8"><a href="" class="menu_link">비즈니스팁</a></li>
+            <li class="swiper-slide"><a href="" class="menu_link">전체보기</a></li>
           </ul>
         </div>
       </div>
       <div class="search_area">
         <div class="inner">
-          <div class="input_inner">
+          <div class="input_box">
             <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"
-              class="search_icon">
+              class="search_icon" aria-label="돋보기 아이콘">
               <path
                 d="M15.6328 23.7656C20.1244 23.7656 23.7656 20.1244 23.7656 15.6328C23.7656 11.1412 20.1244 7.5 15.6328 7.5C11.1412 7.5 7.5 11.1412 7.5 15.6328C7.5 20.1244 11.1412 23.7656 15.6328 23.7656Z"
                 stroke="#7c8296" stroke-width="2"></path>
@@ -212,9 +176,9 @@
             <label for="search" class="blind">검색어입력</label>
             <input type="text" 
             title="교육명, 강사명, 태그를 입력해주세요." placeholder="교육명, 강사명, 태그를 입력해주세요." value="" id="search" aria-live="assertive"
-              aria-atomic="false">
+              aria-atomic="false" class="search_input">
           </div>
-          <button class="close_button" type="button" aria-pressed="false">
+          <button class="search_close_button" type="button" aria-pressed="false" aria-label="검색 닫기">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="8.80762" y="25.7781" width="24" height="2" rx="1" transform="rotate(-45 8.80762 25.7781)"
                 fill="white">
@@ -223,28 +187,141 @@
                 transform="matrix(0.707107 0.707107 0.707107 -0.707107 8.80762 10.2219)" fill="white">
               </rect>
             </svg>
-            <span class="blind">취소</span>
           </button>
         </div>
       </div>
     </header>
+    <nav class="gnb_mobile" id="gnb_mobile">
+      <ul class="nav_list my_info">
+        <li class="nav_item">
+          <a href="" class="nav_item_title">
+            <span class="login">
+              <span class="profile_image">
+                <span class="blind">프로필 이미지</span>
+              </span>
+              <span class="greetings">
+                <span class="message">안녕하세요,</span>
+                <span class="user"><strong>강주현</strong>님.</span>
+              </span>
+            </span>
+          </a>
+          <ul class="sub_list">
+            <li class="sub_item">
+              <a href="">내 정보</a>
+            </li>
+            <li class="sub_item">
+              <a href="">교육 이용 현황
+                <span class="count">0</span>
+              </a>
+            </li>
+            <li class="sub_item point_item">
+              <a href="">교육 포인트
+                <span class="count">0P</span>
+              </a>
+              <span class="point">
+                <span>0P</span>
+                <span>50,000P</span>
+              </span>
+            </li>
+            <li class="sub_item">
+              <a href="">오프라인 예약 이력</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav_list">
+        <li class="nav_item">
+          <a href="" class="nav_item_title">온라인 교육</a>
+          <ul class="sub_list">
+            <li class="sub_item">
+              <a href="">비즈니스 스쿨 소개</a>
+            </li>
+            <li class="sub_item">
+              <a href="">네이버 AI</a>
+            </li>
+            <li class="sub_item">
+              <a href="">스마트스토어</a>
+            </li>
+            <li class="sub_item">
+              <a href="">쇼핑라이브</a>
+            </li>
+            <li class="sub_item">
+              <a href="">광고</a>
+            </li>
+            <li class="sub_item">
+              <a href="">스마트플레이스</a>
+            </li>
+            <li class="sub_item">
+              <a href="">블로그/인플루언서</a>
+            </li>
+            <li class="sub_item">
+              <a href="">엑스퍼트/프리미엄콘텐츠</a>
+            </li>
+            <li class="sub_item">
+              <a href="">비즈니스팁</a>
+            </li>
+            <li class="sub_item">
+              <a href="">전체보기</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav_item">
+          <a href="" class="nav_item_title">스튜디오 예약</a>
+          <ul class="sub_list">
+            <li class="sub_item">
+              <a href="">스퀘어 서울</a>
+            </li>
+            <li class="sub_item">
+              <a href="">스퀘어 부산</a>
+            </li>
+            <li class="sub_item">
+              <a href="">스퀘어 광주</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav_item">
+          <a href="" class="nav_item_title">D-커머스 프로그램</a>
+          <ul class="sub_list">
+            <li class="sub_item">
+              <a href="">소개</a>
+            </li>
+            <li class="sub_item">
+              <a href="">성장포인트</a>
+            </li>
+            <li class="sub_item">
+              <a href="">스카트 제로수수료</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav_list">
+        <li class="nav_item">
+          <a href="" class="nav_item_title">공지사항</a>
+        </li>
+      </ul>
+      <ul class="nav_list">
+        <li class="nav_item">
+          <a href="" class="nav_item_title">로그아웃</a>
+        </li>
+      </ul>
+    </nav>
     <main class="container" id="main">
       <section class="section_personal">
         <div class="inner">
-          <h2 class="title">
-            안녕하세요, <strong>강주현</strong>님. <br>
+          <h2 class="headline">
+            안녕하세요, <strong class="user_name">강주현</strong>님. <br>
             네이버 비즈니스 스쿨에 오신 것을 환영합니다!
           </h2>
-          <div class="function_area">
-            <div class="left">
+          <div class="personal_support">
+            <div class="course_intro course_setup">
               <h3 class="title">내 비즈니스의 성공을 위한 학습을<br>지금 시작해보세요.</h3>
-              <a href="">비즈니스 스쿨 소개</a>
+              <a href="" class="link_course">비즈니스 스쿨 소개</a>
             </div>
-            <div class="right">
+            <div class="course_account course_setup">
               <h3 class="title">현재 이용 중인 서비스 계정을<br>비즈니스 스쿨에 연결해보세요.</h3>
-              <p class="desc">코스 교육을 수강하면 검색광고 또는 스마트스토어에서<br>
+              <p class="description">코스 교육을 수강하면 검색광고 또는 스마트스토어에서
                 사용 할 수 있는 포인트를 드려요.</p>
-              <a href="">계정 연결 설정하기</a>
+              <a href="" class="link_course">계정 연결 설정하기</a>
             </div>
           </div>
         </div>
@@ -292,161 +369,95 @@
               </li>
             </ul>
           </div>
-          <div class="content_area">
-            <div class="content on">
-              <div class="swiper">
-                <ul class="swiper-wrapper">
-                </ul>
-              </div>
-              <button class="btn prev" aria-label="이전슬라이드" type="button"></button>
-              <button class="btn next" aria-label="다음슬라이드" type="button"></button>
+          <div class="content_box on">
+            <div class="swiper">
+              <ul class="swiper-wrapper">
+              </ul>
             </div>
+            <button class="btn prev_button" type="button"></button>
+            <button class="btn next_button" type="button"></button>
           </div>
         </div>
       </section>
       <section class="section_this_week">
         <div class="inner">
-          <h2 class="title">이번주 주 추천 교육</h2>
+          <h2 class="headline">이번주 주 추천 교육</h2>
           <div class="swiper">
             <ul class="swiper-wrapper">
             </ul>
           </div>
-          <!-- <div class="swiper mo">
-            <ul class="swiper-wrapper">
-              <li class="swiper-slide">
-                <a href="" class="link_slide">
-                  <span class="blind">링크</span>
-                </a>
-                <div class="image_box">
-                  <img src="./assets/images/img_this_week1.png" alt="브랜드검색광고 등록하기">
-                  <p class="save_text">
-                    나중에 볼 교육으로 저장 되었습니다.
-                  </p>
-                </div>
-                <input type="checkbox" id="this_week_0" class="bookmark">
-                <label for="this_week_0" aria-label="북마크"></label>
-              </li>
-              <li class="swiper-slide">
-                <a href="" class="link_slide">
-                  <span class="blind">링크</span>
-                </a>
-                <div class="image_box">
-                  <img src="./assets/images/img_this_week2.png" alt="소규모 사업자를 위한 시제품과 공장생산">
-                  <p class="save_text">
-                    나중에 볼 교육으로 저장 되었습니다.
-                  </p>
-                </div>
-                <input type="checkbox" id="this_week_1" class="bookmark">
-                <label for="this_week_1" aria-label="북마크"></label>
-              </li>
-              <li class="swiper-slide">
-                <a href="" class="link_slide">
-                  <span class="blind">링크</span>
-                </a>
-                <div class="image_box">
-                  <img src="./assets/images/img_this_week3.jpg" alt="데이터가 알려주는 프리미엄콘텐츠 운영 노하우">
-                  <p class="save_text">
-                    나중에 볼 교육으로 저장 되었습니다.
-                  </p>
-                </div>
-                <input type="checkbox" id="this_week_2" class="bookmark">
-                <label for="this_week_2" aria-label="북마크"></label>
-              </li>
-              <li class="swiper-slide">
-                <a href="" class="link_slide">
-                  <span class="blind">링크</span>
-                </a>
-                <div class="image_box">
-                  <img src="./assets/images/img_this_week4.png" alt="포토그래퍼의 촬영 노하우 대방출">
-                  <p class="save_text">
-                    나중에 볼 교육으로 저장 되었습니다.
-                  </p>
-                </div>
-                <input type="checkbox" id="this_week_3" class="bookmark">
-                <label for="this_week_3" aria-label="북마크"></label>
-              </li>
-            </ul>
-          </div> -->
         </div>
         <div class="text_box_mo on" id="section_this_week_1">
-          <strong>브랜드검색광고 등록하기</strong>
-          <div class="bottom">
-            <ul class="tag_list">
-              <li class="tag">
-                사업자
-              </li>
-            </ul>
-            <p class="desc">
-              브랜드검색광고 이해하기 후속 강의입니다. 브랜드검색광고의 특징과 유의할점을 알았다면, 이제 광고시스템에서 직접 등록/실습해보세요!
-            </p>
-            <p class="short_desc">
-              <span>네이버 프로 이현정</span>
-              <span>총 29분</span>
-              <span>5개 강의</span>
-            </p>
-          </div>
+          <strong class="content_title">브랜드검색광고 등록하기</strong>
+          <ul class="tag_list">
+            <li class="tag">
+              사업자
+            </li>
+          </ul>
+          <p class="description">
+            브랜드검색광고 이해하기 후속 강의입니다. 브랜드검색광고의 특징과 유의할점을 알았다면, 이제 광고시스템에서 직접 등록/실습해보세요!
+          </p>
+          <ul class="course_summary">
+            <li>네이버 프로 이현정</li>
+            <li>총 29분</li>
+            <li>5개 강의</li>
+          </ul>
         </div>
         <div class="text_box_mo" id="section_this_week_2">
-          <strong>소규모 사업자를 위한 시제품과 공장생산</strong>
-          <div class="bottom">
-            <ul class="tag_list">
-              <li class="tag">
-                교재
-              </li>
-              <li class="tag">
-                사업자
-              </li>
-            </ul>
-            <p class="desc">
-              자체 제작 상품을 판매할 계획이신가요?
-            </p>
-            <p class="short_desc">
-              <span>비즈스쿨전문강사 홍성재</span>
-              <span>총 37분</span>
-              <span>4개 강의</span>
-            </p>
-          </div>
+          <strong class="content_title">소규모 사업자를 위한 시제품과 공장생산</strong>
+          <ul class="tag_list">
+            <li class="tag">
+              교재
+            </li>
+            <li class="tag">
+              사업자
+            </li>
+          </ul>
+          <p class="description">
+            자체 제작 상품을 판매할 계획이신가요?
+          </p>
+          <ul class="course_summary">
+            <li>비즈스쿨전문강사 홍성재</li>
+            <li>총 37분</li>
+            <li>4개 강의</li>
+          </ul>
         </div>
         <div class="text_box_mo" id="section_this_week_3">
-          <strong>데이터가 알려주는 프리미엄콘텐츠 운영 노하우</strong>
-          <div class="bottom">
-            <ul class="tag_list">
-              <li class="tag">
-                창작자
-              </li>
-            </ul>
-            <p class="desc">
-              실제 데이터를 기반으로 한 프리미엄콘텐츠 채널 운영 노하우를 상세하게 알려드립니다.
-            </p>
-            <p class="short_desc">
-              <span>네이버 프로 제이</span>
-              <span>총 18분</span>
-              <span>3개 강의</span>
-            </p>
-          </div>
+          <strong class="content_title">데이터가 알려주는 프리미엄콘텐츠 운영 노하우</strong>
+          <ul class="tag_list">
+            <li class="tag">
+              창작자
+            </li>
+          </ul>
+          <p class="description">
+            실제 데이터를 기반으로 한 프리미엄콘텐츠 채널 운영 노하우를 상세하게 알려드립니다.
+          </p>
+          <p class="course_summary">
+            <span>네이버 프로 제이</span>
+            <span>총 18분</span>
+            <span>3개 강의</span>
+          </p>
         </div>
         <div class="text_box_mo" id="section_this_week_4">
-          <strong>포토그래퍼의 촬영 노하우 대방출</strong>
-          <div class="bottom">
-            <ul class="tag_list">
-              <li class="tag">
-                실습
-              </li>
-            </ul>
-            <p class="desc">
-              사진촬영 꿀팁 대방출! 제품 별 촬영 연출법과 노하우를 아낌없이 전합니다.
-            </p>
-            <p class="short_desc">
-              <span>네이버프로 이현정</span>
-              <span>총 46분</span>
-              <span>8개 강의</span>
-            </p>
-          </div>
+          <strong class="content_title">포토그래퍼의 촬영 노하우 대방출</strong>
+          <ul class="tag_list">
+            <li class="tag">
+              실습
+            </li>
+          </ul>
+          <p class="description">
+            사진촬영 꿀팁 대방출! 제품 별 촬영 연출법과 노하우를 아낌없이 전합니다.
+          </p>
+          <ul class="course_summary">
+            <li>네이버프로 이현정</li>
+            <li>총 46분</li>
+            <li>8개 강의</li>
+          </ul>
         </div>
       </section>
       <section class="section_line_up">
         <div class="inner">
-          <h2 class="title">스테디셀러 라인업
+          <h2 class="headline">스테디셀러 라인업
             <span class="tooltip" aria-describedby="tooltip">
               <span class="tip">
                 <span class="blind" id="tooltip">비즈니스 스쿨에서 분야별로 꾸준하게 높은 학습률을 기록하는 교육 코스를 지금 만나보세요. 현재까지 누적된 높은 수강 건수와
@@ -455,37 +466,37 @@
               </span>
             </span>
           </h2>
-          <div class="content">
+          <div class="content_box">
             <div class="swiper">
               <ul class="swiper-wrapper">
               </ul>
             </div>
-            <button class="btn prev" aria-label="이전슬라이드" type="button"></button>
-            <button class="btn next" aria-label="다음슬라이드" type="button"></button>
+            <button class="btn prev_button" type="button"></button>
+            <button class="btn next_button" type="button"></button>
           </div>
         </div>
       </section>
       <section class="section_banner">
         <h2 class="blind">배너</h2>
         <div class="inner">
-          <div class="image_box pc">
-            <img src="./assets/images/img_banner.png" alt="쇼핑검색광고">
-          </div>
-          <div class="image_box mo">
-            <img src="./assets/images/img_banner_mo.png" alt="쇼핑검색광고">
+          <div class="image_box">
+            <picture>
+              <source media="(max-width: 850px)" srcset="./assets/images/img_banner_mo.png">
+              <img src="./assets/images/img_banner.png" alt="쇼핑검색광고">
+            </picture>
           </div>
         </div>
       </section>
       <section class="section_new_education">
         <div class="inner">
-          <h2 class="title"><span>NEW</span> 새로운 코스 교육</h2>
+          <h2 class="headline"><span>NEW</span> 새로운 코스 교육</h2>
           <div class="swiper">
             <ul class="swiper-wrapper">
             </ul>
           </div>
         </div>
         <div class="text_box_mo on" id="section_new_education_1">
-          <strong>CLOVA Studio 익스플로러 사용방법</strong>
+          <strong class="content_title">CLOVA Studio 익스플로러 사용방법</strong>
           <ul class="tag_list">
             <li class="tag">
               사업자
@@ -494,20 +505,20 @@
               창작자
             </li>
           </ul>
-          <p class="desc">
+          <p class="description">
             CLOVA Studio의 익스플로러는 사용자가 다양한 도구를 활용하여 작업물을 만들고 CLOVA Studio에서 제공하는 샘플이나 다른 사용자들이 전체 공개 상태로 저장한 작업물을
             확인하며, 저장한 작업물을 보관할
             수 있는 공간입니다.
             익스플로러의 주요 개념과 함께 실제 활용 예시를 통해 좀 더 쉽게 익스플로러를 알아볼 수 있습니다.
           </p>
-          <p class="short_desc">
-            <span>네이버 프로 이선경</span>
-            <span>총 18분</span>
-            <span>4개 강의</span>
-          </p>
+          <ul class="course_summary">
+            <li>네이버 프로 이선경</li>
+            <li>총 18분</li>
+            <li>4개 강의</li>
+          </ul>
         </div>
         <div class="text_box_mo" id="section_new_education_2">
-          <strong>쇼핑검색광고 쇼핑몰 상품형 등록하기</strong>
+          <strong class="content_title">쇼핑검색광고 쇼핑몰 상품형 등록하기</strong>
           <ul class="tag_list">
             <li class="tag">
               실습
@@ -519,17 +530,17 @@
               포인트
             </li>
           </ul>
-          <p class="desc">
+          <p class="description">
             쇼핑몰을 운영 중이라면 진행 가능한 쇼핑검색광고 쇼핑몰 상품형 등록하기
           </p>
-          <p class="short_desc">
-            <span>네이버 프로 서지현</span>
-            <span>총 28분</span>
-            <span>6개 강의</span>
-          </p>
+          <ul class="course_summary">
+            <li>네이버 프로 서지현</li>
+            <li>총 28분</li>
+            <li>6개 강의</li>
+          </ul>
         </div>
         <div class="text_box_mo" id="section_new_education_3">
-          <strong>쇼핑검색광고 제품 카탈로그형 등록하기</strong>
+          <strong class="content_title">쇼핑검색광고 제품 카탈로그형 등록하기</strong>
           <ul class="tag_list">
             <li class="tag">
               사업자
@@ -538,17 +549,17 @@
               창작자
             </li>
           </ul>
-          <p class="desc">
+          <p class="description">
             카탈로그 제품의 소유권을 가진 제조사라면 진행 가능한 쇼핑검색광고 제품 카탈로그형!
           </p>
-          <p class="short_desc">
-            <span>네이버 프로 서지현</span>
-            <span>총 26분</span>
-            <span>6개 강의</span>
-          </p>
+          <ul class="course_summary">
+            <li>네이버 프로 서지현</li>
+            <li>총 26분</li>
+            <li>6개 강의</li>
+          </ul>
         </div>
         <div class="text_box_mo" id="section_new_education_4">
-          <strong>쇼핑검색광고 쇼핑 브랜드형 등록하기</strong>
+          <strong class="content_title">쇼핑검색광고 쇼핑 브랜드형 등록하기</strong>
           <ul class="tag_list">
             <li class="tag">
               실습
@@ -557,19 +568,19 @@
               사업자
             </li>
           </ul>
-          <p class="desc">
+          <p class="description">
             네이버 검색 결과에 내 브랜드를 홍보하는 쇼핑검색광고 쇼핑 브랜드형!
           </p>
-          <p class="short_desc">
-            <span>네이버 프로 서지현</span>
-            <span>총 27분</span>
-            <span>6개 강의</span>
-          </p>
+          <ul class="course_summary">
+            <li>네이버 프로 서지현</li>
+            <li>총 27분</li>
+            <li>6개 강의</li>
+          </ul>
         </div>
       </section>
       <section class="section_notice">
         <div class="inner">
-          <h2 class="title">공지사항</h2>
+          <h2 class="headline">공지사항</h2>
           <div class="notice_area">
             <ul class="notice_list">
             </ul>
@@ -581,251 +592,88 @@
       </section>
       <section class="section_introduce">
         <div class="inner">
-          <h2 class="title">네이버 프로와 전문 강사진이<br>여러분의 시작과 성장을 위한<br> 교육을 제공합니다</h2>
-          <a href="">비즈니스 스쿨 코스 소개</a>
+          <h2 class="link_introduce">
+            <a href="" >비즈니스 스쿨 코스 소개</a>
+          </h2>
+          <strong class="title">네이버 프로와 전문 강사진이<br>여러분의 시작과 성장을 위한<br> 교육을 제공합니다</strong>
         </div>
       </section>
     </main>
     <footer class="footer">
       <div class="inner">
-        <div class="top_footer pc">
-          <h2 class="footer_logo">
-            <a href="">
-              <span class="blind">푸터 로고</span>
-              <svg width="125" height="24" viewBox="0 0 125 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_5885_18163)">
-                  <path
-                    d="M35.9275 0L26.5342 24.0033H34.5184L35.6542 20.8326H44.6558L45.7884 24.0099H53.7726L44.3792 0H35.9275ZM37.475 15.0619L40.155 7.56228L42.8318 15.0619H37.475Z"
-                    fill="#414758"></path>
-                  <path
-                    d="M86.9962 14.8837H97.9139V9.1196H86.9962V5.88287H98.0325V0H79.3643V24H98.2662V18.1171H86.9962V14.8837Z"
-                    fill="#414758"></path>
-                  <path d="M63.2804 15.7811L57.6438 0H49.6629L59.0529 24H67.5079L76.898 0H68.9138L63.2804 15.7811Z"
-                    fill="#414758">
-                  </path>
-                  <path d="M16.3173 12.8447L7.39482 0H0V24H7.75041V11.1553L16.6696 24H24.0677V0H16.3173V12.8447Z"
-                    fill="#414758">
-                  </path>
-                  <path
-                    d="M118.745 15.7679L119.473 15.4644C122.255 14.2964 123.67 11.769 123.67 8.5653C123.67 5.53313 122.567 3.28622 120.378 1.89717C118.356 0.603794 115.732 0 112.12 0H102.013V24.0033H109.546V17.2956H112.246L116.825 24.0033H124.806L118.745 15.7679ZM113.53 11.1784H109.421V6.12043H113.53C113.869 6.10815 114.207 6.16448 114.524 6.28605C114.841 6.40761 115.13 6.59192 115.374 6.82798C115.618 7.06403 115.812 7.34698 115.945 7.65993C116.078 7.97288 116.146 8.30941 116.146 8.64944C116.146 8.98946 116.078 9.32599 115.945 9.63894C115.812 9.95189 115.618 10.2348 115.374 10.4709C115.13 10.7069 114.841 10.8913 114.524 11.0128C114.207 11.1344 113.869 11.1907 113.53 11.1784Z"
-                    fill="#414758"></path>
-                </g>
-                <defs>
-                  <clipPath id="clip0_5885_18163">
-                    <rect width="125" height="24" fill="white"></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </a>
-          </h2>
-          <div class="group_left">
-            <div class="group_link">
-              <ul class="link_list">
-                <li class="link_item">
-                  <a href="">개인정보 처리 방침</a>
-                  <i class="bar"></i>
-                </li>
-                <li class="link_item">
-                  <a href="">비즈니스 스쿨 운영 정책</a>
-                  <i class="bar"></i>
-                </li>
-                <li class="link_item flower">
-                  <a href="">네이버 프로젝트 꽃</a>
-                  <i class="bar"></i>
-                </li>
-                <li class="link_item blog">
-                  <a href="">공식 블로그</a>
-                  <i class="bar"></i>
-                </li>
-                <li class="link_item tv">
-                  <a href="">네이버 비즈니스 스쿨 TV</a>
-                </li>
-              </ul>
-            </div>
-            <div class="related">
-              <span class="related_title">
-                관련사이트
-              </span>
-              <ul class="related_list">
-                <li class="related_item">
-                  <ul>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버 비즈니스</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">SME 풀케어 시스템</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">사장님 보험 가이드</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="related_item">
-                  <ul>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버 검색광고</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버 디스플레이 광고</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버 성과형 디스플레이 광고</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">크로스미디어</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="related_item">
-                  <ul>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버 쇼핑</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버 스마트스토어</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버 스마트플레이스</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="related_item">
-                  <ul>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버페이</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버 예약</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버 톡톡</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">modool</a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank" class="link_related">네이버 아이디로 로그인</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="top_footer mo">
-          <h2 class="footer_logo">
-            <a href="">
-              <span class="blind">푸터 로고</span>
-              <svg width="104" height="20" viewBox="0 0 104 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_6086_9955)">
-                  <path
-                    d="M29.9393 0L22.1115 20.0028H28.765L29.7115 17.3605H37.2128L38.1566 20.0082H44.8101L36.9823 0H29.9393ZM31.2288 12.5516L33.4622 6.3019L35.6928 12.5516H31.2288Z"
-                    fill="#414758"></path>
-                  <path
-                    d="M72.4968 12.4031H81.5949V7.59967H72.4968V4.90239H81.6937V0H66.1369V20H81.8885V15.0976H72.4968V12.4031Z"
-                    fill="#414758"></path>
-                  <path d="M52.7337 13.151L48.0365 0H41.3857L49.2108 20H56.2566L64.0816 0H57.4282L52.7337 13.151Z"
-                    fill="#414758">
-                  </path>
-                  <path d="M13.5978 10.7039L6.16235 0H0V20H6.45867V9.29612L13.8914 20H20.0565V0H13.5978V10.7039Z"
-                    fill="#414758">
-                  </path>
-                  <path
-                    d="M98.9543 13.14L99.5607 12.887C101.879 11.9137 103.059 9.80753 103.059 7.13775C103.059 4.61094 102.14 2.73852 100.315 1.58097C98.6306 0.503162 96.4439 0 93.434 0H85.0108V20.0027H91.2884V14.413H93.5383L97.3548 20.0027H104.005L98.9543 13.14ZM94.6083 9.31537H91.1842V5.10036H94.6083C94.8909 5.09013 95.1726 5.13707 95.4367 5.23837C95.7007 5.33968 95.9417 5.49327 96.1452 5.68998C96.3487 5.88669 96.5106 6.12248 96.6212 6.38327C96.7317 6.64407 96.7887 6.92451 96.7887 7.20786C96.7887 7.49121 96.7317 7.77166 96.6212 8.03245C96.5106 8.29325 96.3487 8.52904 96.1452 8.72575C95.9417 8.92246 95.7007 9.07605 95.4367 9.17735C95.1726 9.27866 94.8909 9.3256 94.6083 9.31537Z"
-                    fill="#414758"></path>
-                </g>
-                <defs>
-                  <clipPath id="clip0_6086_9955">
-                    <rect width="104" height="20" fill="white"></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </a>
-          </h2>
-          <div class="info">
-            <span class="info_title">
-              네이버(주) 사업자 정보
-            </span>
-            <address class="address">
-              <p class="paragraph">
-                <span>사업자등록번호 220-81-62517
-                </span>
-                <span>통신판매업신고번호 경기성남 제 2006-692호
-                </span>
-                <span>대표이사 최수연</span>
-              </p>
-              <p class="paragraph">
-                <span>주소 경기도 성남시 분당구 정자일로 95, NAVER 1784
-                </span>
-                <span>호스팅 서비스 제공 NAVER Cloud Corp.
-                </span>
-              </p>
-              <small class="paragraph">
-                <span>Copyright © NAVER Corp. All Rights Reserved</span>
-              </small>
-            </address>
-          </div>
-          <a href="" class="link_customer">네이버 비즈니스 스쿨 고객센터</a>
-        </div>
-        <div class="bottom_footer pc">
-          <address class="address">
-            <p class="paragraph">
-              <span>사업자등록번호 220-81-62517
-                <i class="bar"></i>
-              </span>
-              <span>통신판매업신고번호 경기성남 제 2006-692호
-                <i class="bar"></i>
-              </span>
-              <span>대표이사 최수연</span>
-            </p>
-            <p class="paragraph">
-              <span>주소 경기도 성남시 분당구 정자일로 95, NAVER 1784
-                <i class="bar"></i>
-              </span>
-              <span>호스팅 서비스 제공 NAVER Cloud Corp.
-              </span>
-            </p>
-            <small class="paragraph">
-              <span>Copyright © NAVER Corp. All Rights Reserved</span>
-            </small>
-          </address>
-          <a href="" class="link_customer">네이버 비즈니스 스쿨 고객센터</a>
-        </div>
-        <div class="bottom_footer mo">
-          <div class="group_link">
-            <ul class="link_list">
-              <li class="link_item">
-                <ul>
-                  <li>
-                    <a href="" class="term">개인정보 처리 방침</a>
-                    <i class="bar"></i>
-                  </li>
-                  <li>
-                    <a href="">비즈니스 스쿨 운영 정책</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="link_item">
-                <ul>
-                  <li>
-                    <a href="">네이버 프로젝트 꽃</a>
-                    <i class="bar"></i>
-                  </li>
-                  <li>
-                    <a href="">공식 블로그</a>
-                    <i class="bar"></i>
-                  </li>
-                  <li>
-                    <a href="">네이버 비즈니스 스쿨 TV</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="related">
-            <span class="related_title">
+        <a href="">
+          <span class="blind">naver</span>
+          <svg width="125" height="24" viewBox="0 0 125 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="pc_footer_logo">
+            <g clip-path="url(#clip0_5885_18163)">
+              <path
+                d="M35.9275 0L26.5342 24.0033H34.5184L35.6542 20.8326H44.6558L45.7884 24.0099H53.7726L44.3792 0H35.9275ZM37.475 15.0619L40.155 7.56228L42.8318 15.0619H37.475Z"
+                fill="#414758"></path>
+              <path
+                d="M86.9962 14.8837H97.9139V9.1196H86.9962V5.88287H98.0325V0H79.3643V24H98.2662V18.1171H86.9962V14.8837Z"
+                fill="#414758"></path>
+              <path d="M63.2804 15.7811L57.6438 0H49.6629L59.0529 24H67.5079L76.898 0H68.9138L63.2804 15.7811Z"
+                fill="#414758">
+              </path>
+              <path d="M16.3173 12.8447L7.39482 0H0V24H7.75041V11.1553L16.6696 24H24.0677V0H16.3173V12.8447Z"
+                fill="#414758">
+              </path>
+              <path
+                d="M118.745 15.7679L119.473 15.4644C122.255 14.2964 123.67 11.769 123.67 8.5653C123.67 5.53313 122.567 3.28622 120.378 1.89717C118.356 0.603794 115.732 0 112.12 0H102.013V24.0033H109.546V17.2956H112.246L116.825 24.0033H124.806L118.745 15.7679ZM113.53 11.1784H109.421V6.12043H113.53C113.869 6.10815 114.207 6.16448 114.524 6.28605C114.841 6.40761 115.13 6.59192 115.374 6.82798C115.618 7.06403 115.812 7.34698 115.945 7.65993C116.078 7.97288 116.146 8.30941 116.146 8.64944C116.146 8.98946 116.078 9.32599 115.945 9.63894C115.812 9.95189 115.618 10.2348 115.374 10.4709C115.13 10.7069 114.841 10.8913 114.524 11.0128C114.207 11.1344 113.869 11.1907 113.53 11.1784Z"
+                fill="#414758"></path>
+            </g>
+            <defs>
+              <clipPath id="clip0_5885_18163">
+                <rect width="125" height="24" fill="white"></rect>
+              </clipPath>
+            </defs>
+          </svg>
+            <svg width="104" height="20" viewBox="0 0 104 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="mobile_footer_logo">
+            <g clip-path="url(#clip0_6086_9955)">
+              <path
+                d="M29.9393 0L22.1115 20.0028H28.765L29.7115 17.3605H37.2128L38.1566 20.0082H44.8101L36.9823 0H29.9393ZM31.2288 12.5516L33.4622 6.3019L35.6928 12.5516H31.2288Z"
+                fill="#414758"></path>
+              <path
+                d="M72.4968 12.4031H81.5949V7.59967H72.4968V4.90239H81.6937V0H66.1369V20H81.8885V15.0976H72.4968V12.4031Z"
+                fill="#414758"></path>
+              <path d="M52.7337 13.151L48.0365 0H41.3857L49.2108 20H56.2566L64.0816 0H57.4282L52.7337 13.151Z"
+                fill="#414758">
+              </path>
+              <path d="M13.5978 10.7039L6.16235 0H0V20H6.45867V9.29612L13.8914 20H20.0565V0H13.5978V10.7039Z"
+                fill="#414758">
+              </path>
+              <path
+                d="M98.9543 13.14L99.5607 12.887C101.879 11.9137 103.059 9.80753 103.059 7.13775C103.059 4.61094 102.14 2.73852 100.315 1.58097C98.6306 0.503162 96.4439 0 93.434 0H85.0108V20.0027H91.2884V14.413H93.5383L97.3548 20.0027H104.005L98.9543 13.14ZM94.6083 9.31537H91.1842V5.10036H94.6083C94.8909 5.09013 95.1726 5.13707 95.4367 5.23837C95.7007 5.33968 95.9417 5.49327 96.1452 5.68998C96.3487 5.88669 96.5106 6.12248 96.6212 6.38327C96.7317 6.64407 96.7887 6.92451 96.7887 7.20786C96.7887 7.49121 96.7317 7.77166 96.6212 8.03245C96.5106 8.29325 96.3487 8.52904 96.1452 8.72575C95.9417 8.92246 95.7007 9.07605 95.4367 9.17735C95.1726 9.27866 94.8909 9.3256 94.6083 9.31537Z"
+                fill="#414758"></path>
+            </g>
+            <defs>
+              <clipPath id="clip0_6086_9955">
+                <rect width="104" height="20" fill="white"></rect>
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+        <div class="footer_link_area">
+          <ul class="resource_list">
+            <li class="resource_item">
+              <a href="" class="resource_link">개인정보 처리 방침</a>
+            </li>
+            <li class="resource_item">
+              <a href="" class="resource_link">비즈니스 스쿨 운영 정책</a>
+            </li>
+            <li class="resource_item">
+              <a href="" class="resource_link flower">네이버 프로젝트 꽃</a>
+            </li>
+            <li class="resource_item">
+              <a href="" class="resource_link blog">공식 블로그</a>
+            </li>
+            <li class="resource_item">
+              <a href="" class="resource_link tv">네이버 비즈니스 스쿨 TV</a>
+            </li>
+          </ul>
+          <div class="related_box">
+            <button class="related_title" type="button">
               관련사이트
-            </span>
+            </button>
             <ul class="related_list">
               <li class="related_item">
                 <ul>
@@ -891,164 +739,34 @@
             </ul>
           </div>
         </div>
+
+        <div class="company_info_wrap">
+          <button class="company_info_title">
+            네이버(주) 사업자 정보
+          </button>
+          <address class="company_info_area">
+            <p class="company_info_box">
+              <span class="info_item divider">사업자등록번호 220-81-62517
+              </span>
+              <span class="info_item divider">통신판매업신고번호 경기성남 제 2006-692호
+              </span>
+              <span class="info_item">대표이사 최수연</span>
+            </p>
+            <p class="company_info_box">
+              <span class="info_item divider">주소 경기도 성남시 분당구 정자일로 95, NAVER 1784
+              </span>
+              <span class="info_item">호스팅 서비스 제공 NAVER Cloud Corp.
+              </span>
+            </p>
+            <small class="company_info_box">
+              <span class="info_item">Copyright © NAVER Corp. All Rights Reserved</span>
+            </small>
+          </address>
+          <a href="" class="link_customer">네이버 비즈니스 스쿨 고객센터</a>
+        </div>
       </div>
     </footer>
-    <div class="mo_gnb_inner" id="mo_gnb">
-      <ul class="nav_list top">
-        <li class="nav_item">
-          <a href="#" class="nav_item_title">
-            <span class="login">
-              <span class="profile_image">
-                <span class="blind">프로필 이미지</span>
-              </span>
-              <span class="greetings">
-                <span class="message">안녕하세요,</span>
-                <span class="user"><strong>강주현</strong>님.</span>
-              </span>
-            </span>
-          </a>
-          <ul class="sub_list">
-            <li class="sub_item">
-              <a href=""><span>내 정보</span></a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>교육 이용 현황
-                  <span class="count">0</span>
-                </span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>교육 포인트
-                  <span class="count">0P</span>
-                </span>
-              </a>
-              <span class="point">
-                <span>0P</span>
-                <span>50,000P</span>
-              </span>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>오프라인 예약 이력</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav_list middle">
-        <li class="nav_item">
-          <a href="#" class="nav_item_title">
-            <span>온라인 교육</span>
-          </a>
-          <ul class="sub_list">
-            <li class="sub_item">
-              <a href=""><span>비즈니스 스쿨 소개</span></a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>네이버 AI</span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>스마트스토어</span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>쇼핑라이브</span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>광고</span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>스마트플레이스</span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>블로그/인플루언서</span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>엑스퍼트/프리미엄콘텐츠</span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>비즈니스팁</span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>전체보기</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav_item">
-          <a href="#" class="nav_item_title">
-            <span>스튜디오 예약</span>
-          </a>
-          <ul class="sub_list">
-            <li class="sub_item">
-              <a href=""><span>스퀘어 서울</span></a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>스퀘어 부산</span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>스퀘어 광주</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav_item">
-          <a href="#" class="nav_item_title">
-            <span>D-커머스 프로그램</span>
-          </a>
-          <ul class="sub_list">
-            <li class="sub_item">
-              <a href=""><span>소개</span></a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>성장포인트</span>
-              </a>
-            </li>
-            <li class="sub_item">
-              <a href="">
-                <span>스카트 제로수수료</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav_list bottom">
-        <li class="nav_item">
-          <a href="#" class="nav_item_title">
-            <span>공지사항</span>
-          </a>
-        </li>
-      </ul>
-      <ul class="nav_list">
-        <li class="nav_item">
-          <a href="#" class="nav_item_title">
-            <span>로그아웃</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+
     <!-- <div class="backDimmed"></div> -->
     <button class="scroll_top">
       <img src="./assets/images/ico_scroll_top.svg" alt="화면 위로 아이콘">
