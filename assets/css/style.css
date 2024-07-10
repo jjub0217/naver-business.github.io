@@ -246,7 +246,7 @@ button {
   -webkit-backdrop-filter: blur(15px);
           backdrop-filter: blur(15px);
 }
-.header.gnb_mobile-on {
+.header.is_gnb_active {
   background-color: rgba(0, 0, 0, 0.9);
 }
 .header .back_dimmed {
@@ -306,7 +306,7 @@ button {
   margin-right: 8px;
   background-position: 22.186836518% 99.9201915403%;
 }
-.header .utility_area .search_button.gnb_mobile-on {
+.header .utility_area .search_button.is_gnb_active {
   background-position: 12.101910828% 99.9201915403%;
 }
 .header .utility_area .profile_image {
@@ -414,7 +414,7 @@ button {
   .header .utility_area .hamburger_icon {
     display: block;
   }
-  .header .utility_area .hamburger_icon.on {
+  .header .utility_area .hamburger_icon[aria-pressed=true] {
     background-position: 10.08492569% 99.9201915403%;
   }
 }
@@ -451,7 +451,7 @@ button {
   top: 100%;
   padding-bottom: 18px;
 }
-.gnb_pc .sub_list.on {
+.gnb_pc .sub_list.is_show {
   display: block;
   width: 100%;
 }
@@ -475,7 +475,7 @@ button {
     z-index: 2;
     padding: 11px 0 80px 0;
   }
-  .gnb_mobile.isAct {
+  .gnb_mobile.is_active {
     display: block;
     background-color: rgba(0, 0, 0, 0.9);
     -webkit-backdrop-filter: blur(15px);
@@ -530,7 +530,7 @@ button {
     padding: 20px 16px 20px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
-  .gnb_mobile .nav_list:nth-child(1) .sub_list.on {
+  .gnb_mobile .nav_list:nth-child(1) .sub_list.is_show {
     padding: 20px 16px 20px 0;
   }
   .gnb_mobile .nav_list:nth-child(1) .sub_item {
@@ -594,8 +594,13 @@ button {
     padding-left: 16px;
     padding-right: 16px;
   }
-  .gnb_mobile .nav_item_title.on::after {
+  .gnb_mobile .nav_item_title[aria-expanded=true]::after {
     transform: rotate(180deg);
+  }
+  .gnb_mobile .nav_item_title[aria-expanded=true] + .sub_list {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 16px 0 16px;
   }
   .gnb_mobile .nav_item_title::after {
     display: block;
@@ -607,11 +612,6 @@ button {
   }
   .gnb_mobile .sub_list {
     display: none;
-  }
-  .gnb_mobile .sub_list.on {
-    display: flex;
-    flex-direction: column;
-    padding: 5px 16px 0 16px;
   }
   .gnb_mobile .sub_item {
     height: 40px;
@@ -636,12 +636,12 @@ button {
   border-top: 1px solid rgb(38, 42, 53);
   box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
 }
-.floating_menu.on {
+.floating_menu.is_active {
   display: block;
   position: relative;
   z-index: 1;
 }
-.search .floating_menu {
+.is_search_area_active .floating_menu {
   display: none;
 }
 .floating_menu .inner {
@@ -685,7 +685,7 @@ button {
   border-top: 1px solid rgb(38, 42, 53);
   box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
 }
-.search .search_area {
+.is_search_area_active .search_area {
   display: block;
   position: relative;
   z-index: 1;
@@ -895,11 +895,11 @@ button {
     padding: 1px 12px 0 12px;
   }
 }
-.footer .related_box.on {
+.footer .related_box.is_show {
   background: #fff;
   color: #000;
 }
-.footer .related_box.on .related_list {
+.footer .related_box.is_show .related_list {
   overflow-y: scroll;
   display: block;
   position: absolute;
@@ -912,17 +912,17 @@ button {
   background: #fff;
 }
 @media screen and (max-width: 850px) {
-  .footer .related_box.on .related_list {
+  .footer .related_box.is_show .related_list {
     left: 0;
     color: rgb(138, 141, 145);
   }
 }
-.footer .related_box.on .related_list > * + * {
+.footer .related_box.is_show .related_list > * + * {
   padding-top: 10px;
   margin-top: 10px;
   border-top: 1px solid rgb(222, 222, 222);
 }
-.footer .related_box.on .related_list .related_item {
+.footer .related_box.is_show .related_list .related_item {
   font-size: 14px;
   font-weight: 400;
   text-align: left;
@@ -970,10 +970,10 @@ button {
     padding: 0;
     border: 0;
   }
-  .footer .company_info_wrap.on .company_info_title:after {
+  .footer .company_info_wrap.is_show .company_info_title:after {
     transform: rotate(270deg);
   }
-  .footer .company_info_wrap.on .company_info_area {
+  .footer .company_info_wrap.is_show .company_info_area {
     display: flex;
     margin-top: 8px;
   }
@@ -1296,7 +1296,7 @@ button {
 .text_box_mo {
   display: none;
 }
-.text_box_mo.on {
+.text_box_mo.is_active {
   position: relative;
   left: 50%;
   transform: translate(-50%, -24%);
@@ -1306,17 +1306,17 @@ button {
   background: rgb(38, 42, 53);
 }
 @media screen and (max-width: 850px) {
-  .text_box_mo.on {
+  .text_box_mo.is_active {
     display: block;
   }
 }
-.text_box_mo.on .content_title {
+.text_box_mo.is_active .content_title {
   min-height: 0;
 }
-.text_box_mo.on .description {
+.text_box_mo.is_active .description {
   font-size: 12px;
 }
-.text_box_mo.on .course_summary {
+.text_box_mo.is_active .course_summary {
   margin-top: 16px;
 }
 
@@ -1373,11 +1373,11 @@ button {
   left: -24px;
   transform: translateY(-50%) rotate(-180deg);
 }
-.content_box .prev_button.on {
+.content_box .prev_button.is_show {
   display: block;
 }
 @media screen and (max-width: 850px) {
-  .content_box .prev_button.on {
+  .content_box .prev_button.is_show {
     display: none;
   }
 }
@@ -1686,10 +1686,10 @@ button {
   background-position: 93.5106382979% 86.6987179487%;
   cursor: pointer;
 }
-.section_line_up .headline .tip {
+.section_line_up .headline .tooltip .tip {
   display: none;
 }
-.section_line_up .headline .tip.on {
+.section_line_up .headline .tooltip[aria-expanded=true] .tip {
   display: block;
   position: absolute;
   top: 30px;
@@ -1749,18 +1749,18 @@ button {
     padding-top: 17px;
   }
 }
-.section_line_up .more_button.active {
+.section_line_up .more_button[aria-expanded=true] {
   display: none;
 }
-.section_line_up .more_area {
-  display: none;
-}
-.section_line_up .more_area.active {
+.section_line_up .more_button[aria-expanded=true] + .more_area {
   display: flex;
   flex-direction: column;
   gap: 16px;
   max-height: 999em;
   margin-top: 16px;
+}
+.section_line_up .more_area {
+  display: none;
 }
 .section_line_up .more_title {
   color: rgb(177, 181, 194);
@@ -1812,13 +1812,13 @@ button {
     line-height: 19px;
   }
 }
-.section_notice .notice_item .notice_link {
+.section_notice .notice_link {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 @media screen and (max-width: 850px) {
-  .section_notice .notice_item .notice_link {
+  .section_notice .notice_link {
     gap: 8px;
   }
 }

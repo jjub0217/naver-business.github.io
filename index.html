@@ -11,13 +11,18 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
+<!-- [D] 브라우저의 스크롤이 -->
 
+<body>
+  <!-- [D] 데이터들을 불러오는 동안 indicator 에 display 클래스이름 추가 -->
+  <!-- [D] 데이터들을 불러오는 것이 끝나면 indicator 에 display 클래스이름 제거 -->
   <div class="indicator">
     <div class="loader" role="status" aria-live="polite">
       <span class="blind">로딩중</span>
     </div>
   </div>
+  <!-- [D] 데이터들을 불러오는것이 실패하면 error 에 display 클래스이름 추가 -->
+  <!-- [D] 데이터들을 불러오는것이 실패했다가 성공하면 error 에 display 클래스이름 제거 -->
   <div class="error" role="alert">
     문제 발생! 다시 시도하거나 관리자에게 문의하세요.
   </div>
@@ -34,6 +39,8 @@
             <span class="blind">네이버 비즈니스 스쿨</span>
           </a>
         </h1>
+        <!-- [D] gnb_pc 영역에 마우스를 올리면 sub_list들에 is_show 클래스이름 추가 -->
+        <!-- [D] gnb_pc 영역에 마우스를 벗어나면 sub_list들에 is_show 클래스이름 제거 -->
         <nav class="gnb_pc">
           <ul class="nav_list">
             <li class="nav_item">
@@ -103,6 +110,7 @@
         </nav>
         <div class="utility_area">
           <a href="" class="notice_link">공지사항</a>
+          <!-- [D] search_button 클릭하게 되면, header 에 is_search_area_active 라는 클래스이름 토글 -->
           <button class="search_button" aria-label="검색" aria-pressed="false" type="button">
           </button>
           <div class="profile_image" aria-label="프로필이미지" aria-haspopup="false" aria-controls="profile" role="img">
@@ -140,13 +148,19 @@
               </div>
             </div>
           </div>
+          <!-- [D] hamburger_icon을 클릭하게 되면, body 에 scroll_hide 라는 클래스이름 추가 -->
+          <!-- [D] hamburger_icon을 클릭하게 되면, header 에 is_gnb_active 라는 클래스이름 추가 -->
+          <!-- [D] hamburger_icon을 클릭하게 되면, search_button 에 is_active 라는 클래스이름 추가-->
+          <!-- [D] hamburger_icon을 클릭하게 되면, gnb_mobile 에 is_active 라는 클래스이름 추가-->  
           <button class="hamburger_icon" aria-expanded="false" aria-haspopup="menu" aria-label="메뉴열기" aria-pressed="false" type="button" 
             aria-controls="gnb_mobile">
           </button>
         </div>
       </div>
+      <!-- [D]  브라우저의 화면의 스크롤이 움직이면 floating_menu에 is_active 클래스이름 토글 -->
       <div class="floating_menu">
         <div class="inner swiper">
+          <!-- [D] floating_menu 의 자식요소중에 클릭한 swiper-slide에  is_active 클래스이름 추가 및 클릭하지 않은 swiper-slide에는 is_active  클래스이름 제거 -->
           <ul class="swiper-wrapper">
             <li class="swiper-slide"><a href="" class="menu_link">비즈니스 스쿨 소개</a></li>
             <li class="swiper-slide is_active"><a href="" class="menu_link">네이버 AI</a></li>
@@ -178,6 +192,7 @@
             title="교육명, 강사명, 태그를 입력해주세요." placeholder="교육명, 강사명, 태그를 입력해주세요." value="" id="search" aria-live="assertive"
               aria-atomic="false" class="search_input">
           </div>
+          <!-- [D] search_close_button 클릭하게 되면, header 에 is_search_area_active 라는 클래스이름 제거-->
           <button class="search_close_button" type="button" aria-pressed="false" aria-label="검색 닫기">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="8.80762" y="25.7781" width="24" height="2" rx="1" transform="rotate(-45 8.80762 25.7781)"
@@ -191,10 +206,11 @@
         </div>
       </div>
     </header>
+
     <nav class="gnb_mobile" id="gnb_mobile">
       <ul class="nav_list my_info">
         <li class="nav_item">
-          <a href="" class="nav_item_title">
+          <a href="" class="nav_item_title" aria-haspopup="false" aria-expanded="false">
             <span class="login">
               <span class="profile_image">
                 <span class="blind">프로필 이미지</span>
@@ -231,7 +247,7 @@
       </ul>
       <ul class="nav_list">
         <li class="nav_item">
-          <a href="" class="nav_item_title">온라인 교육</a>
+          <a href="" class="nav_item_title" aria-haspopup="true" aria-expanded="false">온라인 교육</a>
           <ul class="sub_list">
             <li class="sub_item">
               <a href="">비즈니스 스쿨 소개</a>
@@ -266,7 +282,7 @@
           </ul>
         </li>
         <li class="nav_item">
-          <a href="" class="nav_item_title">스튜디오 예약</a>
+          <a href="" class="nav_item_title" aria-haspopup="true" aria-expanded="false">스튜디오 예약</a>
           <ul class="sub_list">
             <li class="sub_item">
               <a href="">스퀘어 서울</a>
@@ -374,6 +390,7 @@
               <ul class="swiper-wrapper">
               </ul>
             </div>
+            <!-- [D] next_button 을 클릭하면 prev_button 에 is_show 클래스이름 추가-->
             <button class="btn prev_button" type="button"></button>
             <button class="btn next_button" type="button"></button>
           </div>
@@ -387,7 +404,8 @@
             </ul>
           </div>
         </div>
-        <div class="text_box_mo on" id="section_this_week_1">
+        <!-- [D] 스와이퍼에서 가운데에 있는 요소의 index가 id에 포함된 text_box_mo 에 is_active 클래스이름 추가-->
+        <div class="text_box_mo is_active" id="section_this_week_1">
           <strong class="content_title">브랜드검색광고 등록하기</strong>
           <ul class="tag_list">
             <li class="tag">
@@ -458,19 +476,20 @@
       <section class="section_line_up">
         <div class="inner">
           <h2 class="headline">스테디셀러 라인업
-            <span class="tooltip" aria-describedby="tooltip">
-              <span class="tip">
+            <button class="tooltip"  aria-haspopup="false" aria-expanded="false" aria-describedby="tooltip">
+              <span class="tip" aria-hidden="true">
                 <span class="blind" id="tooltip">비즈니스 스쿨에서 분야별로 꾸준하게 높은 학습률을 기록하는 교육 코스를 지금 만나보세요. 현재까지 누적된 높은 수강 건수와
                   만족도를 입증하는 교육
                   코스를 추천합니다. </span>
               </span>
-            </span>
+            </button>
           </h2>
           <div class="content_box">
             <div class="swiper">
               <ul class="swiper-wrapper">
               </ul>
             </div>
+            <!-- [D] next_button 을 클릭하면 prev_button 에 is_show 클래스이름 추가-->
             <button class="btn prev_button" type="button"></button>
             <button class="btn next_button" type="button"></button>
           </div>
@@ -670,8 +689,9 @@
               <a href="" class="resource_link tv">네이버 비즈니스 스쿨 TV</a>
             </li>
           </ul>
+          <!-- [D] related_box 을 클릭하면, is_show 클래스이름 추가 및 제거-->
           <div class="related_box">
-            <button class="related_title" type="button">
+            <button class="related_title" type="button" aria-expanded="false">
               관련사이트
             </button>
             <ul class="related_list">
@@ -739,9 +759,9 @@
             </ul>
           </div>
         </div>
-
+        <!-- [D] company_info_wrap 클릭하면 -->
         <div class="company_info_wrap">
-          <button class="company_info_title">
+          <button class="company_info_title" type="button">
             네이버(주) 사업자 정보
           </button>
           <address class="company_info_area">
@@ -766,8 +786,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- <div class="backDimmed"></div> -->
     <button class="scroll_top">
       <img src="./assets/images/ico_scroll_top.svg" alt="화면 위로 아이콘">
     </button>

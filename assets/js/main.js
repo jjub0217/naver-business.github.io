@@ -6,9 +6,6 @@ const errored = document.querySelector(".error")
 
 const displayLoading = () => {
   indicator.classList.add("display")
-  setTimeout(()=> {
-    indicator.classList.remove("display")
-  },2000)
 }
 
 const hideLoading  = () => {
@@ -69,9 +66,9 @@ floatingItems.forEach((floatingItem) => {
 window.addEventListener("scroll", function () {
   let curr = this.scrollY;
   if (curr >= 1) {
-    floatingMenu.classList.add("on");
+    floatingMenu.classList.add("is_active");
   } else {
-    floatingMenu.classList.remove("on");
+    floatingMenu.classList.remove("is_active");
   }
 });
 
@@ -111,36 +108,36 @@ const anchor = (swipe) => {
     case 0:
       textBoxes.forEach((textBox) => {
         if (textBox.id.includes("1")) {
-          textBox.classList.add("on");
+          textBox.classList.add("is_active");
         } else {
-          textBox.classList.remove("on");
+          textBox.classList.remove("is_active");
         }
       });
       break;
     case 1:
       textBoxes.forEach((textBox) => {
         if (textBox.id.includes("2")) {
-          textBox.classList.add("on");
+          textBox.classList.add("is_active");
         } else {
-          textBox.classList.remove("on");
+          textBox.classList.remove("is_active");
         }
       });
       break;
     case 2:
       textBoxes.forEach((textBox) => {
         if (textBox.id.includes("3")) {
-          textBox.classList.add("on");
+          textBox.classList.add("is_active");
         } else {
-          textBox.classList.remove("on");
+          textBox.classList.remove("is_active");
         }
       });
       break;
     case 3:
       textBoxes.forEach((textBox) => {
         if (textBox.id.includes("4")) {
-          textBox.classList.add("on");
+          textBox.classList.add("is_active");
         } else {
-          textBox.classList.remove("on");
+          textBox.classList.remove("is_active");
         }
       });
       break;
@@ -223,7 +220,7 @@ const onlineEducationList = async (tabId = "#online_ai") => {
         activeIndexChange: function () {
           document
             .querySelector(".section_online_education .prev_button")
-            .classList.add("on");
+            .classList.add("is_show");
         },
       },
       breakpoints: {
@@ -339,8 +336,8 @@ const  lineUpList = async () => {
             <li class="detail_item">${element.running}</li>
             <li class="detail_item">${element.total}개 강의</li>
           </ul>
-          <button class="more_button">더보기</button>
-          <div class="more_area">`;
+          <button class="more_button" type="button" aria-expanded="false" aria-controls="more_content">더보기</button>
+          <div class="more_area" id="more_content" aria-hidden="true">`;
             element.paragraph.forEach((content) => {
             html += `<div>
               <p class="more_title">${content.title}</p>
@@ -368,14 +365,14 @@ const  lineUpList = async () => {
         },
       },
       navigation: {
-        nextEl: ".section_line_up .next",
-        prevEl: ".section_line_up .prev",
+        nextEl: ".section_line_up .next_button",
+        prevEl: ".section_line_up .prev_button",
       },
       on: {
         activeIndexChange: function () {
           document
-          .querySelector(".section_line_up .prev")
-          .classList.add("on");
+            .querySelector(".section_line_up .prev_button")
+            .classList.add("is_show");
         },
       },
     });
@@ -525,20 +522,19 @@ pcGnb.addEventListener("mouseenter", function () {
   const subList = document.querySelectorAll(".header .sub_list");
 
   subList.forEach((subItem) => {
-    subItem.classList.add("on");
+    subItem.classList.add("is_show");
     const subItemHeight = subItem.offsetHeight;
     if (subItemHeight > maxSubListHeight) {
       maxSubListHeight = subItemHeight;
     }
   });
-  console.log(maxSubListHeight);
   backDimmed.style.height = `${maxSubListHeight + headerInner.offsetHeight}px`;
 });
 
 header.addEventListener("mouseleave", function () {
   const subList = document.querySelectorAll(".header .sub_list");
   subList.forEach((subItem) => {
-    subItem.classList.remove("on");
+    subItem.classList.remove("is_show");
   });
   backDimmed.style.height = "auto";
 });
@@ -559,16 +555,16 @@ searchBtn.onclick = (e) => {
   if (e.target.ariaPressed === "false") {
     e.target.ariaPressed = true;
     searchCloseBtn.ariaPressed = false;
-    header.classList.add("search")
+    header.classList.add("is_search_area_active")
     input.focus()
   } else {
     e.target.ariaPressed = false;
-    header.classList.remove("search");
+    header.classList.remove("is_search_area_active");
   }
 };
 
 searchCloseBtn.onclick = (e) =>{
-  header.classList.remove("search");
+  header.classList.remove("is_search_area_active");
   if (e.target.ariaPressed === "false") {
     e.target.ariaPressed = true;
   } else {
@@ -577,11 +573,10 @@ searchCloseBtn.onclick = (e) =>{
 };
 
 hamburgerIcon.onclick = (e) => {
-  document.body.classList.toggle("scroll-hide");
-  mobileGnb.classList.toggle("isAct");
-  searchBtn.classList.toggle("gnb_mobile-on");
-  hamburgerIcon.classList.toggle("on");
-  header.classList.toggle("gnb_mobile-on");
+  document.body.classList.toggle("scroll_hide");
+  mobileGnb.classList.toggle("is_active");
+  searchBtn.classList.toggle("is_gnb_active");
+  header.classList.toggle("is_gnb_active");
   if (e.target.ariaExpanded  === "false") {
     e.target.ariaExpanded = true
     e.target.ariaPressed = true;
@@ -603,17 +598,28 @@ const handleClick = function(e) {
   const navItem = e.target.parentNode;
   const subList = e.target.parentNode.querySelector(".sub_list"); 
   if (navList.classList.contains("my_info")) {
-    subList.classList.toggle("on");
-    e.target.classList.toggle("on");
+    if (e.target.ariaExpanded  === "false") {
+      e.target.ariaExpanded = true;
+    }else{
+      e.target.ariaExpanded = false;
+    }
   } else {
     if (subList) {
       [...navList.children].forEach((item) => {
         if (item === navItem) {
-          subList.classList.toggle("on");
-          e.target.classList.toggle("on");
+          if (e.target.ariaExpanded === "false") {
+            e.target.ariaExpanded = true;
+            e.target.ariaHasPopup = true;
+          } else {
+            e.target.ariaExpanded = false;
+            e.target.ariaHasPopup = false;
+          }
         } else {
-          const nonActiveSubList = [...item.children].find((element) => element.classList.contains("sub_list"));
-          nonActiveSubList.classList.remove("on");
+          const nonActiveSubList = [...item.children].find((element) =>
+            element.classList.contains("nav_item_title")
+          );
+          nonActiveSubList.ariaExpanded = false;
+          e.target.ariaHasPopup = false;
         }
       });
     }
@@ -646,12 +652,19 @@ profile.addEventListener("mouseleave", function (e) {
  */
 document.addEventListener("click",(function(e){
   if (e.target.classList.contains("more_button")) {
-    e.target.classList.add("active");
-    e.target.nextElementSibling.classList.add("active")
+    e.target.ariaExpanded = true;
+    e.target.nextElementSibling.ariaHidden = false;
   }
   if (e.target.classList.contains("tooltip")) {
+    if (e.target.ariaExpanded === "false") {
+      e.target.ariaExpanded = true;
+      e.target.ariaHasPopup = true;
+    } else {
+      e.target.ariaExpanded = false;
+      e.target.ariaHasPopup = false;
+    }
     [...e.target.children].forEach(tip => {
-      tip.classList.toggle("on")
+      tip.ariaHidden = false
     })
   }
 }))
@@ -665,7 +678,14 @@ const relatedBox = document.querySelector(".related_box");
 
 relatedBox.onclick = (e) => {
   e.preventDefault();
-  e.target.parentNode.classList.toggle("on")
+  console.log(e);
+  if (e.target.ariaExpanded === "false"){
+    e.target.ariaExpanded = true;
+    e.target.parentNode.classList.add("is_show");
+  }else{
+    e.target.ariaExpanded = false;
+    e.target.parentNode.classList.remove("is_show");
+  }
 };
 
 
@@ -676,8 +696,7 @@ const companyInfo = document.querySelector(".company_info_wrap");
 
 companyInfo.onclick = (e) => {
   e.preventDefault();
-  console.log(e);
-  e.target.parentNode.classList.toggle("on");
+  e.target.parentNode.classList.toggle("is_show");
 };
 
 

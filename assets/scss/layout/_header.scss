@@ -7,7 +7,7 @@
   background: rgba(25, 26, 31, 0.8);
   backdrop-filter: blur(15px);
 
-  &.gnb_mobile-on {
+  &.is_gnb_active {
     background-color: rgba(0, 0, 0, 0.9);
   }
   .back_dimmed {
@@ -68,7 +68,7 @@
       margin-right: 8px;
       background-position: 22.186836518% 99.9201915403%;
 
-      &.gnb_mobile-on {
+      &.is_gnb_active {
         background-position: 12.101910828% 99.9201915403%;
       }
     }
@@ -186,7 +186,7 @@
       @include mobile {
         display: block;
 
-        &.on {
+        &[aria-pressed="true"] {
           background-position: 10.08492569% 99.9201915403%;
         }
       }
@@ -231,7 +231,7 @@
       top: 100%;
       padding-bottom: 18px;
 
-      &.on {
+      &.is_show {
         display: block;
         width: 100%;
       }
@@ -258,7 +258,7 @@
     z-index: 2;
     padding: 11px 0 80px 0;
 
-    &.isAct {
+    &.is_active {
       display: block;
       background-color: rgba(0, 0, 0, 0.9);
       backdrop-filter: blur(15px);
@@ -320,7 +320,7 @@
               gap: 26px;
               padding: 20px 16px 20px 0;
               border-top: 1px solid rgba(255, 255, 255, 0.1);
-              &.on {
+              &.is_show {
                 padding: 20px 16px 20px 0;
               }
             }
@@ -396,9 +396,14 @@
           padding-left: 16px;
           padding-right: 16px;
 
-          &.on {
+          &[aria-expanded="true"] {
             &::after {
               transform: rotate(180deg);
+            }
+            & + .sub_list {
+              display: flex;
+              flex-direction: column;
+              padding: 5px 16px 0 16px;
             }
           }
 
@@ -416,12 +421,6 @@
     .sub {
       &_list {
         display: none;
-
-        &.on {
-          display: flex;
-          flex-direction: column;
-          padding: 5px 16px 0 16px;
-        }
       }
       &_item {
         height: 40px;
@@ -450,13 +449,13 @@
   border-top: 1px solid rgb(38, 42, 53);
   box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
 
-  &.on {
+  &.is_active {
     display: block;
     position: relative;
     z-index: 1;
   }
 
-  .search & {
+  .is_search_area_active & {
     display: none;
   }
 
@@ -507,7 +506,7 @@
   border-top: 1px solid rgb(38, 42, 53);
   box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
 
-  .search & {
+  .is_search_area_active & {
     display: block;
     position: relative;
     z-index: 1;

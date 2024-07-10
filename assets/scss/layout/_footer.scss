@@ -136,7 +136,7 @@
         padding: 1px 12px 0 12px;
       }
 
-      &.on {
+      &.is_show {
         background: #fff;
         color: #000;
 
@@ -218,7 +218,7 @@
         padding: 0;
         border: 0;
 
-        &.on {
+        &.is_show {
           .company_info_title {
             &:after {
               transform: rotate(270deg);

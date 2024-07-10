@@ -228,7 +228,7 @@
 .text_box_mo {
   display: none;
 
-  &.on {
+  &.is_active {
     @include mobile {
       display: block;
     }
@@ -306,7 +306,7 @@
   .prev_button {
     left: -24px;
     transform: translateY(-50%) rotate(-180deg);
-    &.on {
+    &.is_show {
       display: block;
 
       @include mobile {
@@ -684,22 +684,22 @@
       background-image: url("../images/sp_sprite.svg");
       background-position: 93.5106382979% 86.6987179487%;
       cursor: pointer;
-    }
-
-    .tip {
-      display: none;
-
-      &.on {
-        display: block;
-        position: absolute;
-        top: 30px;
-        left: -100%;
-        z-index: 2;
-        width: 404px;
-        height: 170px;
-        background-image: url("../images/sp_sprite.svg");
-        background-position: 0 96.5209634255%;
-        transform: translateX(-34%);
+      .tip {
+        display: none;
+      }
+      &[aria-expanded="true"] {
+        .tip {
+          display: block;
+          position: absolute;
+          top: 30px;
+          left: -100%;
+          z-index: 2;
+          width: 404px;
+          height: 170px;
+          background-image: url("../images/sp_sprite.svg");
+          background-position: 0 96.5209634255%;
+          transform: translateX(-34%);
+        }
       }
     }
   }
@@ -761,21 +761,21 @@
         padding-top: 17px;
       }
 
-      &.active {
+      &[aria-expanded="true"] {
         display: none;
+
+        & + .more_area {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          max-height: 999em;
+          margin-top: 16px;
+        }
       }
     }
 
     &_area {
       display: none;
-
-      &.active {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        max-height: 999em;
-        margin-top: 16px;
-      }
     }
 
     &_title {
@@ -827,15 +827,14 @@
         line-height: 19px;
       }
     }
+  }
+  .notice_link {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 
-    .notice_link {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-
-      @include mobile {
-        gap: 8px;
-      }
+    @include mobile {
+      gap: 8px;
     }
   }
 
