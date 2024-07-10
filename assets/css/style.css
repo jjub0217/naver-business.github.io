@@ -825,6 +825,7 @@ button {
 .footer .resource_list {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 .footer .resource_item {
   display: flex;
