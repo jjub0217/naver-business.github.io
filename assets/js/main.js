@@ -706,11 +706,11 @@ companyInfo.onclick = (e) => {
  * @해결해야할기능
  */
 
-$(document).on("change", ".bookmark", function (e) {
-  if (e.target.checked) {
-    e.target.classList.add("is_checked"); 
-  } else {
-    e.target.classList.remove("is_checked");
-    e.target.offsetHeight;
-  }
-});
+// $(document).on("change", ".bookmark", function (e) {
+//   if (e.target.checked) {
+//     e.target.classList.add("is_checked"); 
+//   } else {
+//     e.target.classList.remove("is_checked");
+//     e.target.offsetHeight;
+//   }
+// });
