@@ -249,30 +249,32 @@ const thisWeekList = async () => {
         <a href="" class="link_slide">
           <span class="blind">링크</span>
         </a>
-        <div class="image_box">
-          <img src="${element.imageUrl}" alt="${element.textStrong}">
-          <input type="checkbox" id="this_week_${index}" class="bookmark">
-          <label for="this_week_${index}" aria-label="북마크"></label>
-          <p class="save_message">
-            나중에 볼 교육으로 저장 되었습니다.
-          </p>
-        </div>
-        <div class="text_box">
-          <strong class="content_title">${element.textStrong}</strong>
-          <div class="content">
-            <ul class="tag_list">`;
-              element.tags.forEach((tag) => {
-                html += `<li class="tag">${tag}
-                                </li>`;
-              });
-            html += `</ul>
-            <p class="description">${element.desc}</p>
-            <ul class="course_summary">
-              <li class="detail_item">${element.manager}</li>
-              <li class="detail_item">${element.running}</li>
-              <li class="detail_item">${element.total}개 강의</li>
-            </ul>
+        <div class="slide">
+          <div class="image_box">
+            <img src="${element.imageUrl}" alt="${element.textStrong}">
+            <input type="checkbox" id="this_week_${index}" class="bookmark">
+            <label for="this_week_${index}" aria-label="북마크"></label>
+            <p class="save_message">
+              나중에 볼 교육으로 저장 되었습니다.
             </p>
+          </div>
+          <div class="text_box">
+            <strong class="content_title">${element.textStrong}</strong>
+            <div class="content">
+              <ul class="tag_list">`;
+                element.tags.forEach((tag) => {
+                  html += `<li class="tag">${tag}
+                                  </li>`;
+                });
+              html += `</ul>
+              <p class="description">${element.desc}</p>
+              <ul class="course_summary">
+                <li class="detail_item">${element.manager}</li>
+                <li class="detail_item">${element.running}</li>
+                <li class="detail_item">${element.total}개 강의</li>
+              </ul>
+              </p>
+            </div>
           </div>
         </div>
       </li>`;
