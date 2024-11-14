@@ -147,9 +147,23 @@ const anchor = (swipe) => {
 };
 
 const onlineEducationList = async (tabId = "#online_ai") => {
+
   displayLoading();
   hideError();
   try {
+    const commonA11ySettings = {
+      enabled: true,
+      containerMessage: "프로모션 슬라이드 영역입니다.",
+      slideLabelMessage:
+        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+      firstSlideMessage: "첫번째 슬라이드입니다.",
+      lastSlideMessage: "마지막 슬라이드입니다.",
+      paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
+      containerRoleDescriptionMessage: "Carousel",
+      itemRoleDescriptionMessage: "Slide",
+      slideRole: "listitem",
+    };
+
     const res = await fetch("./data.json");
     const json = await res.json();
     data = json.onlineEducation;
@@ -177,18 +191,18 @@ const onlineEducationList = async (tabId = "#online_ai") => {
             <strong class="content_title">${element.textStrong}</strong>
             <div class="content">
               <ul class="tag_list">`;
-                element.tags.forEach((tag) => {
-                  html1 += `<li class="tag">${tag}</li>`;
-                });
-              html1 += `</ul>
+        element.tags.forEach((tag) => {
+          html1 += `<li class="tag">${tag}</li>`;
+        });
+        html1 += `</ul>
               <p class="description">
                 ${element.desc}
               </p>
               <ul class="course_summary">`;
-                element.shortDesc.forEach((text) => {
-                  html1 += `<li class="detail_item">${text}</li>`;
-                });
-              html1 += `</ul>
+        element.shortDesc.forEach((text) => {
+          html1 += `<li class="detail_item">${text}</li>`;
+        });
+        html1 += `</ul>
             </div>
           </div>
         </li>`;
@@ -210,6 +224,7 @@ const onlineEducationList = async (tabId = "#online_ai") => {
     ).innerHTML = html1 + html1_2;
 
     new Swiper(".section_online_education .swiper", {
+      a11y: commonA11ySettings,
       spaceBetween: 16,
       slidesPerView: 1,
       navigation: {
@@ -240,6 +255,19 @@ const thisWeekList = async () => {
   displayLoading()
   hideError()
   try {
+    const commonA11ySettings = {
+      enabled: true,
+      containerMessage: "프로모션 슬라이드 영역입니다.",
+      slideLabelMessage:
+        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+      firstSlideMessage: "첫번째 슬라이드입니다.",
+      lastSlideMessage: "마지막 슬라이드입니다.",
+      paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
+      containerRoleDescriptionMessage: "Carousel",
+      itemRoleDescriptionMessage: "Slide",
+      slideRole: "listitem",
+    };
+
     const res = await fetch("./data.json");
     const json = await res.json();
     let data = json.thisWeek;
@@ -283,9 +311,9 @@ const thisWeekList = async () => {
       html;
 
     new Swiper(".section_this_week .swiper", {
+      a11y: commonA11ySettings,
       slidesPerView: "auto",
       centeredSlides: true,
-      loop: true,
       spaceBetween: 16,
       initialSlide: 0,
       clickable: false,
@@ -298,7 +326,6 @@ const thisWeekList = async () => {
         850: {
           slidesPerView: 4,
           spaceBetween: 24,
-          loop: false,
           centeredSlides: false,
           clickable: false,
         },
@@ -314,6 +341,20 @@ const  lineUpList = async () => {
   displayLoading()
   hideError()
   try {
+
+    const commonA11ySettings = {
+      enabled: true,
+      containerMessage: "프로모션 슬라이드 영역입니다.",
+      slideLabelMessage:
+        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+      firstSlideMessage: "첫번째 슬라이드입니다.",
+      lastSlideMessage: "마지막 슬라이드입니다.",
+      paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
+      containerRoleDescriptionMessage: "Carousel",
+      itemRoleDescriptionMessage: "Slide",
+      slideRole: "listitem",
+    };
+
     const res = await fetch("./data.json");
     const json = await res.json();
     let data = json.lineUp;
@@ -338,8 +379,9 @@ const  lineUpList = async () => {
             <li class="detail_item">${element.running}</li>
             <li class="detail_item">${element.total}개 강의</li>
           </ul>
-          <button class="more_button" type="button" aria-expanded="false" aria-controls="more_content">더보기</button>
-          <div class="more_area" id="more_content" aria-hidden="true">`;
+          <button class="more_button" type="button" aria-expanded="false" 
+          aria-controls="more_content_${index}">더보기</button>
+          <div class="more_area" id="more_content_${index}" aria-hidden="true">`;
             element.paragraph.forEach((content) => {
             html += `<div>
               <p class="more_title">${content.title}</p>
@@ -357,6 +399,7 @@ const  lineUpList = async () => {
       html;
 
     new Swiper(".section_line_up .swiper", {
+      a11y: commonA11ySettings,
       slidesPerView: 3,
       spaceBetween: 16,
       clickable: false,
@@ -388,6 +431,19 @@ const newEducationList = async () => {
   displayLoading();
   hideError();
   try {
+    const commonA11ySettings = {
+      enabled: true,
+      containerMessage: "프로모션 슬라이드 영역입니다.",
+      slideLabelMessage:
+        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+      firstSlideMessage: "첫번째 슬라이드입니다.",
+      lastSlideMessage: "마지막 슬라이드입니다.",
+      paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
+      containerRoleDescriptionMessage: "Carousel",
+      itemRoleDescriptionMessage: "Slide",
+      slideRole: "listitem",
+    };
+
     const res = await fetch("./data.json");
     const json = await res.json();
     let data = json.newEducation;
@@ -434,9 +490,11 @@ const newEducationList = async () => {
       html;
 
     new Swiper(".section_new_education .swiper", {
+      a11y: commonA11ySettings,
+      loopedSlides: 1,
       slidesPerView: "auto",
       centeredSlides: true,
-      loop: true,
+      // loop: true,
       spaceBetween: 16,
       initialSlide: 0,
       clickable: false,
