@@ -273,6 +273,9 @@ const thisWeekList = async () => {
     let data = json.thisWeek;
     let html = ``;
     data.forEach((element, index) => {
+      const uniqueId = `this_week_${index}_${Math.random()
+        .toString(36)
+        .slice(2, 11)}`; 
       html += `<li class="swiper-slide">
         <a href="" class="link_slide">
           <span class="blind">링크</span>
@@ -280,8 +283,8 @@ const thisWeekList = async () => {
         <div class="slide">
           <div class="image_box">
             <img src="${element.imageUrl}" alt="${element.textStrong}">
-            <input type="checkbox" id="this_week_${index}" class="bookmark">
-            <label for="this_week_${index}" aria-label="북마크"></label>
+            <input type="checkbox" data-id="${uniqueId}" class="bookmark" name="this_week_bookmark">
+            <label data-id="${uniqueId}" aria-label="북마크"></label>
             <p class="save_message">
               나중에 볼 교육으로 저장 되었습니다.
             </p>
@@ -290,11 +293,11 @@ const thisWeekList = async () => {
             <strong class="content_title">${element.textStrong}</strong>
             <div class="content">
               <ul class="tag_list">`;
-                element.tags.forEach((tag) => {
-                  html += `<li class="tag">${tag}
+      element.tags.forEach((tag) => {
+        html += `<li class="tag">${tag}
                                   </li>`;
-                });
-              html += `</ul>
+      });
+      html += `</ul>
               <p class="description">${element.desc}</p>
               <ul class="course_summary">
                 <li class="detail_item">${element.manager}</li>
@@ -312,6 +315,8 @@ const thisWeekList = async () => {
 
     new Swiper(".section_this_week .swiper", {
       a11y: commonA11ySettings,
+      loop: true,
+      loopedSlides: 1,
       slidesPerView: "auto",
       centeredSlides: true,
       spaceBetween: 16,
@@ -324,6 +329,7 @@ const thisWeekList = async () => {
       },
       breakpoints: {
         850: {
+          loop: false,
           slidesPerView: 4,
           spaceBetween: 24,
           centeredSlides: false,
@@ -331,6 +337,15 @@ const thisWeekList = async () => {
         },
       },
     });
+
+    document.querySelectorAll("label[data-id]").forEach((label) => {
+      const dataId = label.getAttribute("data-id");
+      const input = document.querySelector(`input[data-id="${dataId}"]`);
+      if (input) {
+        label.setAttribute("for", (input.id = dataId));
+      }
+    });
+
     hideLoading();
   } catch (error) {
     displayError(error);
@@ -449,6 +464,9 @@ const newEducationList = async () => {
     let data = json.newEducation;
     let html = ``;
     data.forEach((element, index) => {
+      const uniqueId = `new_education_${index}_${Math.random()
+        .toString(36)
+        .slice(2, 11)}`; 
       html += `<li class="swiper-slide">
         <a href="" class="link_slide">
           <span class="blind">링크</span>
@@ -480,8 +498,8 @@ const newEducationList = async () => {
               </ul>
             </div>
           </div>
-              <input type="checkbox" id="new_education_${index}" class="bookmark">
-          <label for="new_education_${index}" aria-label="북마크"></label>
+              <input type="checkbox" data-id="${uniqueId}" class="bookmark" name="new_education_bookmark">
+          <label data-id="${uniqueId}" aria-label="북마크"></label>
         </div>
       </li>`;
     });
@@ -491,10 +509,10 @@ const newEducationList = async () => {
 
     new Swiper(".section_new_education .swiper", {
       a11y: commonA11ySettings,
+      loop: true,
       loopedSlides: 1,
       slidesPerView: "auto",
       centeredSlides: true,
-      // loop: true,
       spaceBetween: 16,
       initialSlide: 0,
       clickable: false,
@@ -513,6 +531,15 @@ const newEducationList = async () => {
         },
       },
     });
+
+    document.querySelectorAll("label[data-id]").forEach((label) => {
+      const dataId = label.getAttribute("data-id");
+      const input = document.querySelector(`input[data-id="${dataId}"]`);
+      if (input) {
+        label.setAttribute("for", (input.id = dataId));
+      }
+    });
+
     hideLoading();
   } catch (error) {
     displayError(error);
