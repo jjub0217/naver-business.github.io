@@ -201,7 +201,7 @@ button {
   .inner {
     min-width: 320px;
     max-width: none;
-    padding: 0px 16px;
+    padding: 0 16px;
   }
 }
 
@@ -883,7 +883,7 @@ button {
 .footer .resource_link.tv::before {
   background-position: 4.033970276% 100%;
 }
-.footer .related_box {
+.footer .related_area {
   position: relative;
   padding: 1px 12px 0 16px;
   border: 1px solid rgb(38, 42, 53);
@@ -891,16 +891,16 @@ button {
   cursor: pointer;
 }
 @media screen and (max-width: 850px) {
-  .footer .related_box {
+  .footer .related_area {
     width: 115px;
     padding: 1px 12px 0 12px;
   }
 }
-.footer .related_box.is_show {
+.footer .related_area.is_show {
   background: #fff;
   color: #000;
 }
-.footer .related_box.is_show .related_list {
+.footer .related_area.is_show .related_box {
   overflow-y: scroll;
   display: block;
   position: absolute;
@@ -913,23 +913,23 @@ button {
   background: #fff;
 }
 @media screen and (max-width: 850px) {
-  .footer .related_box.is_show .related_list {
+  .footer .related_area.is_show .related_box {
     left: 0;
     color: rgb(138, 141, 145);
   }
 }
-.footer .related_box.is_show .related_list > * + * {
+.footer .related_area.is_show .related_box > * + * {
   padding-top: 10px;
   margin-top: 10px;
   border-top: 1px solid rgb(222, 222, 222);
 }
-.footer .related_box.is_show .related_list .related_item {
+.footer .related_area.is_show .related_box .related_list {
   font-size: 14px;
   font-weight: 400;
   text-align: left;
   line-height: 24px;
 }
-.footer .related_list {
+.footer .related_box {
   display: none;
 }
 .footer .related_title {
@@ -1362,7 +1362,7 @@ button {
   width: 48px;
   height: 48px;
   z-index: 1;
-  background: url("../images/ico_slide_arrow.png") no-repeat;
+  background: url("../images/ico_arrow.png") no-repeat;
   background-size: 48px 48px;
   transform: translateY(-50%);
 }

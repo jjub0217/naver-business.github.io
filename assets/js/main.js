@@ -104,6 +104,7 @@ const anchor = (swipe) => {
   const centerIndex = swipe.realIndex;
   const section = swipe.el.parentNode.parentNode.className;
   const textBoxes = document.querySelectorAll(`.${section} .text_box_mo`);
+  
   switch (centerIndex) {
     case 0:
       textBoxes.forEach((textBox) => {
@@ -316,7 +317,6 @@ const thisWeekList = async () => {
     new Swiper(".section_this_week .swiper", {
       a11y: commonA11ySettings,
       loop: true,
-      loopedSlides: 1,
       slidesPerView: "auto",
       centeredSlides: true,
       spaceBetween: 16,
@@ -510,7 +510,6 @@ const newEducationList = async () => {
     new Swiper(".section_new_education .swiper", {
       a11y: commonA11ySettings,
       loop: true,
-      loopedSlides: 1,
       slidesPerView: "auto",
       centeredSlides: true,
       spaceBetween: 16,
@@ -761,15 +760,15 @@ document.addEventListener("click",(function(e){
  * @related
  */
 
-const relatedBox = document.querySelector(".related_box");
+const relatedArea = document.querySelector(".related_area");
 
-relatedBox.onclick = (e) => {
+relatedArea.onclick = (e) => {
   e.preventDefault();
   console.log(e);
-  if (e.target.ariaExpanded === "false"){
+  if (e.target.ariaExpanded === "false") {
     e.target.ariaExpanded = true;
     e.target.parentNode.classList.add("is_show");
-  }else{
+  } else {
     e.target.ariaExpanded = false;
     e.target.parentNode.classList.remove("is_show");
   }

@@ -12,7 +12,6 @@
 </head>
 
 <!-- [D] 브라우저의 스크롤이 -->
-
 <body>
   <!-- [D] 데이터들을 불러오는 동안 indicator 에 display 클래스이름 추가 -->
   <!-- [D] 데이터들을 불러오는 것이 끝나면 indicator 에 display 클래스이름 제거 -->
@@ -31,8 +30,8 @@
     <a href="#main">본문 바로가기</a>
   </div>
   <div class="wrapper">
-    <header class="header" id="header">
-      <div class="back_dimmed"></div>
+    <header  id="header" class="header">
+      <div class="back_dimmed" aria-hidden="true"></div>
       <div class="inner">
         <h1 class="logo">
           <a href="">
@@ -111,17 +110,19 @@
         <div class="utility_area">
           <a href="" class="notice_link">공지사항</a>
           <!-- [D] search_button 클릭하게 되면, header 에 is_search_area_active 라는 클래스이름 토글 -->
-          <button class="search_button" aria-label="검색" aria-pressed="false" type="button">
+          <button type="button" class="search_button" aria-label="검색" aria-pressed="false">
           </button>
-          <div class="profile_image" aria-label="프로필이미지" aria-haspopup="false" aria-controls="profile" role="img">
-            <div class="my_information_area" id="profile">
+          <div class="profile_image" aria-haspopup="false" aria-controls="profile">
+            <div id="profile" class="my_information_area">
               <div class="information_box">
                 <div class="profile_image" role="img">
                   <span class="blind">프로필이미지</span>
                 </div>
                 <div class="greetings">
                   <p class="message">안녕하세요,<br>
-                    <span class="user_name"><strong class="name">강주현</strong>님,</span>
+                    <span class="user_name">
+                      <strong class="name">강주현</strong>님,
+                    </span>
                   </p>
                 </div>
               </div>
@@ -152,7 +153,7 @@
           <!-- [D] hamburger_icon을 클릭하게 되면, header 에 is_gnb_active 라는 클래스이름 추가 -->
           <!-- [D] hamburger_icon을 클릭하게 되면, search_button 에 is_active 라는 클래스이름 추가-->
           <!-- [D] hamburger_icon을 클릭하게 되면, gnb_mobile 에 is_active 라는 클래스이름 추가-->  
-          <button class="hamburger_icon" aria-expanded="false" aria-haspopup="menu" aria-label="메뉴열기" aria-pressed="false" type="button" 
+          <button type="button" class="hamburger_icon" aria-expanded="false" aria-haspopup="menu" aria-label="메뉴열기" aria-pressed="false" 
             aria-controls="gnb_mobile">
           </button>
         </div>
@@ -162,16 +163,36 @@
         <div class="inner swiper">
           <!-- [D] floating_menu 의 자식요소중에 클릭한 swiper-slide에  is_active 클래스이름 추가 및 클릭하지 않은 swiper-slide에는 is_active  클래스이름 제거 -->
           <ul class="swiper-wrapper">
-            <li class="swiper-slide"><a href="" class="menu_link">비즈니스 스쿨 소개</a></li>
-            <li class="swiper-slide is_active"><a href="" class="menu_link">네이버 AI</a></li>
-            <li class="swiper-slide online2"><a href="" class="menu_link">스마트스토어</a></li>
-            <li class="swiper-slide online3"><a href="" class="menu_link">쇼핑라이브</a></li>
-            <li class="swiper-slide online4"><a href="" class="menu_link">광고</a></li>
-            <li class="swiper-slide online5"><a href="" class="menu_link">스마트플레이스</a></li>
-            <li class="swiper-slide online6"><a href="" class="menu_link">블로그/인플루언서</a></li>
-            <li class="swiper-slide online7"><a href="" class="menu_link">엑스퍼트/프리미엄콘텐츠</a></li>
-            <li class="swiper-slide online8"><a href="" class="menu_link">비즈니스팁</a></li>
-            <li class="swiper-slide"><a href="" class="menu_link">전체보기</a></li>
+            <li class="swiper-slide">
+              <a href="" class="menu_link">비즈니스 스쿨 소개</a>
+            </li>
+            <li class="swiper-slide is_active">
+              <a href="" class="menu_link">네이버 AI</a>
+            </li>
+            <li class="swiper-slide online2">
+              <a href="" class="menu_link">스마트스토어</a>
+            </li>
+            <li class="swiper-slide online3">
+              <a href="" class="menu_link">쇼핑라이브</a>
+            </li>
+            <li class="swiper-slide online4">
+              <a href="" class="menu_link">광고</a>
+            </li>
+            <li class="swiper-slide online5">
+              <a href="" class="menu_link">스마트플레이스</a>
+            </li>
+            <li class="swiper-slide online6">
+              <a href="" class="menu_link">블로그/인플루언서</a>
+            </li>
+            <li class="swiper-slide online7">
+              <a href="" class="menu_link">엑스퍼트/프리미엄콘텐츠</a>
+            </li>
+            <li class="swiper-slide online8">
+              <a href="" class="menu_link">비즈니스팁</a>
+            </li>
+            <li class="swiper-slide">
+              <a href="" class="menu_link">전체보기</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -188,12 +209,13 @@
                 fill="#7c8296"></path>
             </svg>
             <label for="search_input" class="blind">검색어입력</label>
-            <input type="text" 
-            title="교육명, 강사명, 태그를 입력해주세요." placeholder="교육명, 강사명, 태그를 입력해주세요." value="교육명" id="search_input" aria-live="assertive" 
-              aria-atomic="false" class="search_input">
+            <input type="text" id="search_input" value="교육명" 
+            placeholder="교육명, 강사명, 태그를 입력해주세요." 
+            class="search_input"
+            title="교육명, 강사명, 태그를 입력해주세요." aria-live="assertive" aria-atomic="false">
           </div>
           <!-- [D] search_close_button 클릭하게 되면, header 에 is_search_area_active 라는 클래스이름 제거-->
-          <button class="search_close_button" type="button" aria-pressed="false" aria-label="검색 닫기">
+          <button type="button" class="search_close_button" aria-pressed="false" aria-label="검색 닫기">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="8.80762" y="25.7781" width="24" height="2" rx="1" transform="rotate(-45 8.80762 25.7781)"
                 fill="white">
@@ -207,7 +229,7 @@
       </div>
     </header>
 
-    <nav class="gnb_mobile" id="gnb_mobile">
+    <nav id="gnb_mobile" class="gnb_mobile">
       <ul class="nav_list my_info">
         <li class="nav_item">
           <a href="" class="nav_item_title" aria-haspopup="false" aria-expanded="false">
@@ -322,7 +344,7 @@
       </ul>
     </nav>
 
-    <main class="container" id="main">
+    <main id="main" class="container">
       <section class="section_personal">
         <div class="inner">
           <h2 class="headline">
@@ -348,40 +370,40 @@
           <h2 class="blind">온라인교육 리스트</h2>
           <div class="tab_area">
             <ul class="tab_list" role="tablist">
-              <li class="tab_item" data-tab="#online_ai" role="none">
-                <button class="tab_item_title" role="tab" aria-selected="true">네이버 AI
+              <li class="tab_item" role="none" data-tab="#online_ai" >
+                <button type="button" class="tab_item_title" role="tab" aria-selected="true">네이버 AI
                 </button>
               </li>
-              <li class="tab_item" data-tab="#online_store" role="none">
-                <button class="tab_item_title" role="tab" aria-selected="false">스마트<br>스토어
+              <li class="tab_item" role="none" data-tab="#online_store" >
+                <button type="button" class="tab_item_title" role="tab" aria-selected="false">스마트<br>스토어
                 </button>
               </li>
-              <li class="tab_item" data-tab="#online_live" role="none">
-                <button class="tab_item_title" role="tab" aria-selected="false">쇼핑라이브
+              <li class="tab_item" role="none" data-tab="#online_live" >
+                <button type="button" class="tab_item_title" role="tab" aria-selected="false">쇼핑라이브
                 </button>
               </li>
-              <li class="tab_item" data-tab="#online_ad" role="none">
-                <button class="tab_item_title" role="tab" aria-selected="false">광고
+              <li class="tab_item" role="none" data-tab="#online_ad" >
+                <button type="button" class="tab_item_title" role="tab" aria-selected="false">광고
                 </button>
               </li>
-              <li class="tab_item" data-tab="#online_place" role="none">
-                <button class="tab_item_title" role="tab" aria-selected="false">스마트플레이스
+              <li class="tab_item" role="none" data-tab="#online_place" >
+                <button type="button" class="tab_item_title" role="tab" aria-selected="false">스마트플레이스
                 </button>
               </li>
-              <li class="tab_item" data-tab="#online_blog" role="none">
-                <button class="tab_item_title" role="tab" aria-selected="false">블로그/<br>인플루언서
+              <li class="tab_item" role="none" data-tab="#online_blog" >
+                <button type="button" class="tab_item_title" role="tab" aria-selected="false">블로그/<br>인플루언서
                 </button>
               </li>
-              <li class="tab_item" data-tab="#online_expert" role="none">
-                <button class="tab_item_title" role="tab" aria-selected="false">엑스퍼트/<br>프리미엄콘텐츠
+              <li class="tab_item" role="none" data-tab="#online_expert" >
+                <button type="button" class="tab_item_title" role="tab" aria-selected="false">엑스퍼트/<br>프리미엄콘텐츠
                 </button>
               </li>
-              <li class="tab_item" data-tab="#online_business" role="none">
-                <button class="tab_item_title" role="tab" aria-selected="false">비즈니스팁
+              <li class="tab_item" role="none" data-tab="#online_business" >
+                <button type="button" class="tab_item_title" role="tab" aria-selected="false">비즈니스팁
                 </button>
               </li>
-              <li class="tab_item" id="all" role="none">
-                <button class="tab_item_title" role="tab" aria-selected="false">전체보기
+              <li id="all" class="tab_item" role="none">
+                <button type="button" class="tab_item_title" role="tab" aria-selected="false">전체보기
                 </button>
               </li>
             </ul>
@@ -392,8 +414,8 @@
               </ul>
             </div>
             <!-- [D] next_button 을 클릭하면 prev_button 에 is_show 클래스이름 추가-->
-            <button class="btn prev_button" type="button"></button>
-            <button class="btn next_button" type="button"></button>
+            <button type="button" class="btn prev_button"></button>
+            <button type="button" class="btn next_button" ></button>
           </div>
         </div>
       </section>
@@ -406,7 +428,7 @@
           </div>
         </div>
         <!-- [D] 스와이퍼에서 가운데에 있는 요소의 index가 id에 포함된 text_box_mo 에 is_active 클래스이름 추가-->
-        <div class="text_box_mo is_active" id="section_this_week_1">
+        <div id="sectionThisWeek1" class="text_box_mo is_active">
           <strong class="content_title">브랜드검색광고 등록하기</strong>
           <ul class="tag_list">
             <li class="tag">
@@ -422,7 +444,7 @@
             <li>5개 강의</li>
           </ul>
         </div>
-        <div class="text_box_mo" id="section_this_week_2">
+        <div class="text_box_mo" id="sectionThisWeek2">
           <strong class="content_title">소규모 사업자를 위한 시제품과 공장생산</strong>
           <ul class="tag_list">
             <li class="tag">
@@ -441,7 +463,7 @@
             <li>4개 강의</li>
           </ul>
         </div>
-        <div class="text_box_mo" id="section_this_week_3">
+        <div class="text_box_mo" id="sectionThisWeek3">
           <strong class="content_title">데이터가 알려주는 프리미엄콘텐츠 운영 노하우</strong>
           <ul class="tag_list">
             <li class="tag">
@@ -457,7 +479,7 @@
             <span>3개 강의</span>
           </p>
         </div>
-        <div class="text_box_mo" id="section_this_week_4">
+        <div class="text_box_mo" id="sectionThisWeek4">
           <strong class="content_title">포토그래퍼의 촬영 노하우 대방출</strong>
           <ul class="tag_list">
             <li class="tag">
@@ -477,13 +499,13 @@
       <section class="section_line_up">
         <div class="inner">
           <h2 class="headline">스테디셀러 라인업
-            <button class="tooltip"  aria-haspopup="false" aria-expanded="false" aria-describedby="tooltip" title="비즈니스 스쿨에서 분야별로 꾸준하게 높은 학습률을 기록하는 교육 코스를 지금 만나보세요. 현재까지 누적된 높은 수강 건수와
-                  만족도를 입증하는 교육
-                  코스를 추천합니다. ">
+            <button class="tooltip"  
+            title="비즈니스 스쿨에서 분야별로 꾸준하게 높은 학습률을 기록하는 교육 코스를 지금 만나보세요. 현재까지 누적된 높은 수강 건수와
+            만족도를 입증하는 교육
+            코스를 추천합니다."
+            aria-haspopup="false" aria-expanded="false" aria-describedby="tooltip" >
               <span class="tip" aria-hidden="true">
-                <span class="blind" id="tooltip">비즈니스 스쿨에서 분야별로 꾸준하게 높은 학습률을 기록하는 교육 코스를 지금 만나보세요. 현재까지 누적된 높은 수강 건수와
-                  만족도를 입증하는 교육
-                  코스를 추천합니다. </span>
+                <span id="tooltip" class="blind" >비즈니스 스쿨에서 분야별로 꾸준하게 높은 학습률을 기록하는 교육 코스를 지금 만나보세요. 현재까지 누적된 높은 수강 건수와 만족도를 입증하는 교육 코스를 추천합니다.</span>
               </span>
             </button>
           </h2>
@@ -493,8 +515,8 @@
               </ul>
             </div>
             <!-- [D] next_button 을 클릭하면 prev_button 에 is_show 클래스이름 추가-->
-            <button class="btn prev_button" type="button"></button>
-            <button class="btn next_button" type="button"></button>
+            <button type="button" class="btn prev_button" ></button>
+            <button type="button" class="btn next_button" ></button>
           </div>
         </div>
       </section>
@@ -517,7 +539,7 @@
             </ul>
           </div>
         </div>
-        <div class="text_box_mo on" id="section_new_education_1">
+        <div class="text_box_mo on" id="sectionNewEducation1">
           <strong class="content_title">CLOVA Studio 익스플로러 사용방법</strong>
           <ul class="tag_list">
             <li class="tag">
@@ -539,7 +561,7 @@
             <li>4개 강의</li>
           </ul>
         </div>
-        <div class="text_box_mo" id="section_new_education_2">
+        <div class="text_box_mo" id="sectionNewEducation2">
           <strong class="content_title">쇼핑검색광고 쇼핑몰 상품형 등록하기</strong>
           <ul class="tag_list">
             <li class="tag">
@@ -561,7 +583,7 @@
             <li>6개 강의</li>
           </ul>
         </div>
-        <div class="text_box_mo" id="section_new_education_3">
+        <div class="text_box_mo" id="sectionNewEducation3">
           <strong class="content_title">쇼핑검색광고 제품 카탈로그형 등록하기</strong>
           <ul class="tag_list">
             <li class="tag">
@@ -580,7 +602,7 @@
             <li>6개 강의</li>
           </ul>
         </div>
-        <div class="text_box_mo" id="section_new_education_4">
+        <div class="text_box_mo" id="sectionNewEducation4">
           <strong class="content_title">쇼핑검색광고 쇼핑 브랜드형 등록하기</strong>
           <ul class="tag_list">
             <li class="tag">
@@ -649,7 +671,7 @@
               </clipPath>
             </defs>
           </svg>
-            <svg width="104" height="20" viewBox="0 0 104 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="mobile_footer_logo">
+          <svg width="104" height="20" viewBox="0 0 104 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="mobile_footer_logo">
             <g clip-path="url(#clip0_6086_9955)">
               <path
                 d="M29.9393 0L22.1115 20.0028H28.765L29.7115 17.3605H37.2128L38.1566 20.0082H44.8101L36.9823 0H29.9393ZM31.2288 12.5516L33.4622 6.3019L35.6928 12.5516H31.2288Z"
@@ -693,78 +715,70 @@
             </li>
           </ul>
           <!-- [D] related_box 을 클릭하면, is_show 클래스이름 추가 및 제거-->
-          <div class="related_box">
-            <button class="related_title" type="button" aria-expanded="false">
+          <div class="related_area">
+            <button type="button" class="related_title"  aria-expanded="false">
               관련사이트
             </button>
-            <ul class="related_list">
-              <li class="related_item">
-                <ul>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버 비즈니스</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">SME 풀케어 시스템</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">사장님 보험 가이드</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="related_item">
-                <ul>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버 검색광고</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버 디스플레이 광고</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버 성과형 디스플레이 광고</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">크로스미디어</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="related_item">
-                <ul>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버 쇼핑</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버 스마트스토어</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버 스마트플레이스</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="related_item">
-                <ul>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버페이</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버 예약</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버 톡톡</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">modool</a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" class="link_related">네이버 아이디로 로그인</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <div class="related_box">
+              <ul class="related_list">
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버 비즈니스</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">SME 풀케어 시스템</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">사장님 보험 가이드</a>
+                </li>
+              </ul>
+              <ul class="related_list">
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버 검색광고</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버 디스플레이 광고</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버 성과형 디스플레이 광고</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">크로스미디어</a>
+                </li>
+              </ul>
+              <ul class="related_list">
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버 쇼핑</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버 스마트스토어</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버 스마트플레이스</a>
+                </li>
+              </ul>
+              <ul class="related_list">
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버페이</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버 예약</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버 톡톡</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">modool</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="link_related">네이버 아이디로 로그인</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <!-- [D] company_info_wrap 클릭하면 -->
         <div class="company_info_wrap">
-          <button class="company_info_title" type="button">
+          <button type="button" class="company_info_title">
             네이버(주) 사업자 정보
           </button>
           <address class="company_info_area">

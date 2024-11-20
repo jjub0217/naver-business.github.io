@@ -125,7 +125,7 @@
   }
 
   .related {
-    &_box {
+    &_area {
       position: relative;
       padding: 1px 12px 0 16px;
       border: 1px solid rgb(38, 42, 53);
@@ -141,7 +141,7 @@
         background: #fff;
         color: #000;
 
-        .related_list {
+        .related_box {
           overflow-y: scroll;
           display: block;
           position: absolute;
@@ -164,7 +164,7 @@
             border-top: 1px solid rgb(222, 222, 222);
           }
 
-          .related_item {
+          .related_list {
             font-size: 14px;
             font-weight: 400;
             text-align: left;
@@ -174,7 +174,7 @@
       }
     }
 
-    &_list {
+    &_box {
       display: none;
     }
 
