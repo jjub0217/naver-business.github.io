@@ -351,7 +351,6 @@ const thisWeekList = async () => {
 
   new Swiper(".section_this_week .swiper", {
     a11y: commonA11ySettings,
-    loop: true,
     slidesPerView: "auto",
     centeredSlides: true,
     spaceBetween: 16,
@@ -364,7 +363,6 @@ const thisWeekList = async () => {
     },
     breakpoints: {
       850: {
-        loop: false,
         slidesPerView: 4,
         spaceBetween: 24,
         centeredSlides: false,
@@ -570,7 +568,6 @@ const newEducationList = async () => {
   new Swiper(".section_new_education .swiper", {
     a11y: commonA11ySettings,
     slidesPerView: "auto",
-    loop: true,
     centeredSlides: true,
     spaceBetween: 16,
     initialSlide: 0,
@@ -601,6 +598,7 @@ const newEducationList = async () => {
   });
 
   const bookmark = document.querySelectorAll(".section_new_education .bookmark");
+  console.log(bookmark);
   bookmark.forEach((check) => {
     check.onchange = (e) => {
       if (e.target.checked === false) {
