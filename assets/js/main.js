@@ -641,7 +641,7 @@ const fetchAndRenderAllLists = () => {
     handleAsyncProcess(newEducationList),
     handleAsyncProcess(noticeList),
   ]).then(() => {
-    console.log("All loading");
+    return
   });
 };
 
