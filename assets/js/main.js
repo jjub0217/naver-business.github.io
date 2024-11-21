@@ -178,7 +178,6 @@ const onlineEducationList = async (tabId = "#online_ai") => {
   const json = await res.json();
   data = json.onlineEducation;
   let html1 = ``;
-  let html1_2 = ``;
 
   sortData = data.filter((item) => {
     return item.id.indexOf(tabId) >= 0;
@@ -188,7 +187,8 @@ const onlineEducationList = async (tabId = "#online_ai") => {
     const uniqueId = `online_${index}_${Math.random()
       .toString(36)
       .slice(2, 11)}`;
-      html1 += `<li class="swiper-slide"> 
+      html1 += 
+      `<li class="swiper-slide"> 
         <div class="image_box">
           <img src="${element.imageUrl}" alt="${element.textStrong}">
           <div class="bookmark_box">
@@ -203,18 +203,18 @@ const onlineEducationList = async (tabId = "#online_ai") => {
           <strong class="content_title">${element.textStrong}</strong>
           <div class="content">
             <ul class="tag_list">`;
-      element.tags.forEach((tag) => {
-        html1 += `<li class="tag">${tag}</li>`;
-      });
-      html1 += `</ul>
+              element.tags.forEach((tag) => {
+                html1 += `<li class="tag">${tag}</li>`;
+              });
+            html1 += `</ul>
             <p class="description">
               ${element.desc}
             </p>
             <ul class="course_summary">`;
-      element.shortDesc.forEach((text) => {
-        html1 += `<li class="detail_item">${text}</li>`;
-      });
-      html1 += `</ul>
+              element.shortDesc.forEach((text) => {
+                html1 += `<li class="detail_item">${text}</li>`;
+              });
+            html1 += `</ul>
           </div>
         </div>
         <a href="" class="link_slide">
@@ -222,39 +222,42 @@ const onlineEducationList = async (tabId = "#online_ai") => {
         </a>
       </li>`;
     });
-    html1_2 = `<li class="swiper-slide link_more">
-      <a href="" class="link_slide">
-      <span class="blind">링크</span>
-      </a>
-      <div class="slide">
-        <span class="course_title">${item_1.course}</span> 
-        코스교육<br>
-        ${item_1.total}개 전체보기
-      </div>
-    </li>`;
   });
+html1 += `
+  <li class="swiper-slide link_more">
+    <a href="" class="link_slide">
+      <span class="blind">링크</span>
+    </a>
+    <div class="slide">
+      <span class="course_title">${sortData[0]?.course || "전체보기"}</span>
+      코스교육<br>
+      ${sortData[0]?.total || 0}개 전체보기
+    </div>
+  </li>`;
+
 
   document.querySelector(
     ".section_online_education .swiper-wrapper"
-  ).innerHTML = html1 + html1_2;
+  ).innerHTML = html1;
+
 
   new Swiper(".section_online_education .swiper", {
     a11y: commonA11ySettings,
     spaceBetween: 16,
-    slidesPerView: 1,
+    slidesPerView: "auto",
     navigation: {
       nextEl: ".section_online_education .next_button",
       prevEl: ".section_online_education .prev_button",
     },
     on: {
-      activeIndexChange: function () {
+      activeIndexChange: function (swiper) {
         document
           .querySelector(".section_online_education .prev_button")
           .classList.add("is_show");
       },
     },
     breakpoints: {
-      850: {
+      900: {
         slidesPerView: 3,
         spaceBetween: 24,
       },
@@ -457,7 +460,7 @@ const  lineUpList = async () => {
 
   new Swiper(".section_line_up .swiper", {
     a11y: commonA11ySettings,
-    slidesPerView: 3,
+    slidesPerView: "auto",
     spaceBetween: 16,
     clickable: false,
     breakpoints: {
@@ -566,8 +569,8 @@ const newEducationList = async () => {
 
   new Swiper(".section_new_education .swiper", {
     a11y: commonA11ySettings,
-    loop: true,
     slidesPerView: "auto",
+    loop: true,
     centeredSlides: true,
     spaceBetween: 16,
     initialSlide: 0,
@@ -579,9 +582,9 @@ const newEducationList = async () => {
     },
     breakpoints: {
       850: {
+        loop: false,
         slidesPerView: 4,
         spaceBetween: 24,
-        loop: false,
         centeredSlides: false,
         clickable: false,
       },

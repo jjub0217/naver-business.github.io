@@ -10,17 +10,45 @@
 <br>
 반응형 웹 페이지로 레이아웃 및 디자인이 다르게 되어있으며, Json 데이터를 fetch 해옴에 따라 사이트가 열리기까지 시각적으로 로딩 인디케이터를 볼 수 있습니다.
 
+## 프로젝트 기능
+1. 반응형 웹 페이지.
+2. 데크스탑, 모바일 버전의 UI가 다르다.
+3. 헤더를 건너뛰고 바로 본문으로 넘어갈수 있게끔 tab 키 기능 추가.
+4. 슬라이드 기능
+5. 슬라이드 화살표 버튼으로 다음과 이전 슬라이드로 이동할 수 있다.
+6. 특정 슬라이드 이미지에 해당하는 텍스트영역이 고정되어 같이 슬라이드처럼 움직인다.
+7. 북마크 버튼을 누르면 특정 요소를 저장한다는 알림메세지가 잠깐 보였다가 사라진다. 
 
+
+## 콘솔에러 0 <br>
+<img src="https://github.com/user-attachments/assets/4e1cdc80-6e2b-4f52-8cc2-c0c7139947a3" width=800> <br>
 
 ## 프로젝트 웹표준(W3C의 Markup Validation Service)
 결과 : 0개 <br>
 <img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/cd9b2bd6-faf1-47ac-9faf-2b1154319317" width=800> <br>
 
+
+
 ## 프로젝트 웹접근성
+- chrome Lighthouse 결과 :<br>
+모바일 디바이스의 접근성 표준을 준수하였는지 로컬에서 검사할수 있는 goole 의 lighthouse 로 검사하면 개선할점이 Accessibility  항목과 Best Practices 항목에서 나타납니다.  <br>
+[1] 데스크탑
+<img src="https://github.com/user-attachments/assets/d3c46877-4673-44ce-8e84-cbfd9411d4e5" width=800> <br>
+[2] 모바일
+<img src="https://github.com/user-attachments/assets/1f899d28-f813-41ab-b509-879bfb28d865" width=800> <br>
 - Open-WAX 결과 : error 0<br>
-<img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/a79365e8-ad75-404b-a02d-a0157718b17a" width=800> <br>
+<img src="https://github.com/user-attachments/assets/7e22349f-ced4-4aab-8c8a-49658c62d205" width=800> <br>
 - WAVE 결과: error 0<br>
-<img src="https://github.com/jjub0217/jjub0217.github.io/assets/62126380/482cfff8-9844-40af-bd96-88a07dbf7f13" width=800>
+<img src="https://github.com/user-attachments/assets/0400a2ca-2739-4dd9-84af-0de3c1cde5df" width=800>
+
+
+## 모바일 디바이스 검수
+- 안드로이드 Note20 울트라
+<video src="https://github.com/user-attachments/assets/9cf4b0d7-80dd-4ce0-9c8e-97076c7fe6a0" autoplay muted playsinline loop></video>
+- 아이폰 SE2 
+<video src="https://github.com/user-attachments/assets/77e12afe-2460-4e91-a0c7-bedde8b4e429" autoplay muted playsinline loop></video>
+- 아이패드 6
+<video src="https://github.com/user-attachments/assets/ff726cdf-36e7-48f8-8a68-010d70e08c5a" autoplay muted playsinline loop></video>
 
 
 ## 기술 스택

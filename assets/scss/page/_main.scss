@@ -150,17 +150,18 @@
 
     &.link_more {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
       flex-direction: column;
       width: 384px;
-      height: 352px;
+      height: 397px;
       padding: 24px;
       font-size: 20px;
       font-weight: 700;
       line-height: 28px;
 
       .slide {
+        padding-left: 16px;
         &::before {
           display: block;
           width: 32px;
