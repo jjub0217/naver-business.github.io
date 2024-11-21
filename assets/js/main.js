@@ -381,7 +381,8 @@ const thisWeekList = async () => {
   });
 
 
-  const bookmark = document.querySelectorAll(" section_this_week .bookmark");
+  const bookmark = document.querySelectorAll(".section_this_week .bookmark");
+  console.log(bookmark);
   bookmark.forEach((check) => {
     check.onchange = (e) => {
       if (e.target.checked === false) {
@@ -598,7 +599,6 @@ const newEducationList = async () => {
   });
 
   const bookmark = document.querySelectorAll(".section_new_education .bookmark");
-  console.log(bookmark);
   bookmark.forEach((check) => {
     check.onchange = (e) => {
       if (e.target.checked === false) {
