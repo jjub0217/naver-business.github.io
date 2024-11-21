@@ -1742,6 +1742,7 @@ button {
   align-items: center;
   gap: 5px;
   position: relative;
+  z-index: 1;
   width: 100%;
   padding: 16px 0 0;
   text-align: left;
