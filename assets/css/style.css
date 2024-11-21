@@ -1304,7 +1304,6 @@ button {
 .course_summary .detail_item {
   overflow: hidden;
   display: inline-block;
-  max-width: 128px;
   text-overflow: ellipsis;
 }
 .course_summary > * + *::before {
