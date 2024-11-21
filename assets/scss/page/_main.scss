@@ -74,14 +74,14 @@
         background-color: rgba(0, 0, 0, 0.6);
         opacity: 0;
         animation: opacityAni 3s forwards;
-        transition: opacity 0.3s ease;
         content: "";
       }
 
       .save_message {
         display: none;
-        animation: opacityAni 3s forwards;
         opacity: 0;
+        transition: opacity 3s;
+        animation: opacityAni 3s forwards;
       }
 
       .bookmark {
