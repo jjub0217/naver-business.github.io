@@ -554,8 +554,6 @@ const newEducationList = async () => {
             </ul>
           </div>
         </div>
-            <input type="checkbox" data-id="${uniqueId}" class="bookmark" name="new_education_bookmark">
-        <label data-id="${uniqueId}" aria-label="북마크"></label>
       </div>
       <a href="" class="link_slide">
         <span class="blind">링크</span>
