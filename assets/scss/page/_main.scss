@@ -50,10 +50,18 @@
     .image_box {
       position: relative;
 
-      .save_message {
-        display: none;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
       }
+    }
 
+    .bookmark_box {
       &::before {
         display: none;
         position: absolute;
@@ -66,15 +74,48 @@
         background-color: rgba(0, 0, 0, 0.6);
         opacity: 0;
         animation: opacityAni 3s forwards;
+        transition: opacity 0.3s ease;
         content: "";
       }
 
-      &.on {
+      .save_message {
+        display: none;
+        animation: opacityAni 3s forwards;
+        opacity: 0;
+      }
+
+      .bookmark {
+        & + label {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 50px;
+          height: 50px;
+          z-index: 1;
+          background-image: url("../images/sp_sprite.svg");
+          background-position: 5.6% 100.7%;
+          cursor: pointer;
+        }
+      }
+
+      &.is_checked {
+        &::before {
+          display: block;
+          opacity: 1;
+          z-index: 1;
+        }
+        .bookmark {
+          & + label {
+            background-position: 7.7% 100.7%;
+          }
+        }
         .save_message {
           display: block;
+          opacity: 1;
           position: absolute;
           top: 50%;
           left: 50%;
+          z-index: 2;
           width: 90%;
           padding: 24px;
           border-radius: 38px;
@@ -90,21 +131,6 @@
             font-size: 14px;
           }
         }
-
-        &::before {
-          display: block;
-          opacity: 1;
-        }
-      }
-
-      img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
       }
     }
 
@@ -119,25 +145,6 @@
 
       .content {
         margin-top: auto;
-      }
-    }
-
-    .bookmark {
-      & + label {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50px;
-        height: 50px;
-        z-index: 1;
-        background-image: url("../images/sp_sprite.svg");
-        background-position: 5.6% 100.7%;
-        cursor: pointer;
-      }
-      &.is_checked {
-        & + label {
-          background-position: 7.7% 100.7%;
-        }
       }
     }
 
@@ -176,7 +183,6 @@
   overflow: hidden;
   display: block;
   min-height: 48px;
-  margin-bottom: 25px;
   font-size: 16px;
   font-weight: 700;
   color: rgb(255, 255, 255);
@@ -610,7 +616,6 @@
         padding-bottom: calc((214 / 381) * 100%);
 
         img {
-          border-radius: 0;
           border-radius: 8px 8px 0 0;
         }
       }
@@ -656,11 +661,6 @@
       @include mobile {
         border-radius: 8px;
       }
-    }
-  }
-  .title {
-    span {
-      color: rgb(113, 229, 215);
     }
   }
 }
@@ -722,7 +722,6 @@
         padding-bottom: calc((214 / 381) * 100%);
 
         img {
-          border-radius: 0;
           border-radius: 8px 8px 0 0;
         }
       }
@@ -797,6 +796,7 @@
   }
 
   .notice_list {
+    overflow: hidden;
     display: flex;
     gap: 24px;
 
@@ -807,12 +807,13 @@
 
   .notice_item {
     overflow: hidden;
-    flex: 1;
+    width: 282px;
     padding: 22px 16px;
     border-radius: 8px;
     background: url("../images/img_bg_notice_pc.png") 50% 50% / cover no-repeat;
 
     @include mobile {
+      width: 100%;
       height: 128px;
       padding: 16px;
 
@@ -864,7 +865,6 @@
       padding: 8px;
       margin-top: 32px;
       font-size: 15px;
-      font-weight: normal;
     }
   }
 }

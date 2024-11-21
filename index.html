@@ -26,11 +26,10 @@
     문제 발생! 다시 시도하거나 관리자에게 문의하세요.
   </div>
   <div id="skip">
-    <a href="#header">메뉴 바로가기</a>
     <a href="#main">본문 바로가기</a>
   </div>
   <div class="wrapper">
-    <header  id="header" class="header">
+    <header id="header" class="header">
       <div class="back_dimmed" aria-hidden="true"></div>
       <div class="inner">
         <h1 class="logo">
@@ -153,13 +152,13 @@
           <!-- [D] hamburger_icon을 클릭하게 되면, header 에 is_gnb_active 라는 클래스이름 추가 -->
           <!-- [D] hamburger_icon을 클릭하게 되면, search_button 에 is_active 라는 클래스이름 추가-->
           <!-- [D] hamburger_icon을 클릭하게 되면, gnb_mobile 에 is_active 라는 클래스이름 추가-->  
-          <button type="button" class="hamburger_icon" aria-expanded="false" aria-haspopup="menu" aria-label="메뉴열기" aria-pressed="false" 
+          <button type="button" class="hamburger_menu" aria-expanded="false" aria-label="메뉴열기" aria-pressed="false" 
             aria-controls="gnb_mobile">
           </button>
         </div>
       </div>
       <!-- [D]  브라우저의 화면의 스크롤이 움직이면 floating_menu에 is_active 클래스이름 토글 -->
-      <div class="floating_menu">
+      <aside class="floating_menu">
         <div class="inner swiper">
           <!-- [D] floating_menu 의 자식요소중에 클릭한 swiper-slide에  is_active 클래스이름 추가 및 클릭하지 않은 swiper-slide에는 is_active  클래스이름 제거 -->
           <ul class="swiper-wrapper">
@@ -195,37 +194,39 @@
             </li>
           </ul>
         </div>
-      </div>
-      <div class="search_area">
-        <div class="inner">
-          <div class="input_box">
-            <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"
-              class="search_icon" aria-label="돋보기 아이콘">
-              <path
-                d="M15.6328 23.7656C20.1244 23.7656 23.7656 20.1244 23.7656 15.6328C23.7656 11.1412 20.1244 7.5 15.6328 7.5C11.1412 7.5 7.5 11.1412 7.5 15.6328C7.5 20.1244 11.1412 23.7656 15.6328 23.7656Z"
-                stroke="#7c8296" stroke-width="2"></path>
-              <path
-                d="M21.2838 21.2835C21.7038 20.8635 22.391 20.8635 22.8206 21.2835L28.1852 26.6481C28.6052 27.0681 28.6052 27.7554 28.1852 28.1849C27.7652 28.6049 27.0779 28.6049 26.6483 28.1849L21.2838 22.8203C20.8637 22.4003 20.8637 21.7131 21.2838 21.2835Z"
-                fill="#7c8296"></path>
-            </svg>
-            <label for="search_input" class="blind">검색어입력</label>
-            <input type="text" id="search_input" value="교육명" 
-            placeholder="교육명, 강사명, 태그를 입력해주세요." 
-            class="search_input"
-            title="교육명, 강사명, 태그를 입력해주세요." aria-live="assertive" aria-atomic="false">
+      </aside>
+      <div class="search_area" role="search">
+        <form action="">
+          <div class="inner">
+            <div class="input_box">
+              <svg width="24" height="24" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="search_icon" aria-label="돋보기 아이콘">
+                <path
+                  d="M15.6328 23.7656C20.1244 23.7656 23.7656 20.1244 23.7656 15.6328C23.7656 11.1412 20.1244 7.5 15.6328 7.5C11.1412 7.5 7.5 11.1412 7.5 15.6328C7.5 20.1244 11.1412 23.7656 15.6328 23.7656Z"
+                  stroke="#7c8296" stroke-width="2"></path>
+                <path
+                  d="M21.2838 21.2835C21.7038 20.8635 22.391 20.8635 22.8206 21.2835L28.1852 26.6481C28.6052 27.0681 28.6052 27.7554 28.1852 28.1849C27.7652 28.6049 27.0779 28.6049 26.6483 28.1849L21.2838 22.8203C20.8637 22.4003 20.8637 21.7131 21.2838 21.2835Z"
+                  fill="#7c8296"></path>
+              </svg>
+              <label for="search_input" class="blind">검색어입력</label>
+              <input type="text" id="search_input" value="교육명"
+              placeholder="교육명, 강사명, 태그를 입력해주세요."
+              class="search_input"
+              title="교육명, 강사명, 태그를 입력해주세요." aria-live="assertive" aria-atomic="false">
+            </div>
+            <!-- [D] search_close_button 클릭하게 되면, header 에 is_search_area_active 라는 클래스이름 제거-->
+            <button type="button" class="search_close_button" aria-pressed="false" aria-label="검색 닫기">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8.80762" y="25.7781" width="24" height="2" rx="1" transform="rotate(-45 8.80762 25.7781)"
+                  fill="white">
+                </rect>
+                <rect width="24" height="2" rx="1"
+                  transform="matrix(0.707107 0.707107 0.707107 -0.707107 8.80762 10.2219)" fill="white">
+                </rect>
+              </svg>
+            </button>
           </div>
-          <!-- [D] search_close_button 클릭하게 되면, header 에 is_search_area_active 라는 클래스이름 제거-->
-          <button type="button" class="search_close_button" aria-pressed="false" aria-label="검색 닫기">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="8.80762" y="25.7781" width="24" height="2" rx="1" transform="rotate(-45 8.80762 25.7781)"
-                fill="white">
-              </rect>
-              <rect width="24" height="2" rx="1"
-                transform="matrix(0.707107 0.707107 0.707107 -0.707107 8.80762 10.2219)" fill="white">
-              </rect>
-            </svg>
-          </button>
-        </div>
+        </form>
       </div>
     </header>
 
@@ -803,8 +804,8 @@
         </div>
       </div>
     </footer>
-    <button class="scroll_top">
-      <img src="./assets/images/ico_scroll_top.svg" alt="화면 위로 아이콘">
+    <button class="scroll_top" aria-label="화면 맨 위로 이동">
+      <img src="./assets/images/ico_scroll_top.svg" alt="">
     </button>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.min.js"></script>

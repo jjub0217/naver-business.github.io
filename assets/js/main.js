@@ -147,440 +147,508 @@ const anchor = (swipe) => {
   }
 };
 
-const onlineEducationList = async (tabId = "#online_ai") => {
 
-  displayLoading();
-  hideError();
+const handleAsyncProcess = async (asyncFunction, ...args) => {
   try {
-    const commonA11ySettings = {
-      enabled: true,
-      containerMessage: "프로모션 슬라이드 영역입니다.",
-      slideLabelMessage:
-        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
-      firstSlideMessage: "첫번째 슬라이드입니다.",
-      lastSlideMessage: "마지막 슬라이드입니다.",
-      paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
-      containerRoleDescriptionMessage: "Carousel",
-      itemRoleDescriptionMessage: "Slide",
-      slideRole: "listitem",
-    };
-
-    const res = await fetch("./data.json");
-    const json = await res.json();
-    data = json.onlineEducation;
-    let html1 = ``;
-    let html1_2 = ``;
-
-    sortData = data.filter((item) => {
-      return item.id.indexOf(tabId) >= 0;
-    });
-    sortData.forEach((item_1) => {
-      item_1.contents.forEach((element, index) => {
-        html1 += `<li class="swiper-slide"> 
-          <a href="" class="link_slide">
-            <span class="blind">링크</span>
-          </a>
-          <div class="image_box">
-            <img src="${element.imageUrl}" alt="${element.textStrong}">
-            <input type="checkbox" id="online_${index}" class="bookmark">
-            <label for="online_${index}" aria-label="북마크"></label>
-            <p class="save_message">
-              나중에 볼 교육으로 저장 되었습니다.
-            </p>
-          </div>
-          <div class="text_box">
-            <strong class="content_title">${element.textStrong}</strong>
-            <div class="content">
-              <ul class="tag_list">`;
-        element.tags.forEach((tag) => {
-          html1 += `<li class="tag">${tag}</li>`;
-        });
-        html1 += `</ul>
-              <p class="description">
-                ${element.desc}
-              </p>
-              <ul class="course_summary">`;
-        element.shortDesc.forEach((text) => {
-          html1 += `<li class="detail_item">${text}</li>`;
-        });
-        html1 += `</ul>
-            </div>
-          </div>
-        </li>`;
-      });
-      html1_2 = `<li class="swiper-slide link_more">
-        <a href="" class="link_slide">
-        <span class="blind">링크</span>
-        </a>
-        <div class="slide">
-          <span class="course_title">${item_1.course}</span> 
-          코스교육<br>
-          ${item_1.total}개 전체보기
-        </div>
-      </li>`;
-    });
-
-    document.querySelector(
-      ".section_online_education .swiper-wrapper"
-    ).innerHTML = html1 + html1_2;
-
-    new Swiper(".section_online_education .swiper", {
-      a11y: commonA11ySettings,
-      spaceBetween: 16,
-      slidesPerView: 1,
-      navigation: {
-        nextEl: ".section_online_education .next_button",
-        prevEl: ".section_online_education .prev_button",
-      },
-      on: {
-        activeIndexChange: function () {
-          document
-            .querySelector(".section_online_education .prev_button")
-            .classList.add("is_show");
-        },
-      },
-      breakpoints: {
-        850: {
-          slidesPerView: 3,
-          spaceBetween: 24,
-        },
-      },
-    });
-    hideLoading();
+    displayLoading(); 
+    hideError(); 
+    await asyncFunction(...args); 
   } catch (error) {
-    displayError(error);
+    displayError(error); 
+  } finally {
+    hideLoading(); 
   }
 };
 
-const thisWeekList = async () => {
-  displayLoading()
-  hideError()
-  try {
-    const commonA11ySettings = {
-      enabled: true,
-      containerMessage: "프로모션 슬라이드 영역입니다.",
-      slideLabelMessage:
-        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
-      firstSlideMessage: "첫번째 슬라이드입니다.",
-      lastSlideMessage: "마지막 슬라이드입니다.",
-      paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
-      containerRoleDescriptionMessage: "Carousel",
-      itemRoleDescriptionMessage: "Slide",
-      slideRole: "listitem",
-    };
+function bookmarkCheck(){
 
-    const res = await fetch("./data.json");
-    const json = await res.json();
-    let data = json.thisWeek;
-    let html = ``;
-    data.forEach((element, index) => {
-      const uniqueId = `this_week_${index}_${Math.random()
-        .toString(36)
-        .slice(2, 11)}`; 
-      html += `<li class="swiper-slide">
-        <a href="" class="link_slide">
-          <span class="blind">링크</span>
-        </a>
-        <div class="slide">
-          <div class="image_box">
-            <img src="${element.imageUrl}" alt="${element.textStrong}">
-            <input type="checkbox" data-id="${uniqueId}" class="bookmark" name="this_week_bookmark">
-            <label data-id="${uniqueId}" aria-label="북마크"></label>
-            <p class="save_message">
-              나중에 볼 교육으로 저장 되었습니다.
-            </p>
-          </div>
-          <div class="text_box">
-            <strong class="content_title">${element.textStrong}</strong>
-            <div class="content">
-              <ul class="tag_list">`;
-      element.tags.forEach((tag) => {
-        html += `<li class="tag">${tag}
-                                  </li>`;
-      });
-      html += `</ul>
-              <p class="description">${element.desc}</p>
-              <ul class="course_summary">
-                <li class="detail_item">${element.manager}</li>
-                <li class="detail_item">${element.running}</li>
-                <li class="detail_item">${element.total}개 강의</li>
-              </ul>
-              </p>
-            </div>
-          </div>
-        </div>
-      </li>`;
-    });
-    document.querySelector(".section_this_week .swiper-wrapper").innerHTML =
-      html;
-
-    new Swiper(".section_this_week .swiper", {
-      a11y: commonA11ySettings,
-      loop: true,
-      slidesPerView: "auto",
-      centeredSlides: true,
-      spaceBetween: 16,
-      initialSlide: 0,
-      clickable: false,
-      on: {
-        transitionEnd: function () {
-          anchor(this);
-        },
-      },
-      breakpoints: {
-        850: {
-          loop: false,
-          slidesPerView: 4,
-          spaceBetween: 24,
-          centeredSlides: false,
-          clickable: false,
-        },
-      },
-    });
-
-    document.querySelectorAll("label[data-id]").forEach((label) => {
-      const dataId = label.getAttribute("data-id");
-      const input = document.querySelector(`input[data-id="${dataId}"]`);
-      if (input) {
-        label.setAttribute("for", (input.id = dataId));
-      }
-    });
-
-    hideLoading();
-  } catch (error) {
-    displayError(error);
-  }
 }
 
-const  lineUpList = async () => {
-  displayLoading()
-  hideError()
-  try {
+const onlineEducationList = async (tabId = "#online_ai") => {
+  const commonA11ySettings = {
+    enabled: true,
+    containerMessage: "프로모션 슬라이드 영역입니다.",
+    slideLabelMessage:
+      "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+    firstSlideMessage: "첫번째 슬라이드입니다.",
+    lastSlideMessage: "마지막 슬라이드입니다.",
+    paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
+    containerRoleDescriptionMessage: "Carousel",
+    itemRoleDescriptionMessage: "Slide",
+    slideRole: "listitem",
+  };
 
-    const commonA11ySettings = {
-      enabled: true,
-      containerMessage: "프로모션 슬라이드 영역입니다.",
-      slideLabelMessage:
-        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
-      firstSlideMessage: "첫번째 슬라이드입니다.",
-      lastSlideMessage: "마지막 슬라이드입니다.",
-      paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
-      containerRoleDescriptionMessage: "Carousel",
-      itemRoleDescriptionMessage: "Slide",
-      slideRole: "listitem",
-    };
+  const res = await fetch("./data.json");
+  const json = await res.json();
+  data = json.onlineEducation;
+  let html1 = ``;
+  let html1_2 = ``;
 
-    const res = await fetch("./data.json");
-    const json = await res.json();
-    let data = json.lineUp;
-    let html = ``;
-    data.forEach((element, index) => {
-      html += `<li class="swiper-slide">
-        <a href="" class="link_slide">
-          <span class="blind">링크</span>
-        </a>
+  sortData = data.filter((item) => {
+    return item.id.indexOf(tabId) >= 0;
+  });
+  sortData.forEach((item_1) => {
+    item_1.contents.forEach((element, index) => {
+    const uniqueId = `online_${index}_${Math.random()
+      .toString(36)
+      .slice(2, 11)}`;
+      html1 += `<li class="swiper-slide"> 
         <div class="image_box">
           <img src="${element.imageUrl}" alt="${element.textStrong}">
-          <input type="checkbox" id="line_up_${index}" class="bookmark">
-          <label for="line_up_${index}" aria-label="북마크"></label>
+          <div class="bookmark_box">
+          <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false" name="online_bookmark">
+          <label data-id="${uniqueId}" aria-label="북마크"></label>
           <p class="save_message">
             나중에 볼 교육으로 저장 되었습니다.
           </p>
+          </div>
         </div>
         <div class="text_box">
           <strong class="content_title">${element.textStrong}</strong>
-          <ul class="course_summary">
-            <li class="detail_item">${element.manager}</li>
-            <li class="detail_item">${element.running}</li>
-            <li class="detail_item">${element.total}개 강의</li>
-          </ul>
-          <button class="more_button" type="button" aria-expanded="false" 
-          aria-controls="more_content_${index}">더보기</button>
-          <div class="more_area" id="more_content_${index}" aria-hidden="true">`;
-            element.paragraph.forEach((content) => {
-            html += `<div>
-              <p class="more_title">${content.title}</p>
-              <p class="more_content">
-              ${content.moreContent}
-              </p>
-            </div>`;
-            });
-          html += `</div>
+          <div class="content">
+            <ul class="tag_list">`;
+      element.tags.forEach((tag) => {
+        html1 += `<li class="tag">${tag}</li>`;
+      });
+      html1 += `</ul>
+            <p class="description">
+              ${element.desc}
+            </p>
+            <ul class="course_summary">`;
+      element.shortDesc.forEach((text) => {
+        html1 += `<li class="detail_item">${text}</li>`;
+      });
+      html1 += `</ul>
+          </div>
         </div>
-      </li>`;
-    });
-
-    document.querySelector(".section_line_up .swiper-wrapper").innerHTML =
-      html;
-
-    new Swiper(".section_line_up .swiper", {
-      a11y: commonA11ySettings,
-      slidesPerView: 3,
-      spaceBetween: 16,
-      clickable: false,
-      breakpoints: {
-        850: {
-          slidesPerView: 3,
-          spaceBetween: 24,
-        },
-      },
-      navigation: {
-        nextEl: ".section_line_up .next_button",
-        prevEl: ".section_line_up .prev_button",
-      },
-      on: {
-        activeIndexChange: function () {
-          document
-            .querySelector(".section_line_up .prev_button")
-            .classList.add("is_show");
-        },
-      },
-    });
-    hideLoading();
-  } catch (error) {
-    displayError(error)
-  }
-} 
-
-const newEducationList = async () => {
-  displayLoading();
-  hideError();
-  try {
-    const commonA11ySettings = {
-      enabled: true,
-      containerMessage: "프로모션 슬라이드 영역입니다.",
-      slideLabelMessage:
-        "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
-      firstSlideMessage: "첫번째 슬라이드입니다.",
-      lastSlideMessage: "마지막 슬라이드입니다.",
-      paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
-      containerRoleDescriptionMessage: "Carousel",
-      itemRoleDescriptionMessage: "Slide",
-      slideRole: "listitem",
-    };
-
-    const res = await fetch("./data.json");
-    const json = await res.json();
-    let data = json.newEducation;
-    let html = ``;
-    data.forEach((element, index) => {
-      const uniqueId = `new_education_${index}_${Math.random()
-        .toString(36)
-        .slice(2, 11)}`; 
-      html += `<li class="swiper-slide">
         <a href="" class="link_slide">
           <span class="blind">링크</span>
         </a>
-        <div class="slide">
-          <div class="image_box">
-            <img src="${element.imageUrl}" alt="${element.textStrong}">
-              <p class="save_message">
-                나중에 볼 교육으로 저장 되었습니다.
-              </p>
-          </div>
-          <div class="text_box">
-            <strong class="content_title">${element.textStrong}
-            </strong>
-            <div class="content">
-              <ul class="tag_list">`;
-                element.tags.forEach((tag) => {
-                  html += `<li class="tag">${tag}
-                          </li>`;
-                });
-              html += `</ul>
-              <p class="description">
-              ${element.desc}
-              </p>
-              <ul class="course_summary">
-                <li class="detail_item">${element.manager}</li>
-                <li class="detail_item">${element.running}</li>
-                <li class="detail_item">${element.total}개 강의</li>
-              </ul>
-            </div>
-          </div>
-              <input type="checkbox" data-id="${uniqueId}" class="bookmark" name="new_education_bookmark">
-          <label data-id="${uniqueId}" aria-label="북마크"></label>
-        </div>
       </li>`;
     });
+    html1_2 = `<li class="swiper-slide link_more">
+      <a href="" class="link_slide">
+      <span class="blind">링크</span>
+      </a>
+      <div class="slide">
+        <span class="course_title">${item_1.course}</span> 
+        코스교육<br>
+        ${item_1.total}개 전체보기
+      </div>
+    </li>`;
+  });
 
-    document.querySelector(".section_new_education .swiper-wrapper").innerHTML =
-      html;
+  document.querySelector(
+    ".section_online_education .swiper-wrapper"
+  ).innerHTML = html1 + html1_2;
 
-    new Swiper(".section_new_education .swiper", {
-      a11y: commonA11ySettings,
-      loop: true,
-      slidesPerView: "auto",
-      centeredSlides: true,
-      spaceBetween: 16,
-      initialSlide: 0,
-      clickable: false,
-      on: {
-        transitionEnd: function () {
-          anchor(this);
-        },
+  new Swiper(".section_online_education .swiper", {
+    a11y: commonA11ySettings,
+    spaceBetween: 16,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".section_online_education .next_button",
+      prevEl: ".section_online_education .prev_button",
+    },
+    on: {
+      activeIndexChange: function () {
+        document
+          .querySelector(".section_online_education .prev_button")
+          .classList.add("is_show");
       },
-      breakpoints: {
-        850: {
-          slidesPerView: 4,
-          spaceBetween: 24,
-          loop: false,
-          centeredSlides: false,
-          clickable: false,
-        },
+    },
+    breakpoints: {
+      850: {
+        slidesPerView: 3,
+        spaceBetween: 24,
       },
-    });
+    },
+  });
 
-    document.querySelectorAll("label[data-id]").forEach((label) => {
-      const dataId = label.getAttribute("data-id");
-      const input = document.querySelector(`input[data-id="${dataId}"]`);
-      if (input) {
-        label.setAttribute("for", (input.id = dataId));
+  document.querySelectorAll("label[data-id]").forEach((label) => {
+    const dataId = label.getAttribute("data-id");
+    const input = document.querySelector(`input[data-id="${dataId}"]`);
+    if (input) {
+      label.setAttribute("for", (input.id = dataId));
+    }
+  });
+
+  const bookmark = document.querySelectorAll(
+    ".section_online_education .bookmark"
+  );
+
+  bookmark.forEach(check => {
+    check.onchange = (e) => {
+      console.log(e.target);
+      console.log(e.target.parentNode);
+      if (e.target.checked === false) {
+        e.target.parentNode.classList.add("is_checked");
+      } else {
+        e.target.parentNode.classList.remove("is_checked");
       }
-    });
+    };
+  })
+};
 
-    hideLoading();
-  } catch (error) {
-    displayError(error);
-  }
+const thisWeekList = async () => {
+  const commonA11ySettings = {
+    enabled: true,
+    containerMessage: "프로모션 슬라이드 영역입니다.",
+    slideLabelMessage:
+      "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+    firstSlideMessage: "첫번째 슬라이드입니다.",
+    lastSlideMessage: "마지막 슬라이드입니다.",
+    paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
+    containerRoleDescriptionMessage: "Carousel",
+    itemRoleDescriptionMessage: "Slide",
+    slideRole: "listitem",
+  };
+
+  const res = await fetch("./data.json");
+  const json = await res.json();
+  let data = json.thisWeek;
+  let html = ``;
+  data.forEach((element, index) => {
+    const uniqueId = `this_week_${index}_${Math.random()
+      .toString(36)
+      .slice(2, 11)}`; 
+    html += `<li class="swiper-slide">
+      <div class="slide">
+        <div class="image_box">
+          <img src="${element.imageUrl}" alt="${element.textStrong}">
+          <div class="bookmark_box">
+          <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false"  name="this_week_bookmark">
+          <label data-id="${uniqueId}" aria-label="북마크"></label>
+          <p class="save_message">
+            나중에 볼 교육으로 저장 되었습니다.
+          </p>
+          </div>
+        </div>
+        <div class="text_box">
+          <strong class="content_title">${element.textStrong}</strong>
+          <div class="content">
+            <ul class="tag_list">`;
+              element.tags.forEach((tag) => {
+                html += `<li class="tag">${tag}
+                                          </li>`;
+              });
+            html += `</ul>
+            <p class="description">${element.desc}</p>
+            <ul class="course_summary">
+              <li class="detail_item">${element.manager}</li>
+              <li class="detail_item">${element.running}</li>
+              <li class="detail_item">${element.total}개 강의</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+      <a href="" class="link_slide">
+        <span class="blind">링크</span>
+      </a>
+    </li>`;
+  });
+  document.querySelector(".section_this_week .swiper-wrapper").innerHTML =
+    html;
+
+  new Swiper(".section_this_week .swiper", {
+    a11y: commonA11ySettings,
+    loop: true,
+    slidesPerView: "auto",
+    centeredSlides: true,
+    spaceBetween: 16,
+    initialSlide: 0,
+    clickable: false,
+    on: {
+      transitionEnd: function () {
+        anchor(this);
+      },
+    },
+    breakpoints: {
+      850: {
+        loop: false,
+        slidesPerView: 4,
+        spaceBetween: 24,
+        centeredSlides: false,
+        clickable: false,
+      },
+    },
+  });
+
+  document.querySelectorAll("label[data-id]").forEach((label) => {
+    const dataId = label.getAttribute("data-id");
+    const input = document.querySelector(`input[data-id="${dataId}"]`);
+    if (input) {
+      label.setAttribute("for", (input.id = dataId));
+    }
+  });
+
+
+  const bookmark = document.querySelectorAll(" section_this_week .bookmark");
+  bookmark.forEach((check) => {
+    check.onchange = (e) => {
+      console.log(e.target);
+      console.log(e.target.parentNode);
+      if (e.target.checked === false) {
+        e.target.parentNode.classList.add("is_checked");
+      } else {
+        e.target.parentNode.classList.remove("is_checked");
+      }
+    };
+  });
+}
+
+const  lineUpList = async () => {
+  const commonA11ySettings = {
+    enabled: true,
+    containerMessage: "프로모션 슬라이드 영역입니다.",
+    slideLabelMessage:
+      "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+    firstSlideMessage: "첫번째 슬라이드입니다.",
+    lastSlideMessage: "마지막 슬라이드입니다.",
+    paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
+    containerRoleDescriptionMessage: "Carousel",
+    itemRoleDescriptionMessage: "Slide",
+    slideRole: "listitem",
+  };
+
+  const res = await fetch("./data.json");
+  const json = await res.json();
+  let data = json.lineUp;
+  let html = ``;
+  data.forEach((element, index) => {
+    const uniqueId = `lineUp_${index}_${Math.random()
+      .toString(36)
+      .slice(2, 11)}`;
+    html += `<li class="swiper-slide">
+      <div class="image_box">
+        <img src="${element.imageUrl}" alt="${element.textStrong}">
+        <div class="bookmark_box">
+        <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false" 
+        name="lineUp_bookmark">
+        <label data-id="${uniqueId}" aria-label="북마크"></label>
+        <p class="save_message">
+          나중에 볼 교육으로 저장 되었습니다.
+        </p>
+        </div>
+      </div>
+      <div class="text_box">
+        <strong class="content_title">${element.textStrong}</strong>
+        <ul class="course_summary">
+          <li class="detail_item">${element.manager}</li>
+          <li class="detail_item">${element.running}</li>
+          <li class="detail_item">${element.total}개 강의</li>
+        </ul>
+        <button class="more_button" type="button" aria-expanded="false" 
+        aria-controls="more_content_${index}">더보기</button>
+        <div class="more_area" id="more_content_${index}" aria-hidden="true">`;
+          element.paragraph.forEach((content) => {
+          html += `<div>
+            <p class="more_title">${content.title}</p>
+            <p class="more_content">
+            ${content.moreContent}
+            </p>
+          </div>`;
+          });
+        html += `</div>
+      </div>
+      <a href="" class="link_slide">
+        <span class="blind">링크</span>
+      </a>
+    </li>`;
+  });
+
+  document.querySelector(".section_line_up .swiper-wrapper").innerHTML =
+    html;
+
+  new Swiper(".section_line_up .swiper", {
+    a11y: commonA11ySettings,
+    slidesPerView: 3,
+    spaceBetween: 16,
+    clickable: false,
+    breakpoints: {
+      850: {
+        slidesPerView: 3,
+        spaceBetween: 24,
+      },
+    },
+    navigation: {
+      nextEl: ".section_line_up .next_button",
+      prevEl: ".section_line_up .prev_button",
+    },
+    on: {
+      activeIndexChange: function () {
+        document
+          .querySelector(".section_line_up .prev_button")
+          .classList.add("is_show");
+      },
+    },
+  });
+
+  document.querySelectorAll("label[data-id]").forEach((label) => {
+    const dataId = label.getAttribute("data-id");
+    const input = document.querySelector(`input[data-id="${dataId}"]`);
+    if (input) {
+      label.setAttribute("for", (input.id = dataId));
+    }
+  });
+  
+  const bookmark = document.querySelectorAll(".section_line_up .bookmark");
+  console.log(bookmark);
+  bookmark.forEach((check) => {
+    check.onchange = (e) => {
+      console.log(e.target);
+      console.log(e.target.parentNode);
+      if (e.target.checked === false) {
+        e.target.parentNode.classList.add("is_checked");
+      } else {
+        e.target.parentNode.classList.remove("is_checked");
+      }
+    };
+  });
+} 
+
+const newEducationList = async () => {
+  const commonA11ySettings = {
+    enabled: true,
+    containerMessage: "프로모션 슬라이드 영역입니다.",
+    slideLabelMessage:
+      "총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.",
+    firstSlideMessage: "첫번째 슬라이드입니다.",
+    lastSlideMessage: "마지막 슬라이드입니다.",
+    paginationBulletMessage: "{{index}}번째 슬라이드로 이동합니다.",
+    containerRoleDescriptionMessage: "Carousel",
+    itemRoleDescriptionMessage: "Slide",
+    slideRole: "listitem",
+  };
+
+  const res = await fetch("./data.json");
+  const json = await res.json();
+  let data = json.newEducation;
+  let html = ``;
+  data.forEach((element, index) => {
+    const uniqueId = `new_education_${index}_${Math.random()
+      .toString(36)
+      .slice(2, 11)}`; 
+    html += `<li class="swiper-slide">
+      <div class="slide">
+        <div class="image_box">
+          <img src="${element.imageUrl}" alt="${element.textStrong}">
+          <div class="bookmark_box"> 
+          <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false" name="new_education_bookmark">
+          <label data-id="${uniqueId}" aria-label="북마크"></label>
+          <p class="save_message">
+            나중에 볼 교육으로 저장 되었습니다.
+          </p>
+          </div>
+        </div>
+        <div class="text_box">
+          <strong class="content_title">${element.textStrong}
+          </strong>
+          <div class="content">
+            <ul class="tag_list">`;
+              element.tags.forEach((tag) => {
+                html += `<li class="tag">${tag}
+                        </li>`;
+              });
+            html += `</ul>
+            <p class="description">
+            ${element.desc}
+            </p>
+            <ul class="course_summary">
+              <li class="detail_item">${element.manager}</li>
+              <li class="detail_item">${element.running}</li>
+              <li class="detail_item">${element.total}개 강의</li>
+            </ul>
+          </div>
+        </div>
+            <input type="checkbox" data-id="${uniqueId}" class="bookmark" name="new_education_bookmark">
+        <label data-id="${uniqueId}" aria-label="북마크"></label>
+      </div>
+      <a href="" class="link_slide">
+        <span class="blind">링크</span>
+      </a>
+    </li>`;
+  });
+
+  document.querySelector(".section_new_education .swiper-wrapper").innerHTML =
+    html;
+
+  new Swiper(".section_new_education .swiper", {
+    a11y: commonA11ySettings,
+    loop: true,
+    slidesPerView: "auto",
+    centeredSlides: true,
+    spaceBetween: 16,
+    initialSlide: 0,
+    clickable: false,
+    on: {
+      transitionEnd: function () {
+        anchor(this);
+      },
+    },
+    breakpoints: {
+      850: {
+        slidesPerView: 4,
+        spaceBetween: 24,
+        loop: false,
+        centeredSlides: false,
+        clickable: false,
+      },
+    },
+  });
+
+  document.querySelectorAll("label[data-id]").forEach((label) => {
+    const dataId = label.getAttribute("data-id");
+    const input = document.querySelector(`input[data-id="${dataId}"]`);
+    if (input) {
+      label.setAttribute("for", (input.id = dataId));
+    }
+  });
+
+  const bookmark = document.querySelectorAll(".bookmark");
+  bookmark.forEach((check) => {
+    check.onchange = (e) => {
+      console.log(e.target);
+      console.log(e.target.parentNode);
+      if (e.target.checked === false) {
+        e.target.parentNode.classList.add("is_checked");
+      } else {
+        e.target.parentNode.classList.remove("is_checked");
+      }
+    };
+  });
 };
 
 const noticeList = async () => {
-  displayLoading();
-  hideError();
-  try {
-    const res = await fetch("./data.json");
-    const json = await res.json();
-    let data = json.notice;
-    let html = ``;
-    data.forEach((element) => {
-      html += `<li class="notice_item">
-          <a href="" class="notice_link">
-            <ul class="tag_list">`;
-      element.tags.forEach((tag) => {
-        html += `<li class="tag">${tag}
-                </li>`;
-      });
-      html += `</ul>
-            <strong class="content_title">${element.textStrong}</strong>
-            <p class="date">${element.date}</p>
-          </a>
-        </li>`;
+  const res = await fetch("./data.json");
+  const json = await res.json();
+  let data = json.notice;
+  let html = ``;
+  data.forEach((element) => {
+    html += `<li class="notice_item">
+        <a href="" class="notice_link">
+          <ul class="tag_list">`;
+    element.tags.forEach((tag) => {
+      html += `<li class="tag">${tag}
+              </li>`;
     });
-    document.querySelector(".section_notice .notice_list").innerHTML = html;
-    hideLoading();
-  } catch (error) {
-    displayError(error);
-  }
+    html += `</ul>
+          <strong class="content_title">${element.textStrong}</strong>
+          <p class="date">${element.date}</p>
+        </a>
+      </li>`;
+  });
+  document.querySelector(".section_notice .notice_list").innerHTML = html;
 };
 
 const fetchAndRenderAllLists = () => {
   Promise.all([
-    onlineEducationList(),
-    thisWeekList(),
-    lineUpList(),
-    newEducationList(),
-    noticeList(),
+    handleAsyncProcess(onlineEducationList),
+    handleAsyncProcess(thisWeekList),
+    handleAsyncProcess(lineUpList),
+    handleAsyncProcess(newEducationList),
+    handleAsyncProcess(noticeList),
   ]).then(() => {
     console.log("All loading");
   });
@@ -590,9 +658,7 @@ window.onload = ()=> {
   fetchAndRenderAllLists();
 };
 
-window.addEventListener("resize", function() {
-  fetchAndRenderAllLists();
-})
+
 
 /** 
  *  @pcGnb_subList
@@ -635,7 +701,7 @@ const mobileGnb = document.querySelector(".gnb_mobile");
 const searchBtn = document.querySelector(".search_button");
 const searchCloseBtn = document.querySelector(".search_close_button");
 const input = document.querySelector("input[type=text]")
-const hamburgerIcon = document.querySelector(".hamburger_icon");
+const hamburgerMenu = document.querySelector(".hamburger_menu");
 
 searchBtn.onclick = (e) => {
   if (e.target.ariaPressed === "false") {
@@ -658,13 +724,13 @@ searchCloseBtn.onclick = (e) =>{
   }
 };
 
-hamburgerIcon.onclick = (e) => {
+hamburgerMenu.onclick = (e) => {
   document.body.classList.toggle("scroll_hide");
   mobileGnb.classList.toggle("is_active");
   searchBtn.classList.toggle("is_gnb_active");
   header.classList.toggle("is_gnb_active");
-  if (e.target.ariaExpanded  === "false") {
-    e.target.ariaExpanded = true
+  if (e.target.ariaExpanded === "false") {
+    e.target.ariaExpanded = true;
     e.target.ariaPressed = true;
   } else {
     e.target.ariaExpanded = false;
@@ -790,6 +856,9 @@ companyInfo.onclick = (e) => {
  * @해결해야할기능
  */
 
+// bookmark.onchange = (e) => {
+//   console.log(e.target);
+// }
 // $(document).on("change", ".bookmark", function (e) {
 //   if (e.target.checked) {
 //     e.target.classList.add("is_checked"); 
@@ -798,3 +867,33 @@ companyInfo.onclick = (e) => {
 //     e.target.offsetHeight;
 //   }
 // });
+
+
+
+
+const isMobileDevice = (mediaQuery) => mediaQuery.matches;
+
+const setupDeviceChangeListener = () => {
+  const mediaQuery = window.matchMedia("(max-width: 850px)"); 
+  let previousDeviceState = isMobileDevice(mediaQuery) ? "mobile" : "desktop";
+
+  const handleDeviceChange = () => {
+    const currentDeviceState = isMobileDevice(mediaQuery) ? "mobile" : "desktop";
+
+    if (currentDeviceState !== previousDeviceState) {
+      if (currentDeviceState !== "mobile") {
+          document.querySelectorAll(".is_gnb_active").forEach((element) => {
+          element.classList.remove("is_gnb_active");
+        });
+        document.body.classList.remove("scroll_hide");
+      } 
+      previousDeviceState = currentDeviceState;
+    }
+  };
+
+  handleDeviceChange();
+  mediaQuery.addEventListener("change", handleDeviceChange);
+};
+
+setupDeviceChangeListener();
+

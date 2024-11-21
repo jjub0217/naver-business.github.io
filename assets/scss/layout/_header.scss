@@ -1,7 +1,7 @@
 .header {
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 3;
   color: rgb(255, 255, 255);
   width: 100%;
   background: rgba(25, 26, 31, 0.8);
@@ -39,6 +39,7 @@
     width: 205px;
     height: 28px;
     background: url("../images/img_logo.svg") 0px 50% / 205px no-repeat;
+    cursor: pointer;
   }
 
   .utility_area {
@@ -58,7 +59,7 @@
     }
 
     .search_button,
-    .hamburger_icon {
+    .hamburger_menu {
       width: 38px;
       height: 38px;
       background-image: url("../images/sp_sprite.svg");
@@ -75,6 +76,7 @@
 
     .profile_image {
       position: relative;
+      cursor: pointer;
       &:before {
         display: block;
         width: 32px;
@@ -179,7 +181,7 @@
       }
     }
 
-    .hamburger_icon {
+    .hamburger_menu {
       display: none;
       background-position: 14.118895966% 99.9201915403%;
 
@@ -255,7 +257,7 @@
     right: 0;
     width: 100%;
     height: calc(100vh - 60px);
-    z-index: 2;
+    z-index: 3;
     padding: 11px 0 80px 0;
 
     &.is_active {
