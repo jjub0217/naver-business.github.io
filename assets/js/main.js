@@ -279,8 +279,6 @@ const onlineEducationList = async (tabId = "#online_ai") => {
 
   bookmark.forEach(check => {
     check.onchange = (e) => {
-      console.log(e.target);
-      console.log(e.target.parentNode);
       if (e.target.checked === false) {
         e.target.parentNode.classList.add("is_checked");
       } else {
@@ -387,8 +385,6 @@ const thisWeekList = async () => {
   const bookmark = document.querySelectorAll(" section_this_week .bookmark");
   bookmark.forEach((check) => {
     check.onchange = (e) => {
-      console.log(e.target);
-      console.log(e.target.parentNode);
       if (e.target.checked === false) {
         e.target.parentNode.classList.add("is_checked");
       } else {
@@ -494,11 +490,8 @@ const  lineUpList = async () => {
   });
   
   const bookmark = document.querySelectorAll(".section_line_up .bookmark");
-  console.log(bookmark);
   bookmark.forEach((check) => {
     check.onchange = (e) => {
-      console.log(e.target);
-      console.log(e.target.parentNode);
       if (e.target.checked === false) {
         e.target.parentNode.classList.add("is_checked");
       } else {
@@ -609,8 +602,6 @@ const newEducationList = async () => {
   const bookmark = document.querySelectorAll(".bookmark");
   bookmark.forEach((check) => {
     check.onchange = (e) => {
-      console.log(e.target);
-      console.log(e.target.parentNode);
       if (e.target.checked === false) {
         e.target.parentNode.classList.add("is_checked");
       } else {
@@ -830,7 +821,6 @@ const relatedArea = document.querySelector(".related_area");
 
 relatedArea.onclick = (e) => {
   e.preventDefault();
-  console.log(e);
   if (e.target.ariaExpanded === "false") {
     e.target.ariaExpanded = true;
     e.target.parentNode.classList.add("is_show");
@@ -850,25 +840,6 @@ companyInfo.onclick = (e) => {
   e.preventDefault();
   e.target.parentNode.classList.toggle("is_show");
 };
-
-
-/**
- * @해결해야할기능
- */
-
-// bookmark.onchange = (e) => {
-//   console.log(e.target);
-// }
-// $(document).on("change", ".bookmark", function (e) {
-//   if (e.target.checked) {
-//     e.target.classList.add("is_checked"); 
-//   } else {
-//     e.target.classList.remove("is_checked");
-//     e.target.offsetHeight;
-//   }
-// });
-
-
 
 
 const isMobileDevice = (mediaQuery) => mediaQuery.matches;
