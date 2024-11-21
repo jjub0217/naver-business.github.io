@@ -600,7 +600,7 @@ const newEducationList = async () => {
     }
   });
 
-  const bookmark = document.querySelectorAll(".bookmark");
+  const bookmark = document.querySelectorAll(".section_new_education .bookmark");
   bookmark.forEach((check) => {
     check.onchange = (e) => {
       if (e.target.checked === false) {
