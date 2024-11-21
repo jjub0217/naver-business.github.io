@@ -160,10 +160,6 @@ const handleAsyncProcess = async (asyncFunction, ...args) => {
   }
 };
 
-function bookmarkCheck(){
-
-}
-
 const onlineEducationList = async (tabId = "#online_ai") => {
   const commonA11ySettings = {
     enabled: true,
@@ -270,6 +266,7 @@ const onlineEducationList = async (tabId = "#online_ai") => {
     const input = document.querySelector(`input[data-id="${dataId}"]`);
     if (input) {
       label.setAttribute("for", (input.id = dataId));
+      input.setAttribute("id", (input.id = dataId));
     }
   });
 
@@ -378,6 +375,7 @@ const thisWeekList = async () => {
     const input = document.querySelector(`input[data-id="${dataId}"]`);
     if (input) {
       label.setAttribute("for", (input.id = dataId));
+      input.setAttribute("id", (input.id = dataId));
     }
   });
 
@@ -486,6 +484,7 @@ const  lineUpList = async () => {
     const input = document.querySelector(`input[data-id="${dataId}"]`);
     if (input) {
       label.setAttribute("for", (input.id = dataId));
+      input.setAttribute("id", (input.id = dataId));
     }
   });
   
@@ -596,6 +595,7 @@ const newEducationList = async () => {
     const input = document.querySelector(`input[data-id="${dataId}"]`);
     if (input) {
       label.setAttribute("for", (input.id = dataId));
+      input.setAttribute("id", (input.id = dataId));
     }
   });
 
