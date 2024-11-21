@@ -580,7 +580,6 @@ const newEducationList = async () => {
     },
     breakpoints: {
       850: {
-        loop: false,
         slidesPerView: 4,
         spaceBetween: 24,
         centeredSlides: false,
