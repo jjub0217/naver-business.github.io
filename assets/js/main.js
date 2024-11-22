@@ -673,6 +673,7 @@ window.onload = ()=> {
 */
 const header = document.querySelector(".header");
 const headerInner = document.querySelector(".header > .inner")
+const searchArea = document.querySelector(".search_area");
 const backDimmed = document.querySelector(".back_dimmed");
 const pcGnb = document.querySelector(".gnb_pc");
 
@@ -710,26 +711,42 @@ const searchCloseBtn = document.querySelector(".search_close_button");
 const input = document.querySelector("input[type=text]")
 const hamburgerMenu = document.querySelector(".hamburger_menu");
 
+const openSearchArea = () => {
+  searchBtn.setAttribute("aria-pressed", "true");
+  searchCloseBtn.setAttribute("aria-pressed", "false");
+  header.classList.add("is_search_area_active");
+  input.focus();
+};
+
+const closeSearchArea = () => {
+  searchBtn.setAttribute("aria-pressed", "false");
+  header.classList.remove("is_search_area_active");
+};
+
 searchBtn.onclick = (e) => {
-  if (e.target.ariaPressed === "false") {
-    e.target.ariaPressed = true;
-    searchCloseBtn.ariaPressed = false;
-    header.classList.add("is_search_area_active")
-    input.focus()
+  if (searchBtn.getAttribute("aria-pressed") === "false") {
+    openSearchArea();
   } else {
-    e.target.ariaPressed = false;
-    header.classList.remove("is_search_area_active");
+    closeSearchArea();
   }
 };
 
-searchCloseBtn.onclick = (e) =>{
-  header.classList.remove("is_search_area_active");
-  if (e.target.ariaPressed === "false") {
-    e.target.ariaPressed = true;
-  } else {
-    e.target.ariaPressed = false;
-  }
+searchCloseBtn.onclick = (e) => {
+  closeSearchArea();
+  searchCloseBtn.setAttribute(
+    "aria-pressed",
+    searchCloseBtn.getAttribute("aria-pressed") === "false" ? "true" : "false"
+  );
 };
+
+document.addEventListener("click", (e) => {
+  const isInsideSearchArea = searchArea.contains(e.target);
+  const isSearchButton = searchBtn.contains(e.target);
+
+  if (!isInsideSearchArea && !isSearchButton && header.classList.contains("is_search_area_active")) {
+    closeSearchArea();
+  }
+});
 
 hamburgerMenu.onclick = (e) => {
   document.body.classList.toggle("scroll_hide");
