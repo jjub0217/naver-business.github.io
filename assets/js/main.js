@@ -243,23 +243,24 @@ html1 += `
 
   new Swiper(".section_online_education .swiper", {
     a11y: commonA11ySettings,
-    spaceBetween: 16,
     slidesPerView: "auto",
+    spaceBetween: 16,
+    clickable: false,
+    breakpoints: {
+      850: {
+        slidesPerView: 3,
+        spaceBetween: 24,
+      },
+    },
     navigation: {
       nextEl: ".section_online_education .next_button",
       prevEl: ".section_online_education .prev_button",
     },
     on: {
-      activeIndexChange: function (swiper) {
+      activeIndexChange: function () {
         document
           .querySelector(".section_online_education .prev_button")
           .classList.add("is_show");
-      },
-    },
-    breakpoints: {
-      900: {
-        slidesPerView: 3,
-        spaceBetween: 24,
       },
     },
   });

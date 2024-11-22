@@ -1605,8 +1605,6 @@ button {
 }
 .section_online_education .content_box {
   display: none;
-  position: relative;
-  padding: 40px 10px 0 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 @media screen and (max-width: 850px) {
@@ -1621,7 +1619,6 @@ button {
 @media screen and (max-width: 850px) {
   .section_online_education .swiper .swiper-slide {
     width: 312px !important;
-    margin-right: 16px !important;
   }
 }
 .section_online_education .swiper .swiper-slide .image_box {
@@ -1716,11 +1713,6 @@ button {
 @media screen and (max-width: 850px) {
   .section_line_up .swiper .swiper-slide {
     width: 312px !important;
-  }
-}
-@media screen and (max-width: 850px) {
-  .section_line_up .swiper .swiper-slide .slide {
-    position: relative;
   }
 }
 .section_line_up .swiper .swiper-slide .image_box {

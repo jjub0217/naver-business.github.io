@@ -596,8 +596,6 @@
 
   .content_box {
     display: none;
-    position: relative;
-    padding: 40px 10px 0 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 
     @include mobile {
@@ -614,7 +612,6 @@
     .swiper-slide {
       @include mobile {
         width: 312px !important;
-        margin-right: 16px !important;
       }
 
       .image_box {
@@ -711,19 +708,11 @@
   }
 
   .swiper {
-    @include mobile {
-    }
-
     .swiper-slide {
       @include mobile {
         width: 312px !important;
       }
 
-      .slide {
-        @include mobile {
-          position: relative;
-        }
-      }
       .image_box {
         padding-bottom: calc((214 / 381) * 100%);
 
