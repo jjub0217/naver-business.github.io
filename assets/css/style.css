@@ -1150,6 +1150,7 @@ button {
   height: 100%;
 }
 .swiper .swiper-slide .bookmark_box::before {
+  visibility: visible;
   position: absolute;
   top: 0;
   left: 0;
@@ -1164,7 +1165,8 @@ button {
 }
 .swiper .swiper-slide .bookmark_box .save_message {
   opacity: 0;
-  transition: opacity 3s;
+  visibility: hidden; /* 초기값 설정 */
+  transition: visibility 0s 3s, opacity 3s;
 }
 .swiper .swiper-slide .bookmark_box .bookmark + label {
   position: absolute;
@@ -1185,6 +1187,7 @@ button {
   background-position: 7.7% 100.7%;
 }
 .swiper .swiper-slide .bookmark_box.is_checked .save_message {
+  visibility: visible;
   opacity: 1;
   position: absolute;
   top: 50%;
