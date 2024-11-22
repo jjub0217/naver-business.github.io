@@ -721,7 +721,6 @@ const openSearchArea = () => {
 const closeSearchArea = () => {
   searchBtn.setAttribute("aria-pressed", "false");
   header.classList.remove("is_search_area_active");
-  input.blur();
 };
 
 searchBtn.onclick = (e) => {
