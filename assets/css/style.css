@@ -1150,7 +1150,8 @@ button {
   height: 100%;
 }
 .swiper .swiper-slide .bookmark_box::before {
-  visibility: visible;
+  opacity: 0;
+  visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -1166,29 +1167,6 @@ button {
 .swiper .swiper-slide .bookmark_box .save_message {
   opacity: 0;
   visibility: hidden; /* 초기값 설정 */
-  transition: visibility 3s, opacity 3s;
-}
-.swiper .swiper-slide .bookmark_box .bookmark + label {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50px;
-  height: 50px;
-  z-index: 1;
-  background-image: url("../images/sp_sprite.svg");
-  background-position: 5.6% 100.7%;
-  cursor: pointer;
-}
-.swiper .swiper-slide .bookmark_box.is_checked::before {
-  opacity: 1;
-  z-index: 1;
-}
-.swiper .swiper-slide .bookmark_box.is_checked .bookmark + label {
-  background-position: 7.7% 100.7%;
-}
-.swiper .swiper-slide .bookmark_box.is_checked .save_message {
-  visibility: visible;
-  opacity: 1;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1206,9 +1184,32 @@ button {
   transform: translate(-50%, -50%);
 }
 @media screen and (max-width: 850px) {
-  .swiper .swiper-slide .bookmark_box.is_checked .save_message {
+  .swiper .swiper-slide .bookmark_box .save_message {
     font-size: 14px;
   }
+}
+.swiper .swiper-slide .bookmark_box .bookmark + label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+  background-image: url("../images/sp_sprite.svg");
+  background-position: 5.6% 100.7%;
+  cursor: pointer;
+}
+.swiper .swiper-slide .bookmark_box.is_checked::before {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+.swiper .swiper-slide .bookmark_box.is_checked .bookmark + label {
+  background-position: 7.7% 100.7%;
+}
+.swiper .swiper-slide .bookmark_box.is_checked .save_message {
+  visibility: visible;
+  opacity: 1;
 }
 .swiper .swiper-slide .text_box {
   gap: 8px;

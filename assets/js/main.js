@@ -281,8 +281,13 @@ html1 += `
     check.onchange = (e) => {
       if (e.target.checked === false) {
         e.target.parentNode.classList.add("is_checked");
+        setTimeout(() => {
+          parent.style.opacity = 0;
+          parent.style.visibility = "hidden";
+        }, 3000); // 3s 이후
       } else {
         e.target.parentNode.classList.remove("is_checked");
+        
       }
     };
   })

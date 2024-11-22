@@ -64,7 +64,9 @@
     .bookmark_box {
       &::before {
         // display: none;
-        visibility: visible;
+        // visibility: visible;
+        opacity: 0;
+        visibility: hidden;
         position: absolute;
         top: 0;
         left: 0;
@@ -84,7 +86,25 @@
         // display: none;
         opacity: 0;
         visibility: hidden; /* 초기값 설정 */
-        transition: visibility 3s, opacity 3s;
+        // transition: visibility 3s, opacity 3s;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        width: 90%;
+        padding: 24px;
+        border-radius: 38px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(15px);
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 20px;
+        transform: translate(-50%, -50%);
+
+        @include mobile {
+          font-size: 14px;
+        }
         // animation: opacityAni 3s forwards;
       }
 
@@ -105,6 +125,7 @@
       &.is_checked {
         &::before {
           // display: block;
+          visibility: visible;
           opacity: 1;
           z-index: 1;
         }
@@ -117,24 +138,6 @@
           visibility: visible;
           // display: block;
           opacity: 1;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          z-index: 2;
-          width: 90%;
-          padding: 24px;
-          border-radius: 38px;
-          background: rgba(255, 255, 255, 0.25);
-          backdrop-filter: blur(15px);
-          font-size: 20px;
-          font-weight: 700;
-          text-align: center;
-          line-height: 20px;
-          transform: translate(-50%, -50%);
-
-          @include mobile {
-            font-size: 14px;
-          }
         }
       }
     }
