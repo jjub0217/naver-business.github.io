@@ -1160,13 +1160,13 @@ button {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
-  transition: opacity 3s;
+  transition: visibility 3s, opacity 3s;
   content: "";
 }
 .swiper .swiper-slide .bookmark_box .save_message {
   opacity: 0;
   visibility: hidden; /* 초기값 설정 */
-  transition: visibility 0s 3s, opacity 3s;
+  transition: visibility 3s, opacity 3s;
 }
 .swiper .swiper-slide .bookmark_box .bookmark + label {
   position: absolute;

@@ -74,7 +74,8 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.6);
         opacity: 0;
-        transition: opacity 3s;
+        transition: visibility 3s, opacity 3s;
+        // transition: opacity 3s;
         // animation: opacityAni 3s forwards;
         content: "";
       }
@@ -83,7 +84,7 @@
         // display: none;
         opacity: 0;
         visibility: hidden; /* 초기값 설정 */
-        transition: visibility 0s 3s, opacity 3s;
+        transition: visibility 3s, opacity 3s;
         // animation: opacityAni 3s forwards;
       }
 
