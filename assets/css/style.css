@@ -1150,7 +1150,6 @@ button {
   height: 100%;
 }
 .swiper .swiper-slide .bookmark_box::before {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -1160,14 +1159,12 @@ button {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
-  animation: opacityAni 3s forwards;
+  transition: opacity 3s;
   content: "";
 }
 .swiper .swiper-slide .bookmark_box .save_message {
-  display: none;
   opacity: 0;
   transition: opacity 3s;
-  animation: opacityAni 3s forwards;
 }
 .swiper .swiper-slide .bookmark_box .bookmark + label {
   position: absolute;
@@ -1181,7 +1178,6 @@ button {
   cursor: pointer;
 }
 .swiper .swiper-slide .bookmark_box.is_checked::before {
-  display: block;
   opacity: 1;
   z-index: 1;
 }
@@ -1189,7 +1185,6 @@ button {
   background-position: 7.7% 100.7%;
 }
 .swiper .swiper-slide .bookmark_box.is_checked .save_message {
-  display: block;
   opacity: 1;
   position: absolute;
   top: 50%;

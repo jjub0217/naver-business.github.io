@@ -63,7 +63,7 @@
 
     .bookmark_box {
       &::before {
-        display: none;
+        // display: none;
         position: absolute;
         top: 0;
         left: 0;
@@ -73,15 +73,16 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.6);
         opacity: 0;
-        animation: opacityAni 3s forwards;
+        transition: opacity 3s;
+        // animation: opacityAni 3s forwards;
         content: "";
       }
 
       .save_message {
-        display: none;
+        // display: none;
         opacity: 0;
         transition: opacity 3s;
-        animation: opacityAni 3s forwards;
+        // animation: opacityAni 3s forwards;
       }
 
       .bookmark {
@@ -100,7 +101,7 @@
 
       &.is_checked {
         &::before {
-          display: block;
+          // display: block;
           opacity: 1;
           z-index: 1;
         }
@@ -110,7 +111,7 @@
           }
         }
         .save_message {
-          display: block;
+          // display: block;
           opacity: 1;
           position: absolute;
           top: 50%;
@@ -641,6 +642,7 @@
     }
   }
 }
+
 .section_this_week,
 .section_new_education {
   .text_box {
