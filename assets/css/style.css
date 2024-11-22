@@ -1167,6 +1167,7 @@ button {
 .swiper .swiper-slide .bookmark_box .save_message {
   opacity: 0;
   visibility: hidden; /* 초기값 설정 */
+  transition: visibility 3s, opacity 3s;
   position: absolute;
   top: 50%;
   left: 50%;
