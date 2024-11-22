@@ -280,14 +280,13 @@ html1 += `
   bookmark.forEach(check => {
     check.onchange = (e) => {
       if (e.target.checked === false) {
-        e.target.parentNode.classList.add("is_checked");
+        e.target.classList.add("is_checked");
+        e.target.parentNode.classList.add("is_show");
         setTimeout(() => {
-          e.target.parentNode.style.opacity = 0;
-          e.target.parentNode.style.visibility = "hidden";
-        }, 3000); // 3s 이후
+          e.target.parentNode.classList.remove("is_show")
+        }, 3000);
       } else {
-        e.target.parentNode.classList.remove("is_checked");
-        
+        e.target.classList.remove("is_checked");
       }
     };
   })
@@ -387,13 +386,17 @@ const thisWeekList = async () => {
 
 
   const bookmark = document.querySelectorAll(".section_this_week .bookmark");
-  console.log(bookmark);
+
   bookmark.forEach((check) => {
     check.onchange = (e) => {
       if (e.target.checked === false) {
-        e.target.parentNode.classList.add("is_checked");
+        e.target.classList.add("is_checked");
+        e.target.parentNode.classList.add("is_show");
+        setTimeout(() => {
+          e.target.parentNode.classList.remove("is_show");
+        }, 3000);
       } else {
-        e.target.parentNode.classList.remove("is_checked");
+        e.target.classList.remove("is_checked");
       }
     };
   });
@@ -496,12 +499,17 @@ const  lineUpList = async () => {
   });
   
   const bookmark = document.querySelectorAll(".section_line_up .bookmark");
+
   bookmark.forEach((check) => {
     check.onchange = (e) => {
       if (e.target.checked === false) {
-        e.target.parentNode.classList.add("is_checked");
+        e.target.classList.add("is_checked");
+        e.target.parentNode.classList.add("is_show");
+        setTimeout(() => {
+          e.target.parentNode.classList.remove("is_show");
+        }, 3000);
       } else {
-        e.target.parentNode.classList.remove("is_checked");
+        e.target.classList.remove("is_checked");
       }
     };
   });
@@ -603,12 +611,17 @@ const newEducationList = async () => {
   });
 
   const bookmark = document.querySelectorAll(".section_new_education .bookmark");
+
   bookmark.forEach((check) => {
     check.onchange = (e) => {
       if (e.target.checked === false) {
-        e.target.parentNode.classList.add("is_checked");
+        e.target.classList.add("is_checked");
+        e.target.parentNode.classList.add("is_show");
+        setTimeout(() => {
+          e.target.parentNode.classList.remove("is_show");
+        }, 3000);
       } else {
-        e.target.parentNode.classList.remove("is_checked");
+        e.target.classList.remove("is_checked");
       }
     };
   });

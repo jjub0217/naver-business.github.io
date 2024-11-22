@@ -1161,13 +1161,13 @@ button {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
-  transition: visibility 3s, opacity 3s;
+  transition: visibility 2s, opacity 2s;
   content: "";
 }
 .swiper .swiper-slide .bookmark_box .save_message {
   opacity: 0;
-  visibility: hidden; /* 초기값 설정 */
-  transition: visibility 3s, opacity 3s;
+  visibility: hidden;
+  transition: visibility 2s, opacity 2s;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1200,15 +1200,15 @@ button {
   background-position: 5.6% 100.7%;
   cursor: pointer;
 }
-.swiper .swiper-slide .bookmark_box.is_checked::before {
+.swiper .swiper-slide .bookmark_box .bookmark.is_checked + label {
+  background-position: 7.7% 100.7%;
+}
+.swiper .swiper-slide .bookmark_box.is_show::before {
   visibility: visible;
   opacity: 1;
   z-index: 1;
 }
-.swiper .swiper-slide .bookmark_box.is_checked .bookmark + label {
-  background-position: 7.7% 100.7%;
-}
-.swiper .swiper-slide .bookmark_box.is_checked .save_message {
+.swiper .swiper-slide .bookmark_box.is_show .save_message {
   visibility: visible;
   opacity: 1;
 }

@@ -67,6 +67,8 @@
         // visibility: visible;
         opacity: 0;
         visibility: hidden;
+        // opacity: var(--opacity, 0);
+        // visibility: var(--visibility, hidden);
         position: absolute;
         top: 0;
         left: 0;
@@ -76,17 +78,14 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.6);
         opacity: 0;
-        transition: visibility 3s, opacity 3s;
-        // transition: opacity 3s;
-        // animation: opacityAni 3s forwards;
+        transition: visibility 2s, opacity 2s;
         content: "";
       }
 
       .save_message {
-        // display: none;
         opacity: 0;
-        visibility: hidden; /* 초기값 설정 */
-        transition: visibility 3s, opacity 3s;
+        visibility: hidden;
+        transition: visibility 2s, opacity 2s;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -105,7 +104,6 @@
         @include mobile {
           font-size: 14px;
         }
-        // animation: opacityAni 3s forwards;
       }
 
       .bookmark {
@@ -120,23 +118,27 @@
           background-position: 5.6% 100.7%;
           cursor: pointer;
         }
-      }
 
-      &.is_checked {
-        &::before {
-          // display: block;
-          visibility: visible;
-          opacity: 1;
-          z-index: 1;
-        }
-        .bookmark {
+        &.is_checked {
           & + label {
             background-position: 7.7% 100.7%;
           }
         }
+      }
+
+      &.is_show {
+        &::before {
+          visibility: visible;
+          opacity: 1;
+          z-index: 1;
+        }
+        // .bookmark {
+        //   & + label {
+        //     background-position: 7.7% 100.7%;
+        //   }
+        // }
         .save_message {
           visibility: visible;
-          // display: block;
           opacity: 1;
         }
       }
