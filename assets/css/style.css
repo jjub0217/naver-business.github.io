@@ -1882,7 +1882,8 @@ button {
     position: relative;
     min-height: 264px;
     padding: 58px 16px;
-    background: url("../images/img_bg_introduce_mo.png") 50% 50%/cover no-repeat;
+    background: -webkit-image-set(url("../images/img_bg_introduce_mo.webp") 1x, url("../images/img_bg_introduce_mo.png") 1x) 50% 50%/100% no-repeat;
+    background: image-set(url("../images/img_bg_introduce_mo.webp") 1x, url("../images/img_bg_introduce_mo.png") 1x) 50% 50%/100% no-repeat;
   }
   .section_introduce .inner::before {
     display: block;
