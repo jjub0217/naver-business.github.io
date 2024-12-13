@@ -1427,7 +1427,7 @@ button {
     gap: 16px;
   }
 }
-.section_personal .personal_support .course_setup {
+.section_personal .course_setup {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1438,44 +1438,44 @@ button {
   background: #f00;
 }
 @media screen and (max-width: 850px) {
-  .section_personal .personal_support .course_setup {
+  .section_personal .course_setup {
     gap: 0;
     width: 100%;
     min-height: 188px;
     padding: 20px 16px 25px;
   }
 }
-.section_personal .personal_support .course_setup.course_intro {
+.section_personal .course_setup.course_intro {
   background: url("../images/img_bg_personal_school.png") 50% 50%/100% 100% no-repeat;
 }
-.section_personal .personal_support .course_setup.course_account {
+.section_personal .course_setup.course_account {
   background: url("../images/img_bg_personal_account.png") 50% 50%/100% 100% no-repeat;
 }
-.section_personal .personal_support .course_setup .title {
+.section_personal .course_setup .title {
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
 }
 @media screen and (max-width: 850px) {
-  .section_personal .personal_support .course_setup .title {
+  .section_personal .course_setup .title {
     margin-bottom: 0;
     font-size: 16px;
     line-height: 24px;
   }
 }
-.section_personal .personal_support .course_setup .description {
+.section_personal .course_setup .description {
   font-size: 16px;
   color: rgb(177, 181, 194);
   line-height: 24px;
 }
 @media screen and (max-width: 850px) {
-  .section_personal .personal_support .course_setup .description {
+  .section_personal .course_setup .description {
     margin-top: 4px;
     font-size: 12px;
     line-height: 18px;
   }
 }
-.section_personal .personal_support .course_setup .link_course {
+.section_personal .course_setup .link_course {
   max-width: 180px;
   min-height: 48px;
   margin-top: auto;
@@ -1488,7 +1488,7 @@ button {
   line-height: 48px;
 }
 @media screen and (max-width: 850px) {
-  .section_personal .personal_support .course_setup .link_course {
+  .section_personal .course_setup .link_course {
     display: flex;
     align-items: center;
     justify-content: center;
