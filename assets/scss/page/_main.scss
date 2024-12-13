@@ -386,15 +386,7 @@
       &.course_account {
         @include mobile {
           background: url("../images/img_bg_personal_school_mo.png") 50% 50% /
-            cover no-repeat;
-
-          // @supports (
-          //   background-image:
-          //     url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4WAoAAAAQAAAAwAI9kASUNDUMNABCWFIqFSkqFAAADwAAAAAAA==")
-          // ) {
-          //   background: url("../images/img_bg_personal_school_mo.webp") 50% 50% /
-          //     cover no-repeat;
-          // }
+            100% no-repeat;
         }
       }
 
