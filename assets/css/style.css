@@ -1453,7 +1453,7 @@ button {
 }
 @media screen and (max-width: 850px) {
   .section_personal .personal_support .course_setup.course_intro, .section_personal .personal_support .course_setup.course_account {
-    background: url("../images/img_bg_personal_school_mo.png") 50% 50%/cover no-repeat;
+    background: url("../images/img_bg_personal_school_mo.webp"), url("../images/img_bg_personal_school_mo.png") 50% 50%/cover no-repeat;
   }
 }
 .section_personal .personal_support .course_setup .title {

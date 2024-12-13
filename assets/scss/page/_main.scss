@@ -385,8 +385,9 @@
       &.course_intro,
       &.course_account {
         @include mobile {
-          background: url("../images/img_bg_personal_school_mo.png") 50% 50% /
-            cover no-repeat;
+          background: url("../images/img_bg_personal_school_mo.webp"),
+            url("../images/img_bg_personal_school_mo.png") 50% 50% / cover
+              no-repeat;
         }
       }
 
