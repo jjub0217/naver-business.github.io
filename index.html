@@ -14,15 +14,21 @@
   <style>
 
   @media (max-width: 850px) {
-    .course_intro,
-    .course_account {
+    .course_setup.course_intro,
+    .course_setup.course_account {
       background-image: url("../images/img_bg_personal_school_mo.png"); /* 기본 fallback */
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: 50% 50%;
     }
 
     @supports (background-image: url("./assets/images/img_bg_personal_school_mo.webp")) {
-      .course_intro,
-      .course_account {
+      .course_setup.course_intro,
+      .course_setup.course_account {
         background-image: url("../images/img_bg_personal_school_mo.webp");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: 50% 50%;
       }
     }
   }

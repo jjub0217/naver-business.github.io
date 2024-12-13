@@ -382,16 +382,16 @@
           100% no-repeat;
       }
 
-      &.course_intro,
-      &.course_account {
-        @include mobile {
-          background: image-set(
-              url("../images/img_bg_personal_school_mo.webp") 1x,
-              url("../images/img_bg_personal_school_mo.png") 1x
-            )
-            50% 50% / 100% no-repeat;
-        }
-      }
+      // &.course_intro,
+      // &.course_account {
+      //   @include mobile {
+      //     background: image-set(
+      //         url("../images/img_bg_personal_school_mo.webp") 1x,
+      //         url("../images/img_bg_personal_school_mo.png") 1x
+      //       )
+      //       50% 50% / 100% no-repeat;
+      //   }
+      // }
 
       .title {
         font-size: 24px;
