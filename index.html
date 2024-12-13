@@ -11,6 +11,22 @@
   <!-- <link rel="preload" as="image" href="./assets/images/img_bg_personal_school_mo.png" type="image/png"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+  .course_intro,
+  .course_account {
+    background-image: url("../images/img_bg_personal_school_mo.png"); /* 기본 fallback */
+    background-position: 50% 50%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  @supports (background-image: url("../images/img_bg_personal_school_mo.webp")) {
+    .course_intro,
+    .course_account {
+      background-image: url("../images/img_bg_personal_school_mo.webp");
+    }
+  }
+</style>
 </head>
 
 <!-- [D] 브라우저의 스크롤이 -->
