@@ -34,7 +34,7 @@
 - chrome Lighthouse 결과 :<br>
 모바일 디바이스의 접근성 표준을 준수하였는지 로컬에서 검사할수 있는 goole 의 lighthouse 로 검사하면 개선할점이 Accessibility  항목과 Best Practices 항목에서 나타납니다.  <br>
 [1] 데스크탑
-<img src="https://github.com/user-attachments/assets/d3c46877-4673-44ce-8e84-cbfd9411d4e5" width=800> <br>
+<img src="https://github.com/user-attachments/assets/70f205ee-da7a-4e35-8a9f-1e7ef1b73c14" width=800> <br>
 [2] 모바일
 <img src="https://github.com/user-attachments/assets/1f899d28-f813-41ab-b509-879bfb28d865" width=800> <br>
 - Open-WAX 결과 : error 0<br>
