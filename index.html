@@ -8,10 +8,25 @@
   <title>네이버 비즈니스 스쿨</title>
   <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" sizes="32x32">
 
-  <link rel="preload" as="image" href="./assets/images/img_bg_personal_school_mo.webp" type="image/webp" importance="high">
-  <link rel="preload" as="image" href="./assets/images/img_bg_personal_school_mo.png" type="image/png" importance="high">
+  <!-- <link rel="preload" as="image" href="./assets/images/img_bg_personal_school_mo.webp" type="image/webp" importance="high">
+  <link rel="preload" as="image" href="./assets/images/img_bg_personal_school_mo.png" type="image/png" importance="high"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <script>
+  window.addEventListener('load', function () {
+    const linkPng = document.createElement('link');
+    linkPng.rel = 'preload';
+    linkPng.as = 'image';
+    linkPng.href = './assets/images/img_bg_personal_school_mo.png';
+    document.head.appendChild(linkPng);
+
+    const linkWebp = document.createElement('link');
+    linkWebp.rel = 'preload';
+    linkWebp.as = 'image';
+    linkWebp.href = './assets/images/img_bg_personal_school_mo.webp';
+    document.head.appendChild(linkWebp);
+  });
+</script>
   <style>
 
   @media (max-width: 850px) {
