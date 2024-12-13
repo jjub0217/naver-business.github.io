@@ -187,17 +187,19 @@ const onlineEducationList = async (tabId = "#online_ai") => {
     const uniqueId = `online_${index}_${Math.random()
       .toString(36)
       .slice(2, 11)}`;
-      html1 += 
-      `<li class="swiper-slide"> 
+      html1 += `<li class="swiper-slide"> 
         <div class="image_box">
           <img src="${element.imageUrl}" alt="${element.textStrong}">
-          <div class="bookmark_box">
-          <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false" name="online_bookmark">
-          <label data-id="${uniqueId}" aria-label="북마크"></label>
-          <p class="save_message">
-            나중에 볼 교육으로 저장 되었습니다.
-          </p>
-          </div>
+          <fieldset>
+            <legend>교육 북마크 설정</legend>
+            <div class="bookmark_box">
+              <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false" name="online_bookmark">
+              <label data-id="${uniqueId}" aria-label="북마크"></label>
+              <span class="save_message">
+                나중에 볼 교육으로 저장 되었습니다.
+              </span>
+            </div>
+          </fieldset>
         </div>
         <div class="text_box">
           <strong class="content_title">${element.textStrong}</strong>
@@ -319,13 +321,16 @@ const thisWeekList = async () => {
       <div class="slide">
         <div class="image_box">
           <img src="${element.imageUrl}" alt="${element.textStrong}">
-          <div class="bookmark_box">
-          <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false"  name="this_week_bookmark">
-          <label data-id="${uniqueId}" aria-label="북마크"></label>
-          <p class="save_message">
-            나중에 볼 교육으로 저장 되었습니다.
-          </p>
-          </div>
+          <fieldset>
+            <legend>교육 북마크 설정</legend>
+            <div class="bookmark_box">
+              <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false"  name="this_week_bookmark">
+              <label data-id="${uniqueId}" aria-label="북마크"></label>
+              <span class="save_message">
+                나중에 볼 교육으로 저장 되었습니다.
+              </span>
+            </div>
+          </fieldset>
         </div>
         <div class="text_box">
           <strong class="content_title">${element.textStrong}</strong>
@@ -428,14 +433,17 @@ const  lineUpList = async () => {
     html += `<li class="swiper-slide">
       <div class="image_box">
         <img src="${element.imageUrl}" alt="${element.textStrong}">
-        <div class="bookmark_box">
-        <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false" 
-        name="lineUp_bookmark">
-        <label data-id="${uniqueId}" aria-label="북마크"></label>
-        <p class="save_message">
-          나중에 볼 교육으로 저장 되었습니다.
-        </p>
-        </div>
+        <fieldset>
+          <legend>교육 북마크 설정</legend>
+          <div class="bookmark_box">
+            <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false" 
+            name="lineUp_bookmark">
+            <label data-id="${uniqueId}" aria-label="북마크"></label>
+            <span class="save_message">
+              나중에 볼 교육으로 저장 되었습니다.
+            </span>
+          </div>
+        </fieldset>
       </div>
       <div class="text_box">
         <strong class="content_title">${element.textStrong}</strong>
@@ -542,13 +550,16 @@ const newEducationList = async () => {
       <div class="slide">
         <div class="image_box">
           <img src="${element.imageUrl}" alt="${element.textStrong}">
-          <div class="bookmark_box"> 
-          <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false" name="new_education_bookmark">
-          <label data-id="${uniqueId}" aria-label="북마크"></label>
-          <p class="save_message">
-            나중에 볼 교육으로 저장 되었습니다.
-          </p>
-          </div>
+          <fieldset>
+            <legend>교육 북마크 설정</legend>
+            <div class="bookmark_box"> 
+              <input type="checkbox" data-id="${uniqueId}" class="bookmark" checked="false" name="new_education_bookmark">
+              <label data-id="${uniqueId}" aria-label="북마크"></label>
+              <span class="save_message">
+                나중에 볼 교육으로 저장 되었습니다.
+              </span>
+            </div>
+          </fieldset>
         </div>
         <div class="text_box">
           <strong class="content_title">${element.textStrong}
