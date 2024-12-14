@@ -36,20 +36,20 @@
 [1] 데스크탑
 <img src="https://github.com/user-attachments/assets/70f205ee-da7a-4e35-8a9f-1e7ef1b73c14" width=800> <br>
 [2] 모바일
-<img src="https://github.com/user-attachments/assets/1f899d28-f813-41ab-b509-879bfb28d865" width=800> <br>
+<img src="https://github.com/user-attachments/assets/e9309926-e3e4-4a33-95a0-f0dba811163e" width=800> <br>
 - Open-WAX 결과 : error 0<br>
-<img src="https://github.com/user-attachments/assets/7e22349f-ced4-4aab-8c8a-49658c62d205" width=800> <br>
+<img src="https://github.com/user-attachments/assets/7ba95beb-e547-4676-b585-8eb7e3d12aa2" width=800> <br>
 - WAVE 결과: error 0<br>
-<img src="https://github.com/user-attachments/assets/0400a2ca-2739-4dd9-84af-0de3c1cde5df" width=800>
+<img src="https://github.com/user-attachments/assets/ec207258-e97b-4b10-a0ae-d2f7de410258" width=800>
 
 
 ## 모바일 디바이스 검수
 - 안드로이드 Note20 울트라
-<video src="https://github.com/user-attachments/assets/933bbfe7-495f-4677-ae1e-849ef422e2b9" autoplay muted playsinline loop></video>
+<video src="https://github.com/user-attachments/assets/c305df3d-f599-4293-a428-3eb1d8ca8716" autoplay muted playsinline loop></video>
 - 아이폰 SE2 
-<video src="https://github.com/user-attachments/assets/a628eb94-cdbd-40b7-9dc7-13a5a80f87f8" autoplay muted playsinline loop></video>
+<video src="https://github.com/user-attachments/assets/44968861-ae50-4ee1-8e9b-c0906d7a6a89" autoplay muted playsinline loop></video>
 - 아이패드 6
-<video src="https://github.com/user-attachments/assets/dfe480bf-0222-4d64-b599-f623d1483966" autoplay muted playsinline loop></video>
+<video src="https://github.com/user-attachments/assets/3708716e-9d26-4686-b656-216b2ed4888a" autoplay muted playsinline loop></video>
 
 
 ## 기술 스택
